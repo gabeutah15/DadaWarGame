@@ -8,7 +8,6 @@ public class FollowPath : MonoBehaviour
     [SerializeField]
     Transform[] wayPoints;
     NavMeshAgent agent;
-
     int destinationIndex;
 
     // Start is called before the first frame update
