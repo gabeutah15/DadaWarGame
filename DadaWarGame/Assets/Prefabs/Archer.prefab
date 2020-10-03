@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 30
+  tagToShoot: AI
 --- !u!114 &4911839507128144818
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -46,5 +46,9 @@ public class UnitSelectionManager : MonoBehaviour
         {
             selectedUnit = SelectedUnit.four;
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            selectedUnit = SelectedUnit.five;
+        }
     }
 }

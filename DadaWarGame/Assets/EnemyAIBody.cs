@@ -89,6 +89,11 @@ public class EnemyAIBody : MonoBehaviour
 
         }
 
+        if (collision.gameObject.CompareTag("Projectile"))
+        {
+            health--;
+        }
+
         //this doesn't work for finding just collision with playerweapon (spear) and nor does below with compare tag
         //need rigidbody for collision on navagent, can only have one rigidbody on object and children combined
         //var spear = collision.gameObject.GetComponent<PlayerWeapon>();

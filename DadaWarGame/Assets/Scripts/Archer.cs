@@ -14,10 +14,12 @@ public class Archer : MonoBehaviour
     GameObject currentTarget;
     float timer;
     float targetDistance;
+    [SerializeField]
+    string tagToShoot;
 
     void Start()
     {
-        targets = GameObject.FindGameObjectsWithTag("AI");
+        targets = GameObject.FindGameObjectsWithTag(tagToShoot);
     }
 
     private void FixedUpdate()
