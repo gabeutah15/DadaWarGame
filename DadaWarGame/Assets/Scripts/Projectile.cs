@@ -74,7 +74,16 @@ public class Projectile : MonoBehaviour
 
             //calculate flight time
             flightDuration = dist / velocity.x;
-            predictTarget = target + _targetNavMeshAgent.velocity * flightDuration;
+
+            //HAVE NON NAVMESHAGENT TARGETS NOW
+            if (_targetNavMeshAgent)
+            {
+                predictTarget = target + _targetNavMeshAgent.velocity * flightDuration;
+            }
+            else
+            {
+                predictTarget = target;
+            }
         }
 
         //rotate projectile to face the target
