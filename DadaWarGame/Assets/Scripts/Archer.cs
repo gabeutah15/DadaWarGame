@@ -64,10 +64,17 @@ public class Archer : MonoBehaviour
                     }
                     float distance = Vector3.Distance(this.transform.position, targetPos);
 
+                    //this could be changed to make them pick a kind of random target within range rather than just the first one, because right now
+                    //all of the archers end up shooting at the same target and then switching to a new target
                     if (distance < range)
                     {
-                        currentTarget = targets[i];
-                        targetDistance = distance;
+                        //this randomization actually works decently to make targets more random and not have all the units shoot at the same target
+                        int rand = Random.Range(0, 4);
+                        if(rand == 0)
+                        {
+                            currentTarget = targets[i];
+                            targetDistance = distance;
+                        }
                     }
                 }
             }
