@@ -65,7 +65,13 @@ public class Archer : MonoBehaviour
     public void ShootProjectile(GameObject targetUnit)
     {
         Transform p = AmmoManager.SpawnAmmo(this.transform.position, Quaternion.identity);
-        p.GetComponent<Projectile>().Initialize(targetUnit.GetComponent<NavMeshAgent>().nextPosition, targetUnit.GetComponent<NavMeshAgent>(), targetDistance);
+
+        Vector3 targetPosition = targetUnit.GetComponent<NavMeshAgent>().nextPosition;
+        if (targetUnit.GetComponent<NavMeshAgent>().velocity.sqrMagnitude < .1f)
+        {
+            targetPosition = targetUnit.transform.position;
+        }
+        p.GetComponent<Projectile>().Initialize(targetPosition, targetUnit.GetComponent<NavMeshAgent>(), targetDistance);
     }
 }
 

@@ -57,6 +57,8 @@ public class AgentManager : MonoBehaviour
                                 randomZ *= 4;
 
                                 Vector3 destination = hit.point + new Vector3(randomX, 0, randomZ);
+                                //Vector3 destination = hit.point;
+
 
                                 agents[i].GetComponent<AIControl>().agent.SetDestination(destination);
 

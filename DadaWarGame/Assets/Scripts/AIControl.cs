@@ -90,16 +90,20 @@ public class AIControl : MonoBehaviour
             {
                 if (enemyAgents[i].activeSelf)
                 {
+                    bool enemyIsArcher = true;
                     Vector3 enemyPosition = enemyAgents[i].transform.position;//if archer ie no nav mesh agent
 
                     if (enemyAgents[i].GetComponent<NavMeshAgent>())
                     {
                         enemyPosition = enemyAgents[i].GetComponent<NavMeshAgent>().nextPosition;//if swordsmen ie has agent
+                        enemyIsArcher = false;//this is only incidentally correct
                     }
 
                     float distance = Vector3.Distance(this.transform.position, enemyPosition);
-                    if ((distance < minDistance) && (distance < 5))//hardcoded less than five so only does this at all if close to enemies even if has no 'remaining distance'
+                    if ((distance < minDistance) && (distance < 5) /*&& ((distance < 5) || (enemyIsArcher && (distance < 10)))*/)//hardcoded less than five so only does this at all if close to enemies even if has no 'remaining distance'
                     {
+                        //could instead do some bool for 'isUnderFire' in which case a unit will, if given no other order, always pursue and attack archers that can shoot at it
+                        //kind of makes sense but might also be annoying
                         minDistance = distance;
                         potentialTarget = enemyAgents[i];//find closest enemyAgents that is active and not destroyed
                     }

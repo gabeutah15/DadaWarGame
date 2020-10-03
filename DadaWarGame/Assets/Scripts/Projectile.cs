@@ -22,9 +22,9 @@ public class Projectile : MonoBehaviour
     Vector2 velocity;
     Vector3 lastPosition;
 
-    public bool enableRandomTargetArea = true;
+    public bool enableRandomTargetArea = false;
     public float randomRadius = 2f;
-    public bool enableRandomSpeed = true;
+    public bool enableRandomSpeed = false;
     public float randomSpeedMin = 8f;
     public float randomSpeedMax = 20f;
 
