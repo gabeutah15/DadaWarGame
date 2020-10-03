@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 919072332}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.45116782, g: 0.49981922, b: 0.5678293, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -405,11 +405,7 @@ MonoBehaviour:
   quality: 1
   bloomIntensity: 0.5
   bloomThreshold: 0.6
-  bloomThresholdColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
+  bloomThresholdColor: {r: 1, g: 1, b: 1, a: 1}
   bloomBlurIterations: 2
   hollywoodFlareBlurIterations: 2
   flareRotation: 0
@@ -418,26 +414,10 @@ MonoBehaviour:
   lensflareIntensity: -28.88
   lensflareThreshold: 0
   lensFlareSaturation: 10.87
-  flareColorA:
-    r: 0
-    g: 0.90679264
-    b: 1
-    a: 0.75
-  flareColorB:
-    r: 0
-    g: 0.8758622
-    b: 1
-    a: 0.75
-  flareColorC:
-    r: 1
-    g: 0.8482759
-    b: 0
-    a: 0.75
-  flareColorD:
-    r: 1
-    g: 0.9939148
-    b: 0.7794118
-    a: 0.75
+  flareColorA: {r: 0, g: 0.90679264, b: 1, a: 0.75}
+  flareColorB: {r: 0, g: 0.8758622, b: 1, a: 0.75}
+  flareColorC: {r: 1, g: 0.8482759, b: 0, a: 0.75}
+  flareColorD: {r: 1, g: 0.9939148, b: 0.7794118, a: 0.75}
   lensFlareVignetteMask: {fileID: 2800000, guid: 95ef4804fe0be4c999ddaa383536cde8,
     type: 3}
   lensFlareShader: {fileID: 4800000, guid: 459fe69d2f6d74ddb92f04dbf45a866b, type: 3}
@@ -511,22 +491,35 @@ MonoBehaviour:
   type: 2
   adaptiveTextureSize: 256
   remapCurve:
+    serializedVersion: 2
     m_Curve:
-    - time: -0.058333334
+    - serializedVersion: 3
+      time: -0.058333334
       value: 0.018749999
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 0.58772606
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.58772606
       value: 0.55325544
       inSlope: 0.64467263
       outSlope: 0.64467263
       tangentMode: 0
-    - time: 1.975
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.975
       value: 1.14375
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
