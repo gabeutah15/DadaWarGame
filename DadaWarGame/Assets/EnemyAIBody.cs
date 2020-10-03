@@ -91,7 +91,13 @@ public class EnemyAIBody : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Projectile"))
         {
-            health--;
+            Projectile projectileParent = collision.gameObject.GetComponentInParent<Projectile>();
+            if (projectileParent)
+            {
+                if(projectileParent.isDeadly){
+                    health--;
+                }
+            }
         }
 
         //this doesn't work for finding just collision with playerweapon (spear) and nor does below with compare tag

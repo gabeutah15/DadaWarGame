@@ -15,6 +15,8 @@ public class AIControl : MonoBehaviour
     GameObject highlight;
     GameObject[] enemyAgents;
     GameObject currentTarget;
+    [SerializeField]
+    bool isMeleeUnit;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +36,14 @@ public class AIControl : MonoBehaviour
         
         if (collision.gameObject.CompareTag("Projectile"))
         {
-            //Debug.Log("hit with arrow");
-            health--;
+            Projectile projectileParent = collision.gameObject.GetComponentInParent<Projectile>();
+            if (projectileParent)
+            {
+                if (projectileParent.isDeadly)
+                {
+                    health--;
+                }
+            }
         }
 
         if (collision.gameObject.CompareTag("EnemySword"))
@@ -58,7 +66,7 @@ public class AIControl : MonoBehaviour
             Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
         }
 
-        if(agent.remainingDistance < 5)
+        if((agent.remainingDistance < 5) && isMeleeUnit)
         {
             PursueNearest();
         }
