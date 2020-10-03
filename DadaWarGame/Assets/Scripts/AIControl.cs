@@ -10,11 +10,19 @@ public class AIControl : MonoBehaviour
     Collider capsuleCollider;
     [SerializeField]
     float health;
+    [SerializeField]
+    public int selectedUnitNum;
+    GameObject highlight;
     // Start is called before the first frame update
     void Start()
     {
         agent = this.GetComponent<NavMeshAgent>();
         capsuleCollider = this.GetComponent<Collider>();
+        foreach (Transform child in transform)
+        {
+            if (child.tag == "Highlight") ;
+                highlight = child.gameObject;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -40,8 +48,25 @@ public class AIControl : MonoBehaviour
 
     private void Update()
     {
-        this.transform.LookAt(agent.steeringTarget + new Vector3(0,.5f,0));
-        Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
-    }
+        if(agent.remainingDistance > 5)
+        {
+            this.transform.LookAt(agent.steeringTarget + new Vector3(0, .5f, 0));
+            Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
+        }
 
+        if (selectedUnitNum == (int)UnitSelectionManager.selectedUnit)
+        {
+            if (!highlight.activeSelf)
+            {
+                highlight.SetActive(true);
+            }
+        }
+        else
+        {
+            if (highlight.activeSelf)
+            {
+                highlight.SetActive(false);
+            }
+        }
+    }
 }
