@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4911839507128144818}
   m_Layer: 0
   m_Name: Archer
-  m_TagString: Untagged
+  m_TagString: EnemyAI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3527cac515455bf41981b2afdd68e683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 20
+  range: 50
 --- !u!114 &4911839507128144818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,3 +123,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c65a61332307ee40aa7fb4387b03033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 1

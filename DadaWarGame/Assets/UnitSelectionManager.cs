@@ -5,11 +5,16 @@ using UnityEngine;
 
 public class UnitSelectionManager : MonoBehaviour
 {
+    //needs an entry for each player unit, and a new input in update for each player unit
     public enum SelectedUnit
     {
         one = 1,
         two,
-        three
+        three,
+        four,
+        five,
+        six,
+        seven
     }
 
     //global variable not ideal but if can only select one at a time is fine for prototype i guess
@@ -36,6 +41,10 @@ public class UnitSelectionManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             selectedUnit = SelectedUnit.three;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            selectedUnit = SelectedUnit.four;
         }
     }
 }

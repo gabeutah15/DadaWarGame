@@ -1,16 +1,74 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAIBody : MonoBehaviour
 {
     Collider collider;
     [SerializeField]
     float health = 1;
+    Animator animator;
+    NavMeshAgent agent;
+    GameObject[] playerAgents;
+    GameObject currentTarget;
+
+
     // Start is called before the first frame update
     void Start()
     {
         collider = this.GetComponent<Collider>();
+        animator = GetComponentInChildren<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+        playerAgents = GameObject.FindGameObjectsWithTag("AI");
+        currentTarget = null;
+    }
+
+    private void Update()
+    {
+        if (agent)//basically if it's an enemy that moves
+        {
+            
+            if (!currentTarget || !currentTarget.activeSelf)
+            {
+                float minDistance = int.MaxValue;
+                GameObject potentialTarget = null;
+
+                for (int i = 0; i < playerAgents.Length; i++)
+                {
+                    if (playerAgents[i].activeSelf && playerAgents[i].GetComponent<NavMeshAgent>())
+                    {
+                        float distance = Vector3.Distance(this.transform.position, playerAgents[i].GetComponent<NavMeshAgent>().nextPosition);
+                        if (distance < minDistance)
+                        {
+                            minDistance = distance;
+                            potentialTarget = playerAgents[i];//find closest playeragent that is active and not destroyed
+                        }
+                    }
+                }
+
+                if (potentialTarget)
+                {
+                    currentTarget = potentialTarget;
+                    //agent.SetDestination(currentTarget.transform.position);
+                }
+
+                if (!currentTarget.activeSelf)
+                {
+                    currentTarget = null;
+                }
+            }
+
+            if (currentTarget)
+            {
+                agent.SetDestination(currentTarget.transform.position);
+            }
+            if (agent.remainingDistance > 3)
+            {
+                this.transform.LookAt(agent.steeringTarget + new Vector3(0, .5f, 0));
+            }
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -22,6 +80,7 @@ public class EnemyAIBody : MonoBehaviour
 
         //}
 
+        //would like to do this so only if collision from player spear on ai body, not on shield
         var parent = collision.gameObject.GetComponentInParent<AIControl>();
         if (parent)
         {

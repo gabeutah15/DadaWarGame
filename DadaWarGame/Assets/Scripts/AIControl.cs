@@ -13,6 +13,8 @@ public class AIControl : MonoBehaviour
     [SerializeField]
     public int selectedUnitNum;
     GameObject highlight;
+    GameObject[] enemyAgents;
+    GameObject currentTarget;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,8 @@ public class AIControl : MonoBehaviour
             if (child.tag == "Highlight") ;
                 highlight = child.gameObject;
         }
+        enemyAgents = GameObject.FindGameObjectsWithTag("EnemyAI");
+        currentTarget = null;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -54,6 +58,11 @@ public class AIControl : MonoBehaviour
             Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
         }
 
+        if(agent.remainingDistance < 5)
+        {
+            PursueNearest();
+        }
+
         if (selectedUnitNum == (int)UnitSelectionManager.selectedUnit)
         {
             if (!highlight.activeSelf)
@@ -67,6 +76,59 @@ public class AIControl : MonoBehaviour
             {
                 highlight.SetActive(false);
             }
+        }
+    }
+
+    private void PursueNearest()
+    {
+        if (!currentTarget || !currentTarget.activeSelf)
+        {
+            float minDistance = int.MaxValue;
+            GameObject potentialTarget = null;
+
+            for (int i = 0; i < enemyAgents.Length; i++)
+            {
+                if (enemyAgents[i].activeSelf)
+                {
+                    Vector3 enemyPosition = enemyAgents[i].transform.position;//if archer ie no nav mesh agent
+
+                    if (enemyAgents[i].GetComponent<NavMeshAgent>())
+                    {
+                        enemyPosition = enemyAgents[i].GetComponent<NavMeshAgent>().nextPosition;//if swordsmen ie has agent
+                    }
+
+                    float distance = Vector3.Distance(this.transform.position, enemyPosition);
+                    if ((distance < minDistance) && (distance < 5))//hardcoded less than five so only does this at all if close to enemies even if has no 'remaining distance'
+                    {
+                        minDistance = distance;
+                        potentialTarget = enemyAgents[i];//find closest enemyAgents that is active and not destroyed
+                    }
+                }
+            }
+
+            if (potentialTarget)
+            {
+                currentTarget = potentialTarget;
+                //agent.SetDestination(currentTarget.transform.position);
+            }
+
+            if (currentTarget)
+            {
+                if (!currentTarget.activeSelf)
+                {
+                    //if you have a current target but it is not active set it to null to ensure you find a new one
+                    currentTarget = null;
+                }
+            }
+        }
+
+        if (currentTarget)
+        {
+            agent.SetDestination(currentTarget.transform.position);
+        }
+        if (agent.remainingDistance > (agent.stoppingDistance + 1))
+        {
+            this.transform.LookAt(agent.steeringTarget + new Vector3(0, .5f, 0));
         }
     }
 }

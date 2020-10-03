@@ -9,6 +9,7 @@ TagManager:
   - PlayerWeapon
   - EnemySword
   - Highlight
+  - EnemyAI
   layers:
   - Default
   - TransparentFX
