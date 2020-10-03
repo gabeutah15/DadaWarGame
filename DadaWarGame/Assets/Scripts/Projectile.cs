@@ -58,7 +58,12 @@ public class Projectile : MonoBehaviour
         Vector3 predictTarget = target;
         for (int i = 0; i < predictIterations; i++)
         {
+            //added some extra direction to account for arrows falling short
+            Vector3 extraDirection = predictTarget - transform.position;
+            extraDirection = extraDirection.normalized;
+            extraDirection *= 7;
             //calculate distance to target
+            predictTarget += extraDirection;
             float dist = Vector3.Distance(transform.position, predictTarget);
             float vel = Mathf.Sqrt((dist * speed) / Mathf.Sin(2 * currentFiringAngle * Mathf.Deg2Rad));
 
