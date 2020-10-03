@@ -26,7 +26,7 @@ public class Archer : MonoBehaviour
         if (timer > 2)
         {
             timer -= 2;
-            if (currentTarget)
+            if (currentTarget && currentTarget.activeSelf)
             {
                 ShootProjectile(currentTarget);
             }
@@ -40,7 +40,7 @@ public class Archer : MonoBehaviour
         {
             for (int i = 0; i < targets.Length; i++)
             {
-                if (targets[i].activeSelf && targets[i].GetComponent<NavMeshAgent>())
+                if (targets[i] && targets[i].activeSelf && targets[i].GetComponent<NavMeshAgent>())
                 {
                     float distance = Vector3.Distance(this.transform.position, targets[i].GetComponent<NavMeshAgent>().nextPosition);
 
