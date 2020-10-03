@@ -5888,7 +5888,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7837b9da2968a743825204328f6bd70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 8919823698986203179, guid: 391b9d18376f689488468bd0dd19d763,
+  archerPrefab: {fileID: 432483160834423027, guid: fcd008fe2d0826840881f0a11c6e3302,
+    type: 3}
+  spearmanPrefab: {fileID: 8919823698986203179, guid: 391b9d18376f689488468bd0dd19d763,
     type: 3}
 --- !u!4 &988754645
 Transform:

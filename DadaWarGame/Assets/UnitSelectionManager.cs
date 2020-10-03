@@ -14,7 +14,12 @@ public class UnitSelectionManager : MonoBehaviour
         four,
         five,
         six,
-        seven
+        seven,
+        eight,
+        nine,
+        ten,
+        eleven,
+        twelve
     }
 
     //global variable not ideal but if can only select one at a time is fine for prototype i guess
@@ -49,6 +54,34 @@ public class UnitSelectionManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             selectedUnit = SelectedUnit.five;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            selectedUnit = SelectedUnit.six;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            selectedUnit = SelectedUnit.seven;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            selectedUnit = SelectedUnit.eight;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            selectedUnit = SelectedUnit.nine;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            selectedUnit = SelectedUnit.ten;
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftBracket))
+        {
+            selectedUnit = SelectedUnit.eleven;
+        }
+        else if (Input.GetKeyDown(KeyCode.RightBracket))
+        {
+            selectedUnit = SelectedUnit.twelve;
         }
     }
 }
