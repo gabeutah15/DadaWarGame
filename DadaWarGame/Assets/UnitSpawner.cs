@@ -30,8 +30,8 @@ public class UnitSpawner : MonoBehaviour
 
     bool hasStartedSecondRow = false;
 
-    // Update is called once per frame
-    void Start()
+    // put in awake so other stuff can find in start
+    void Awake()
     {
         numArchers = 6;
         numSpearmen = 6;

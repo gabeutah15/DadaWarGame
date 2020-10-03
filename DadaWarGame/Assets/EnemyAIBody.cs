@@ -26,7 +26,8 @@ public class EnemyAIBody : MonoBehaviour
 
     private void Update()
     {
-        if (agent)//basically if it's an enemy that moves
+        
+        if (agent)//basically if it's an enemy that moves, right now not an enemy archer
         {
             
             if (!currentTarget || !currentTarget.activeSelf)
