@@ -54,9 +54,12 @@ public class EnemyAIBody : MonoBehaviour
                     //agent.SetDestination(currentTarget.transform.position);
                 }
 
-                if (!currentTarget.activeSelf)
+                if (currentTarget)
                 {
-                    currentTarget = null;
+                    if (!currentTarget.activeSelf)
+                    {
+                        currentTarget = null;
+                    }
                 }
             }
 
