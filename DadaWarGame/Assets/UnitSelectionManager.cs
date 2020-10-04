@@ -19,7 +19,9 @@ public class UnitSelectionManager : MonoBehaviour
         nine,
         ten,
         eleven,
-        twelve
+        twelve,
+        thirteen,
+        fourteen
     }
 
     //global variable not ideal but if can only select one at a time is fine for prototype i guess
@@ -84,6 +86,14 @@ public class UnitSelectionManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.RightBracket))
         {
             selectedUnit = SelectedUnit.twelve;
+        }
+        else if(Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            selectedUnit = SelectedUnit.thirteen;
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            selectedUnit = SelectedUnit.fourteen;
         }
 
         //this works ok but you have to click the specific unit
