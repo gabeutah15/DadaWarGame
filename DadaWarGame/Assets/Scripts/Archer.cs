@@ -19,6 +19,7 @@ public class Archer : MonoBehaviour
 
     void Start()
     {
+        //if you want to spawn more enemies later and be able to shoot them you will have to check for targets again when that happens
         targets = GameObject.FindGameObjectsWithTag(tagToShoot);
 
         if(tagToShoot == "EnemyAI")
