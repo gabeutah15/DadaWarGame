@@ -130,6 +130,7 @@ MonoBehaviour:
   lowFiringAngle: 7
   directFireRange: 35
   speed: 10
+  isDeadly: 0
   arrowModel: {fileID: 507953719594568805}
   enableRandomTargetArea: 1
   randomRadius: 0.5
@@ -149,6 +150,7 @@ GameObject:
   - component: {fileID: 507953719594568805}
   - component: {fileID: 507953719594568807}
   - component: {fileID: 507953719594568804}
+  - component: {fileID: 5407661672808794921}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Projectile
@@ -201,3 +203,15 @@ CapsuleCollider:
   m_Height: 1.2572436
   m_Direction: 2
   m_Center: {x: -0.018913865, y: 0.0134049505, z: 0.22715151}
+--- !u!114 &5407661672808794921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507953719594568826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e722bc988813dc47b3cd70223affa94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

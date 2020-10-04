@@ -12,7 +12,9 @@ public class EnemyAIBody : MonoBehaviour
     NavMeshAgent agent;
     GameObject[] playerAgents;
     GameObject currentTarget;
-
+    [SerializeField]
+    GameObject deathModelPrefab;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,8 @@ public class EnemyAIBody : MonoBehaviour
 
     private void Update()
     {
-        if (agent)//basically if it's an enemy that moves
+        
+        if (agent)//basically if it's an enemy that moves, right now not an enemy archer
         {
             
             if (!currentTarget || !currentTarget.activeSelf)
@@ -53,9 +56,12 @@ public class EnemyAIBody : MonoBehaviour
                     //agent.SetDestination(currentTarget.transform.position);
                 }
 
-                if (!currentTarget.activeSelf)
+                if (currentTarget)
                 {
-                    currentTarget = null;
+                    if (!currentTarget.activeSelf)
+                    {
+                        currentTarget = null;
+                    }
                 }
             }
 
@@ -89,6 +95,17 @@ public class EnemyAIBody : MonoBehaviour
 
         }
 
+        if (collision.gameObject.CompareTag("Projectile"))
+        {
+            Projectile projectileParent = collision.gameObject.GetComponentInParent<Projectile>();
+            if (projectileParent)
+            {
+                if(projectileParent.isDeadly){
+                    health--;
+                }
+            }
+        }
+
         //this doesn't work for finding just collision with playerweapon (spear) and nor does below with compare tag
         //need rigidbody for collision on navagent, can only have one rigidbody on object and children combined
         //var spear = collision.gameObject.GetComponent<PlayerWeapon>();
@@ -109,6 +126,13 @@ public class EnemyAIBody : MonoBehaviour
         if (health <= 0)
         {
             this.gameObject.SetActive(false);
+            if (deathModelPrefab)
+            {
+                GameObject thisUnitDead = Instantiate(deathModelPrefab, this.transform.position, this.transform.rotation) as GameObject;
+                thisUnitDead.GetComponent<Rigidbody>().AddForce(new Vector3(1f,0,0.5f));//just enough to knock it over
+                
+            }
+
             //Destroy(this.gameObject);
         }
     }

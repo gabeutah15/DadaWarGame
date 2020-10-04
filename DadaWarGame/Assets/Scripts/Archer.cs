@@ -14,12 +14,19 @@ public class Archer : MonoBehaviour
     GameObject currentTarget;
     float timer;
     float targetDistance;
+    [SerializeField]
+    string tagToShoot;
 
-    public string enemyTag = "AI";
+    //public string enemyTag = "AI";
 
     void Start()
     {
-        targets = GameObject.FindGameObjectsWithTag(enemyTag);
+        //targets = GameObject.FindGameObjectsWithTag(enemyTag);
+        targets = GameObject.FindGameObjectsWithTag(tagToShoot);
+        if(tagToShoot == "EnemyAI")
+        {
+            var a = 5;
+        }
     }
 
     private void FixedUpdate()
@@ -28,7 +35,7 @@ public class Archer : MonoBehaviour
         if (timer > 2)
         {
             timer -= 2;
-            if (currentTarget)
+            if (currentTarget && currentTarget.activeSelf)
             {
                 ShootProjectile(currentTarget);
             }
@@ -42,21 +49,48 @@ public class Archer : MonoBehaviour
         {
             for (int i = 0; i < targets.Length; i++)
             {
-                if (targets[i].activeSelf && targets[i].GetComponent<NavMeshAgent>())
+                var test = 1;
+                if (targets[i].GetComponent<Archer>() && !targets[i].GetComponent<AIControl>())
                 {
-                    float distance = Vector3.Distance(this.transform.position, targets[i].GetComponent<NavMeshAgent>().nextPosition);
+                    test = 5;
+                    //it is going in here and finding archer targets but arrows just fall to floor, BUT only when shooting at archers
+                }
 
+                if (targets[i] && targets[i].activeSelf/* && targets[i].GetComponent<NavMeshAgent>()*/)
+                {
+                    //added this section because some ai enemy targerts have no navmesh, don't move, in which case just shoot at their position
+                    Vector3 targetPos = targets[i].transform.position;
+                    if (targets[i].GetComponent<NavMeshAgent>())
+                    {
+                        targetPos = targets[i].GetComponent<NavMeshAgent>().nextPosition;
+                    }
+                    float distance = Vector3.Distance(this.transform.position, targetPos);
+
+                    //this could be changed to make them pick a kind of random target within range rather than just the first one, because right now
+                    //all of the archers end up shooting at the same target and then switching to a new target
                     if (distance < range)
                     {
-                        currentTarget = targets[i];
-                        targetDistance = distance;
+                        //this randomization actually works decently to make targets more random and not have all the units shoot at the same target
+                        int rand = Random.Range(0, 4);
+                        if(rand == 0)
+                        {
+                            currentTarget = targets[i];
+                            targetDistance = distance;
+                        }
                     }
                 }
             }
         }
         else
         {
-            float distance = Vector3.Distance(this.transform.position, currentTarget.GetComponent<NavMeshAgent>().nextPosition);
+            //similar added for non mesh agent enemies
+            Vector3 targetPos = currentTarget.transform.position;
+            if (currentTarget.GetComponent<NavMeshAgent>())
+            {
+                targetPos = currentTarget.GetComponent<NavMeshAgent>().nextPosition;
+            }
+
+            float distance = Vector3.Distance(this.transform.position, targetPos);
             if (distance > range)
             {
                 currentTarget = null;
@@ -68,12 +102,20 @@ public class Archer : MonoBehaviour
     {
         Transform p = AmmoManager.SpawnAmmo(this.transform.position, Quaternion.identity);
 
-        Vector3 targetPosition = targetUnit.GetComponent<NavMeshAgent>().nextPosition;
-        if (targetUnit.GetComponent<NavMeshAgent>().velocity.sqrMagnitude < .1f)
+        //similar added for non mesh agent enemies
+        Vector3 targetPos = targetUnit.transform.position;
+        if (targetUnit.GetComponent<NavMeshAgent>())
         {
-            targetPosition = targetUnit.transform.position;
+            targetPos = targetUnit.GetComponent<NavMeshAgent>().nextPosition;
+            if (targetUnit.GetComponent<NavMeshAgent>().velocity.sqrMagnitude < .1f)
+            {
+                /*targetPosition*/ targetPos = targetUnit.transform.position;
+            }
         }
-        p.GetComponent<Projectile>().Initialize(targetPosition, targetUnit.GetComponent<NavMeshAgent>(), targetDistance);
+
+        //Vector3 targetPosition = targetUnit.GetComponent<NavMeshAgent>().nextPosition;
+
+        p.GetComponent<Projectile>().Initialize(/*targetPosition*/targetPos, targetUnit.GetComponent<NavMeshAgent>(), targetDistance);
     }
 }
 

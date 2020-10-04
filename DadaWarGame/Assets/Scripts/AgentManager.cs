@@ -5,21 +5,23 @@ using UnityEngine;
 public class AgentManager : MonoBehaviour
 {
     GameObject[] agents;
+    int layerMask;
 
     // Start is called before the first frame update
     void Start()
     {
         agents = GameObject.FindGameObjectsWithTag("AI");
+        layerMask = 1 << 9;//9 is the ground layer mask
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             RaycastHit hit;
 
-            if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 400, layerMask))
             {
                 int unitNum = 0;
 

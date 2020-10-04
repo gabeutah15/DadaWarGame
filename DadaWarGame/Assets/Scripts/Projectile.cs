@@ -14,9 +14,11 @@ public class Projectile : MonoBehaviour
 
     public float speed = 10f;
 
-    public Transform arrowModel;
+    public bool isDeadly = false;//only become deadly after say one second so doesn't kill archer that shoots it, and so has a kind of min range
 
-    float elapsedTime;
+    public Transform arrowModel;
+    [HideInInspector]
+    public float elapsedTime;
     public float flightDuration { get; private set; }
 
     Vector2 velocity;
@@ -58,7 +60,12 @@ public class Projectile : MonoBehaviour
         Vector3 predictTarget = target;
         for (int i = 0; i < predictIterations; i++)
         {
+            //added some extra direction to account for arrows falling short
+            Vector3 extraDirection = predictTarget - transform.position;
+            extraDirection = extraDirection.normalized;
+            extraDirection *= 7;
             //calculate distance to target
+            predictTarget += extraDirection;
             float dist = Vector3.Distance(transform.position, predictTarget);
             float vel = Mathf.Sqrt((dist * speed) / Mathf.Sin(2 * currentFiringAngle * Mathf.Deg2Rad));
 
@@ -67,7 +74,16 @@ public class Projectile : MonoBehaviour
 
             //calculate flight time
             flightDuration = dist / velocity.x;
-            predictTarget = target + _targetNavMeshAgent.velocity * flightDuration;
+
+            //HAVE NON NAVMESHAGENT TARGETS NOW
+            if (_targetNavMeshAgent)
+            {
+                predictTarget = target + _targetNavMeshAgent.velocity * flightDuration;
+            }
+            else
+            {
+                predictTarget = target;
+            }
         }
 
         //rotate projectile to face the target
@@ -81,7 +97,15 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
+        if ((elapsedTime > 0.1f) && isFlying && gameObject.activeSelf)
+        {
+            isDeadly = true;
+        }
 
+        //if(elapsedTime > .2f)
+        //{
+        //    isFlying = false;
+        //}
 
         if (elapsedTime < flightDuration && isFlying)
         {
@@ -100,5 +124,9 @@ public class Projectile : MonoBehaviour
         lastPosition = transform.position;
     }
 
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    isFlying = false;
+    //}
 
 }

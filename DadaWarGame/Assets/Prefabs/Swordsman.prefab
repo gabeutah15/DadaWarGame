@@ -246,6 +246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2
+  deathModelPrefab: {fileID: 3924667053880018147, guid: 68b1857da61203b46829aab93466bf20,
+    type: 3}
 --- !u!195 &7795922413589018616
 NavMeshAgent:
   m_ObjectHideFlags: 0
