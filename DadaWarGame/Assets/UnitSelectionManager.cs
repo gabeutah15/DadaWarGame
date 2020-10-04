@@ -24,11 +24,13 @@ public class UnitSelectionManager : MonoBehaviour
 
     //global variable not ideal but if can only select one at a time is fine for prototype i guess
     public static SelectedUnit selectedUnit;
+    int layerMask;
 
     // Start is called before the first frame update
     void Start()
     {
         selectedUnit = SelectedUnit.one;
+        layerMask = 1 << 8;//8 is selection layer
     }
 
     // Update is called once per frame
@@ -82,6 +84,26 @@ public class UnitSelectionManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.RightBracket))
         {
             selectedUnit = SelectedUnit.twelve;
+        }
+
+        //this works ok but you have to click the specific unit
+        if (Input.GetMouseButton(0))
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 400, layerMask))
+            {
+                if (hit.collider.gameObject.GetComponent<AIControl>())
+                {
+                    AIControl aiControl = hit.collider.gameObject.GetComponent<AIControl>();
+                    selectedUnit = (SelectedUnit)aiControl.selectedUnitNum;
+                }
+                else if (hit.collider.gameObject.GetComponentInParent<AIControl>())//selection plane
+                {
+                    AIControl aiControl = hit.collider.gameObject.GetComponentInParent<AIControl>();
+                    selectedUnit = (SelectedUnit)aiControl.selectedUnitNum;
+                }
+            }
         }
     }
 }
