@@ -15,9 +15,11 @@ public class Archer : MonoBehaviour
     float timer;
     float targetDistance;
 
+    public string enemyTag = "AI";
+
     void Start()
     {
-        targets = GameObject.FindGameObjectsWithTag("AI");
+        targets = GameObject.FindGameObjectsWithTag(enemyTag);
     }
 
     private void FixedUpdate()
