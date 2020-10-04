@@ -22,13 +22,14 @@ public class ArrowCollisionScript : MonoBehaviour
             {
                 //attempt to make arrows get stuck in target
                 //issues may be caused by projectileparent sometimes being null?
-                if ((collision.gameObject.GetComponent<AIControl>() || collision.gameObject.GetComponent<EnemyAIBody>()) && (projectileParent.elapsedTime > 0.15f))
-                {
-                    rb.isKinematic = true;
-                    rb.useGravity = false;
-                    projectileParent.speed = 0;
-                    projectileParent.transform.parent = collision.gameObject.transform;
-                }
+                //looks weird, probably not worth doing
+                //if ((collision.gameObject.GetComponent<AIControl>() || collision.gameObject.GetComponent<EnemyAIBody>()) && (projectileParent.elapsedTime > 0.15f))
+                //{
+                //    rb.isKinematic = true;
+                //    rb.useGravity = false;
+                //    projectileParent.speed = 0;
+                //    projectileParent.transform.parent = collision.gameObject.transform;
+                //}
                 projectileParent.isFlying = false;
             }
         }
