@@ -16,11 +16,14 @@ public class Archer : MonoBehaviour
     float targetDistance;
     [SerializeField]
     string tagToShoot;
+    [SerializeField]
+    public bool holdFire { get; set; }
 
     void Start()
     {
         //if you want to spawn more enemies later and be able to shoot them you will have to check for targets again when that happens
         targets = GameObject.FindGameObjectsWithTag(tagToShoot);
+        holdFire = false;
     }
 
     private void FixedUpdate()
@@ -31,7 +34,10 @@ public class Archer : MonoBehaviour
             timer -= 2;
             if (currentTarget && currentTarget.activeSelf)
             {
-                ShootProjectile(currentTarget);
+                if (!holdFire)
+                {
+                    ShootProjectile(currentTarget);
+                }
             }
         }
     }
