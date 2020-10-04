@@ -17,8 +17,8 @@ public class Projectile : MonoBehaviour
     public bool isDeadly = false;//only become deadly after say one second so doesn't kill archer that shoots it, and so has a kind of min range
 
     public Transform arrowModel;
-    [HideInInspector]
-    public float elapsedTime;
+
+    float elapsedTime;
     public float flightDuration { get; private set; }
 
     Vector2 velocity;
@@ -97,15 +97,10 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
-        if ((elapsedTime > 0.1f) && isFlying && gameObject.activeSelf)
+        if((elapsedTime > 0.1f) && isFlying && gameObject.activeSelf)
         {
             isDeadly = true;
         }
-
-        //if(elapsedTime > .2f)
-        //{
-        //    isFlying = false;
-        //}
 
         if (elapsedTime < flightDuration && isFlying)
         {
@@ -124,9 +119,5 @@ public class Projectile : MonoBehaviour
         lastPosition = transform.position;
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    isFlying = false;
-    //}
 
 }
