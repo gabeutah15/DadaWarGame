@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.AI;
+//using UnityEditor.AI;
 
 
 public class GateHouse : MonoBehaviour
@@ -48,7 +48,7 @@ public class GateHouse : MonoBehaviour
         {
             gateDestroyed.gameObject.SetActive(true);
             gate.gameObject.SetActive(false);
-            NavMeshBuilder.BuildNavMesh();
+            //NavMeshBuilder.BuildNavMesh();//this might be editor only?
         }
     }
 
