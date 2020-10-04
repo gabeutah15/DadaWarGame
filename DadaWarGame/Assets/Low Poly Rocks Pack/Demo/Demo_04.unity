@@ -2379,16 +2379,8 @@ MonoBehaviour:
   screenBlendMode: 0
   sunTransform: {fileID: 0}
   radialBlurIterations: 2
-  sunColor:
-    r: 0.6911765
-    g: 0.9105477
-    b: 1
-    a: 1
-  sunThreshold:
-    r: 0.87
-    g: 0.74
-    b: 0.65
-    a: 1
+  sunColor: {r: 0.6911765, g: 0.9105477, b: 1, a: 1}
+  sunThreshold: {r: 0.87, g: 0.74, b: 0.65, a: 1}
   sunShaftBlurRadius: 2.5
   sunShaftIntensity: 1.15
   maxRadius: 0.75
@@ -2456,11 +2448,7 @@ MonoBehaviour:
   quality: 1
   bloomIntensity: 0.5
   bloomThreshold: 0.6
-  bloomThresholdColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
+  bloomThresholdColor: {r: 1, g: 1, b: 1, a: 1}
   bloomBlurIterations: 2
   hollywoodFlareBlurIterations: 3
   flareRotation: 0
@@ -2469,26 +2457,10 @@ MonoBehaviour:
   lensflareIntensity: 0
   lensflareThreshold: 0
   lensFlareSaturation: 1
-  flareColorA:
-    r: 0.41176468
-    g: 0.90381044
-    b: 1
-    a: 0.75
-  flareColorB:
-    r: 0.4
-    g: 0.8
-    b: 0.8
-    a: 0.75
-  flareColorC:
-    r: 0.8
-    g: 0.4
-    b: 0.8
-    a: 0.75
-  flareColorD:
-    r: 0.8
-    g: 0.4
-    b: 0
-    a: 0.75
+  flareColorA: {r: 0.41176468, g: 0.90381044, b: 1, a: 0.75}
+  flareColorB: {r: 0.4, g: 0.8, b: 0.8, a: 0.75}
+  flareColorC: {r: 0.8, g: 0.4, b: 0.8, a: 0.75}
+  flareColorD: {r: 0.8, g: 0.4, b: 0, a: 0.75}
   lensFlareVignetteMask: {fileID: 2800000, guid: 95ef4804fe0be4c999ddaa383536cde8,
     type: 3}
   lensFlareShader: {fileID: 4800000, guid: 459fe69d2f6d74ddb92f04dbf45a866b, type: 3}
@@ -2540,17 +2512,26 @@ MonoBehaviour:
   type: 2
   adaptiveTextureSize: 256
   remapCurve:
+    serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 3
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 2
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 2
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
