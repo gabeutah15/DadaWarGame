@@ -7,10 +7,13 @@ public class AmmoManager : MonoBehaviour
 {
 
     public GameObject AmmoPrefab = null;
+    public GameObject LeadPrefab = null;
     public int PoolSize = 100;
     public Queue<Transform> AmmoQueue = new Queue<Transform>();
+    public Queue<Transform> LeadQueue = new Queue<Transform>();
 
     private GameObject[] AmmoArray;
+    private GameObject[] LeadBallArray;
     public static AmmoManager AmmoManagerSingleton = null;
 
 
@@ -26,6 +29,7 @@ public class AmmoManager : MonoBehaviour
     private void Start()
     {
         AmmoArray = new GameObject[PoolSize];
+        LeadBallArray = new GameObject[PoolSize];
 
         for (int i = 0; i < PoolSize; i++)
         {
@@ -34,12 +38,27 @@ public class AmmoManager : MonoBehaviour
             ObjTransform.parent = transform;
             AmmoQueue.Enqueue(ObjTransform);
             AmmoArray[i].SetActive(false);
+
+            LeadBallArray[i] = Instantiate(LeadPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+            ObjTransform = LeadBallArray[i].GetComponent<Transform>();
+            ObjTransform.parent = transform;
+            LeadQueue.Enqueue(ObjTransform);
+            LeadBallArray[i].SetActive(false);
         }
+
     }
 
-    public static Transform SpawnAmmo(Vector3 Position, Quaternion Rotation)
+    public static Transform SpawnAmmo(Vector3 Position, Quaternion Rotation, string name)
     {
-        Transform SpawnedAmmo = AmmoManagerSingleton.AmmoQueue.Dequeue();
+        Transform SpawnedAmmo = null;
+        if (name.Contains("Catapult"))
+        {
+            SpawnedAmmo = AmmoManagerSingleton.LeadQueue.Dequeue(); 
+        }
+        else
+        {
+            SpawnedAmmo = AmmoManagerSingleton.AmmoQueue.Dequeue();
+        }
 
         SpawnedAmmo.gameObject.SetActive(true);
         SpawnedAmmo.position = Position;

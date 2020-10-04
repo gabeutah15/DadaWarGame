@@ -100,7 +100,7 @@ public class Archer : MonoBehaviour
 
     public void ShootProjectile(GameObject targetUnit)
     {
-        Transform p = AmmoManager.SpawnAmmo(this.transform.position, Quaternion.identity);
+        Transform p = AmmoManager.SpawnAmmo(this.transform.position, Quaternion.identity, this.name);
 
         //similar added for non mesh agent enemies
         Vector3 targetPos = targetUnit.transform.position;

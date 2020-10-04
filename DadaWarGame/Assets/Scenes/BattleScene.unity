@@ -4305,7 +4305,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 20
+  m_Speed: 12
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -12206,7 +12206,7 @@ PrefabInstance:
     - target: {fileID: 3671079949183236887, guid: cfd338936a5f9904ca4fdeaff8fffa25,
         type: 3}
       propertyPath: m_Name
-      value: Catapult (1)
+      value: Catapult2
       objectReference: {fileID: 0}
     - target: {fileID: 3671079949183236887, guid: cfd338936a5f9904ca4fdeaff8fffa25,
         type: 3}
@@ -12316,7 +12316,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 20
+  m_Speed: 12
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
