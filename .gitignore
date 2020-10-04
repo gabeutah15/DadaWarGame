@@ -4,10 +4,11 @@
 #
 [Ll]ibrary/
 [Tt]emp/
-[Oo]bj/
+/[Oo]bj/
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
+[Uu]ser[Ss]ettings/
 [Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
@@ -53,7 +54,9 @@ sysinfo.txt
 
 # Builds
 *.apk
+*.aab
 *.unitypackage
 
 # Crashlytics generated file
 crashlytics-build.properties
+
