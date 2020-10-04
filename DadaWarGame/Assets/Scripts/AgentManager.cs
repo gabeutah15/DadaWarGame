@@ -19,7 +19,7 @@ public class AgentManager : MonoBehaviour
         {
             RaycastHit hit;
 
-            if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 400))
             {
                 int unitNum = 0;
 

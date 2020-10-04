@@ -36,7 +36,7 @@ public class UnitSelectionManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.Log("pressed one");
+            //Debug.Log("pressed one");
             selectedUnit = SelectedUnit.one;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
