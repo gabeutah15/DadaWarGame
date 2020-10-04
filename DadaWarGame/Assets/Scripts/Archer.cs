@@ -21,11 +21,6 @@ public class Archer : MonoBehaviour
     {
         //if you want to spawn more enemies later and be able to shoot them you will have to check for targets again when that happens
         targets = GameObject.FindGameObjectsWithTag(tagToShoot);
-
-        if(tagToShoot == "EnemyAI")
-        {
-            var a = 5;
-        }
     }
 
     private void FixedUpdate()
@@ -48,13 +43,6 @@ public class Archer : MonoBehaviour
         {
             for (int i = 0; i < targets.Length; i++)
             {
-                var test = 1;
-                if (targets[i].GetComponent<Archer>() && !targets[i].GetComponent<AIControl>())
-                {
-                    test = 5;
-                    //it is going in here and finding archer targets but arrows just fall to floor, BUT only when shooting at archers
-                }
-
                 if (targets[i] && targets[i].activeSelf/* && targets[i].GetComponent<NavMeshAgent>()*/)
                 {
                     //added this section because some ai enemy targerts have no navmesh, don't move, in which case just shoot at their position

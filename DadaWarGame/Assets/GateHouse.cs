@@ -28,7 +28,7 @@ public class GateHouse : MonoBehaviour
 
     public void CollisionDetected(Gate gate, Collision collision)
     {
-        Debug.Log("wall collided");
+        //Debug.Log("wall collided");
         if (collision.gameObject.CompareTag("Projectile"))
         {
             Projectile projectileParent = collision.gameObject.GetComponentInParent<Projectile>();
