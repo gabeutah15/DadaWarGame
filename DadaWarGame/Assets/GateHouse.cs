@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.AI;
+
 
 public class GateHouse : MonoBehaviour
 {
@@ -34,6 +36,8 @@ public class GateHouse : MonoBehaviour
                 //{
                 gateDestroyed.gameObject.SetActive(true);
                 gate.gameObject.SetActive(false);
+                NavMeshBuilder.BuildNavMesh();
+                //rebuild nav mesh after destroying wall so you can walk through it
                 //apply some force here or will it kind of fall apart on its own?
                 //}
             }
