@@ -71,7 +71,7 @@ public class AIControl : MonoBehaviour
             PursueNearest();
         }
 
-        if (selectedUnitNum == (int)UnitSelectionManager.selectedUnit)
+        if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)selectedUnitNum))
         {
             if (!highlight.activeSelf)
             {
