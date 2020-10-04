@@ -30,7 +30,7 @@ public class DragCamera : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             float speed = cameraDragSpeed * Time.deltaTime;
-            Camera.main.transform.position -= new Vector3(Input.GetAxis("Mouse X") * speed, 0, Input.GetAxis("Mouse Y") * speed);
+            Camera.main.transform.position += new Vector3(Input.GetAxis("Mouse X") * speed, 0, Input.GetAxis("Mouse Y") * speed);
 
             if (Camera.main.transform.position.x > xMaxBound)
             {

@@ -2391,8 +2391,8 @@ Transform:
   - {fileID: 2133155551}
   - {fileID: 1562335676}
   - {fileID: 400097014}
-  - {fileID: 2031529532}
   - {fileID: 1720681622}
+  - {fileID: 2031529532}
   - {fileID: 537880562}
   - {fileID: 2032747733}
   - {fileID: 2132721070}
@@ -6600,6 +6600,11 @@ PrefabInstance:
       propertyPath: m_AngularSpeed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7795922413589018616, guid: 565c63ee821604c42b365663e6dc8bdd,
+        type: 3}
+      propertyPath: m_Speed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 565c63ee821604c42b365663e6dc8bdd, type: 3}
 --- !u!4 &1548972421 stripped
@@ -8141,7 +8146,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ee43808270b3ee2458c023dd5f4ed068,
         type: 3}
       propertyPath: m_RootOrder
-      value: 52
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ee43808270b3ee2458c023dd5f4ed068,
         type: 3}
@@ -8231,7 +8236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425132, guid: ef125d1a3b3a0d047969fffc358079ab, type: 3}
       propertyPath: m_RootOrder
-      value: 51
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 425132, guid: ef125d1a3b3a0d047969fffc358079ab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
