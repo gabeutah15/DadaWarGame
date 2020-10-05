@@ -16,13 +16,14 @@ public enum SelectedUnit
     nine,
     ten,
     eleven,
-    twelve
+    twelve,
+    thirteen,
+    fourteen
 }
 
 public class UnitSelectionManager : MonoBehaviour
 {
     //needs an entry for each player unit, and a new input in update for each player unit
-
     //global variable not ideal but if can only select one at a time is fine for prototype i guess
     //public static ;
     public static HashSet<SelectedUnit> selectedUnits;
@@ -62,6 +63,14 @@ public class UnitSelectionManager : MonoBehaviour
         else
         {
             holdingControl = false;
+        }
+        else if(Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            selectedUnit = SelectedUnit.thirteen;
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            selectedUnit = SelectedUnit.fourteen;
         }
 
         //if (Input.GetKeyDown(KeyCode.Alpha1))

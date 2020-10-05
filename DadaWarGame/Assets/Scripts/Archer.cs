@@ -19,6 +19,8 @@ public class Archer : MonoBehaviour
     [SerializeField]
     public bool holdFire { get; set; }
 
+    //public string enemyTag = "AI";
+
     void Start()
     {
         //if you want to spawn more enemies later and be able to shoot them you will have to check for targets again when that happens
@@ -93,7 +95,7 @@ public class Archer : MonoBehaviour
 
     public void ShootProjectile(GameObject targetUnit)
     {
-        Transform p = AmmoManager.SpawnAmmo(this.transform.position, Quaternion.identity);
+        Transform p = AmmoManager.SpawnAmmo(this.transform.position, Quaternion.identity, this.name);
 
         //similar added for non mesh agent enemies
         Vector3 targetPos = targetUnit.transform.position;
