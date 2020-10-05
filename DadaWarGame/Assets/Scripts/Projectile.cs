@@ -102,6 +102,11 @@ public class Projectile : MonoBehaviour
             isDeadly = true;
         }
 
+        if (!isFlying)
+        {
+            isDeadly = false;
+        }
+
         //if(elapsedTime > .2f)
         //{
         //    isFlying = false;

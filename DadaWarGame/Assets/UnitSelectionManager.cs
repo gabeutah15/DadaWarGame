@@ -64,14 +64,30 @@ public class UnitSelectionManager : MonoBehaviour
         {
             holdingControl = false;
         }
-        else if(Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            selectedUnit = SelectedUnit.thirteen;
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            selectedUnit = SelectedUnit.fourteen;
-        }
+
+        //this section is maybe not really necessary now but catapults may not have selection planes
+        //if(Input.GetKeyDown(KeyCode.LeftArrow))
+        //{
+        //    if (selectedUnits.Contains(SelectedUnit.thirteen))
+        //    {
+        //        selectedUnits.Remove(SelectedUnit.thirteen);
+        //    }
+        //    else
+        //    {
+        //        selectedUnits.Add(SelectedUnit.thirteen);
+        //    }
+        //}
+        //else if (Input.GetKeyDown(KeyCode.RightArrow))
+        //{
+        //    if (selectedUnits.Contains(SelectedUnit.fourteen))
+        //    {
+        //        selectedUnits.Remove(SelectedUnit.fourteen);
+        //    }
+        //    else
+        //    {
+        //        selectedUnits.Add(SelectedUnit.fourteen);
+        //    }
+        //}
 
         //if (Input.GetKeyDown(KeyCode.Alpha1))
         //{
