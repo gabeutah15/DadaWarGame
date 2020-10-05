@@ -129,7 +129,7 @@ MonoBehaviour:
   highFiringAngle: 45
   lowFiringAngle: 7
   directFireRange: 1
-  speed: 10
+  speed: 20
   isDeadly: 0
   arrowModel: {fileID: 507953719594568805}
   elapsedTime: 0

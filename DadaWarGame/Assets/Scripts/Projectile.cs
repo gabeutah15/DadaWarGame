@@ -71,7 +71,10 @@ public class Projectile : MonoBehaviour
             //added some extra direction to account for arrows falling short
             Vector3 extraDirection = predictTarget - transform.position;
             extraDirection = extraDirection.normalized;
-            extraDirection *= 7;
+            int addedScalar = 7;
+            if (IsLeadBall)
+                addedScalar = 17;
+            extraDirection *= addedScalar;
             //calculate distance to target
             predictTarget += extraDirection;
             float dist = Vector3.Distance(transform.position, predictTarget);
