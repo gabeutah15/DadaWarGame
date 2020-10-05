@@ -15,6 +15,10 @@ public class DragCamera : MonoBehaviour
     [SerializeField]
     float zMinBound = -30;
 
+    float minFov = 15f;
+    float maxFov = 90f;
+    float sensitivity = 10f;
+
     private void Start()
     {
         zMinBound += Camera.main.transform.position.z;
@@ -27,6 +31,12 @@ public class DragCamera : MonoBehaviour
 
     private void Update()
     {
+        float fov = Camera.main.fieldOfView;
+        fov -= Input.GetAxis("Mouse ScrollWheel") * sensitivity;
+        fov = Mathf.Clamp(fov, minFov, maxFov);
+        Camera.main.fieldOfView = fov;
+
+
         if (Input.GetMouseButton(0))
         {
             float speed = cameraDragSpeed * Time.deltaTime;

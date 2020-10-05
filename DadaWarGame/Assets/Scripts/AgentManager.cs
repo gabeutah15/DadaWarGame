@@ -32,8 +32,9 @@ public class AgentManager : MonoBehaviour
                         if (agents[i].GetComponent<AIControl>())
                         {
                             var aiControl = agents[i].GetComponent<AIControl>();
-                            if(aiControl.selectedUnitNum == (int)UnitSelectionManager.selectedUnit)
+                            if(/*aiControl.selectedUnitNum == (int)UnitSelectionManager.selectedUnit*/  UnitSelectionManager.selectedUnits.Contains((SelectedUnit)aiControl.selectedUnitNum))
                             {
+                                //***this formation movement will be broken by being able to select multiple units at once
 
                                 //below is really stupid hard coded algo for kind of moving in a formation but only for units of 9
                                 //should be made smarter to account for different unit sizes including changes to size based on loss of units

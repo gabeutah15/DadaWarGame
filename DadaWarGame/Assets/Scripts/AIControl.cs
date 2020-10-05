@@ -24,7 +24,7 @@ public class AIControl : MonoBehaviour
         capsuleCollider = this.GetComponent<Collider>();
         foreach (Transform child in transform)
         {
-            if (child.tag == "Highlight") ;
+            if (child.tag == "Highlight")
                 highlight = child.gameObject;
         }
         enemyAgents = GameObject.FindGameObjectsWithTag("EnemyAI");
@@ -71,7 +71,7 @@ public class AIControl : MonoBehaviour
             PursueNearest();
         }
 
-        if (selectedUnitNum == (int)UnitSelectionManager.selectedUnit)
+        if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)selectedUnitNum))
         {
             if (!highlight.activeSelf)
             {
