@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyAIBody : MonoBehaviour
 {
-    Collider collider;
+    //Collider collider;
     [SerializeField]
     float health = 1;
     Animator animator;
@@ -19,7 +19,7 @@ public class EnemyAIBody : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        collider = this.GetComponent<Collider>();
+        //collider = this.GetComponent<Collider>();
         animator = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
         playerAgents = GameObject.FindGameObjectsWithTag("AI");

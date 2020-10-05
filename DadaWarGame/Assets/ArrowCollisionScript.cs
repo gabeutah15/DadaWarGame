@@ -26,7 +26,8 @@ public class ArrowCollisionScript : MonoBehaviour
 
         if(timeSinceImpact > 2)
         {
-            groundPoundPS.gameObject.SetActive(false);//cabn't destroy?
+            //groundPoundPS.gameObject.SetActive(false);//it's like doing this sets it to false the next time your start the game? like it effects teh prefab
+           //GameObject.Destroy(groundPoundPS.gameObject);//can't destroy?
         }
     }
 
@@ -56,6 +57,7 @@ public class ArrowCollisionScript : MonoBehaviour
                     {
                         Quaternion rot = Quaternion.Euler(-90, 0, 0);
                         Instantiate(groundPoundPS, transform.position, rot);
+                        //groundPoundPS.gameObject.SetActive(true);
                         groundPoundPS.Play();
                         particleHasPlayed = true;
                         rb.AddForce(new Vector3(0, 30 * rb.velocity.y, 30 * rb.velocity.x));

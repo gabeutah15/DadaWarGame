@@ -65,13 +65,29 @@ public class Archer : MonoBehaviour
                     //all of the archers end up shooting at the same target and then switching to a new target
                     if (distance < range)
                     {
-                        //this randomization actually works decently to make targets more random and not have all the units shoot at the same target
-                        int rand = Random.Range(0, 4);
-                        if(rand == 0)
+
+                        RaycastHit hit;
+                        Vector3 direction = targets[i].transform.position - this.transform.position;
+                        if (Physics.Raycast(this.transform.position, direction, out hit, 100))
                         {
-                            currentTarget = targets[i];
-                            targetDistance = distance;
+                            GameObject targetObject = hit.collider.gameObject;
+                            if(targetObject == targets[i])
+                            {
+                                //Debug.Log("Can See Enemy");
+                                //this randomization actually works decently to make targets more random and not have all the units shoot at the same target
+                                int rand = Random.Range(0, 4);
+                                if(rand == 0)
+                                {
+                                    currentTarget = targets[i];
+                                    targetDistance = distance;
+                                }
+                            }
+                            else
+                            {
+                                //Debug.Log("Can NOT See Enemy");
+                            }
                         }
+
                     }
                 }
             }
@@ -89,6 +105,22 @@ public class Archer : MonoBehaviour
             if (distance > range)
             {
                 currentTarget = null;
+            }
+
+            RaycastHit hit;
+            Vector3 direction = currentTarget.transform.position - this.transform.position;
+            if (Physics.Raycast(this.transform.position, direction, out hit, 100))
+            {
+                GameObject targetObject = hit.collider.gameObject;
+                if (targetObject == currentTarget)
+                {
+                        //nothing you can see them, if can't see then set null
+                        //should set these on layer mask that only sees enemies and walls, so they don't block one another's line of sight
+                }
+                else
+                {
+                    currentTarget = null;
+                }
             }
         }
     }

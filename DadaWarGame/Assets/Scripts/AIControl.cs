@@ -98,13 +98,13 @@ public class AIControl : MonoBehaviour
             {
                 if (enemyAgents[i].activeSelf)
                 {
-                    bool enemyIsArcher = true;
+                    //bool enemyIsArcher = true;
                     Vector3 enemyPosition = enemyAgents[i].transform.position;//if archer ie no nav mesh agent
 
                     if (enemyAgents[i].GetComponent<NavMeshAgent>())
                     {
                         enemyPosition = enemyAgents[i].GetComponent<NavMeshAgent>().nextPosition;//if swordsmen ie has agent
-                        enemyIsArcher = false;//this is only incidentally correct
+                        //enemyIsArcher = false;//this is only incidentally correct
                     }
 
                     float distance = Vector3.Distance(this.transform.position, enemyPosition);
