@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UIElements;
 
 public class AmmoManager : MonoBehaviour
 {
@@ -51,9 +51,12 @@ public class AmmoManager : MonoBehaviour
     public static Transform SpawnAmmo(Vector3 Position, Quaternion Rotation, string name)
     {
         Transform SpawnedAmmo = null;
+        bool isLead = false;
         if (name.Contains("Catapult"))
         {
-            SpawnedAmmo = AmmoManagerSingleton.LeadQueue.Dequeue(); 
+            SpawnedAmmo = AmmoManagerSingleton.LeadQueue.Dequeue();
+            isLead = true;
+            Position += new Vector3(0, 1, 0);
         }
         else
         {
@@ -61,7 +64,7 @@ public class AmmoManager : MonoBehaviour
         }
 
         SpawnedAmmo.gameObject.SetActive(true);
-        SpawnedAmmo.position = Position;
+        SpawnedAmmo.position = Position;//add to this if it's a lead ammo
         SpawnedAmmo.rotation = Rotation;
         AmmoManagerSingleton.AmmoQueue.Enqueue(SpawnedAmmo);
 

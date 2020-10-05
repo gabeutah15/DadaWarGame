@@ -127,6 +127,7 @@ public class Archer : MonoBehaviour
 
     public void ShootProjectile(GameObject targetUnit)
     {
+        //if lead ball then need to set initialize position as higher up and further forward
         Transform p = AmmoManager.SpawnAmmo(this.transform.position, Quaternion.identity, this.name);
 
         //similar added for non mesh agent enemies
@@ -141,6 +142,7 @@ public class Archer : MonoBehaviour
         }
 
         //Vector3 targetPosition = targetUnit.GetComponent<NavMeshAgent>().nextPosition;
+
 
         p.GetComponent<Projectile>().Initialize(/*targetPosition*/targetPos, targetUnit.GetComponent<NavMeshAgent>(), targetDistance);
     }
