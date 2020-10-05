@@ -134,7 +134,7 @@ MonoBehaviour:
   arrowModel: {fileID: 507953719594568805}
   elapsedTime: 0
   enableRandomTargetArea: 1
-  randomRadius: 5
+  randomRadius: 3
   enableRandomSpeed: 1
   randomSpeedMin: 10
   randomSpeedMax: 15
