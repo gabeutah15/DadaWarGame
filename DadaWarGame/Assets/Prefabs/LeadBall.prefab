@@ -118,7 +118,7 @@ MonoBehaviour:
     type: 3}
   elapsedTime: 0
   enableRandomTargetArea: 1
-  randomRadius: 0.5
+  randomRadius: 5
   enableRandomSpeed: 1
   randomSpeedMin: 10
   randomSpeedMax: 15

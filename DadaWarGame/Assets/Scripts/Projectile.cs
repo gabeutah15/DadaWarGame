@@ -29,9 +29,17 @@ public class Projectile : MonoBehaviour
     public bool enableRandomSpeed = false;
     public float randomSpeedMin = 8f;
     public float randomSpeedMax = 20f;
+    public bool IsLeadBall;
 
     public bool isFlying;
     public float visibleTime = 5;
+
+    Rigidbody rb;
+
+    private void Awake()
+    {
+        rb = GetComponentInChildren<Rigidbody>();
+    }
 
     public void Initialize(Vector3 _target, NavMeshAgent _targetNavMeshAgent, float distanceToTarget)
     {
@@ -110,6 +118,14 @@ public class Projectile : MonoBehaviour
         //if(elapsedTime > .2f)
         //{
         //    isFlying = false;
+        //}
+        //if (elapsedTime > flightDuration)
+        //{
+        //    if (rb && IsLeadBall)
+        //    {
+        //        isFlying = false;
+        //        rb.AddForce(new Vector3(0, 10 * velocity.y, 10 * velocity.x));
+        //    }
         //}
 
         if (elapsedTime < flightDuration && isFlying)

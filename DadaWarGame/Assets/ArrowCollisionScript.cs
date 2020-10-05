@@ -6,11 +6,28 @@ public class ArrowCollisionScript : MonoBehaviour
 {
     Projectile projectileParent;
     Rigidbody rb;
+    [SerializeField]
+    ParticleSystem groundPoundPS;
+    bool particleHasPlayed = false;
+    float timeSinceImpact = 0;
     // Start is called before the first frame update
     void Start()
     {
         projectileParent = GetComponentInParent<Projectile>();//sometimes this is null but it shouldn't be?
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        if (particleHasPlayed)
+        {
+            timeSinceImpact += Time.deltaTime;
+        }
+
+        if(timeSinceImpact > 2)
+        {
+            groundPoundPS.gameObject.SetActive(false);//cabn't destroy?
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -30,7 +47,20 @@ public class ArrowCollisionScript : MonoBehaviour
                 //    projectileParent.speed = 0;
                 //    projectileParent.transform.parent = collision.gameObject.transform;
                 //}
+                Debug.Log(rb.velocity);
+                //rb.velocity AddForce(new Vector3(0, 10 * velocity.y, 10 * velocity.x));
                 projectileParent.isFlying = false;
+                if (projectileParent.IsLeadBall)
+                {
+                    if (groundPoundPS && !particleHasPlayed)
+                    {
+                        Quaternion rot = Quaternion.Euler(-90, 0, 0);
+                        Instantiate(groundPoundPS, transform.position, rot);
+                        groundPoundPS.Play();
+                        particleHasPlayed = true;
+                        rb.AddForce(new Vector3(0, 30 * rb.velocity.y, 30 * rb.velocity.x));
+                    }
+                }
             }
         }
     }

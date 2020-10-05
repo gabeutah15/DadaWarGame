@@ -66,7 +66,7 @@ public class AIControl : MonoBehaviour
             Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
         }
 
-        if((agent.remainingDistance < 5) && isMeleeUnit)
+        if((agent.remainingDistance < 10) && isMeleeUnit)
         {
             PursueNearest();
         }
@@ -108,7 +108,7 @@ public class AIControl : MonoBehaviour
                     }
 
                     float distance = Vector3.Distance(this.transform.position, enemyPosition);
-                    if ((distance < minDistance) && (distance < 5) /*&& ((distance < 5) || (enemyIsArcher && (distance < 10)))*/)//hardcoded less than five so only does this at all if close to enemies even if has no 'remaining distance'
+                    if ((distance < minDistance) && (distance < 10) /*&& ((distance < 5) || (enemyIsArcher && (distance < 10)))*/)//hardcoded less than ten so only does this at all if close to enemies even if has no 'remaining distance'
                     {
                         //could instead do some bool for 'isUnderFire' in which case a unit will, if given no other order, always pursue and attack archers that can shoot at it
                         //kind of makes sense but might also be annoying
