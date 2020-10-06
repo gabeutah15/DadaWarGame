@@ -97,6 +97,16 @@ public class EnemyAIBody : MonoBehaviour
                     this.transform.rotation = startingRotation;
                 }
             }
+
+            if (/*(agent.remainingDistance > 0) &&*/ (agent.remainingDistance < 5) && (currentTarget != null))//a
+            {
+                animator.SetBool("IsInCombat", true);
+            }
+            else
+            {
+                animator.SetBool("IsInCombat", false);
+
+            }
         }
 
     }
