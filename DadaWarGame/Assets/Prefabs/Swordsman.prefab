@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c65a61332307ee40aa7fb4387b03033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 3
   deathModelPrefab: {fileID: 3924667053880018147, guid: 68b1857da61203b46829aab93466bf20,
     type: 3}
   territory: {fileID: 0}

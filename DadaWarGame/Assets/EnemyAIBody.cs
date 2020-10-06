@@ -189,7 +189,7 @@ public class EnemyAIBody : MonoBehaviour
             {
                 GameObject thisUnitDead = Instantiate(deathModelPrefab, this.transform.position, this.transform.rotation) as GameObject;
                 thisUnitDead.GetComponent<Rigidbody>().AddForce(new Vector3(1f,0,0.5f));//just enough to knock it over
-                
+                deathModelPrefab = null;
             }
 
             //Destroy(this.gameObject);
