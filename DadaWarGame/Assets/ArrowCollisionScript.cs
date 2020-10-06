@@ -48,7 +48,7 @@ public class ArrowCollisionScript : MonoBehaviour
                 //    projectileParent.speed = 0;
                 //    projectileParent.transform.parent = collision.gameObject.transform;
                 //}
-                Debug.Log(rb.velocity);
+                //Debug.Log(rb.velocity);
                 //rb.velocity AddForce(new Vector3(0, 10 * velocity.y, 10 * velocity.x));
                 projectileParent.isFlying = false;
                 if (projectileParent.IsLeadBall)

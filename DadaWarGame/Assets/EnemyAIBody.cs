@@ -10,7 +10,8 @@ public class EnemyAIBody : MonoBehaviour
     float health = 1;
     Animator animator;
     NavMeshAgent agent;
-    GameObject[] playerAgents;
+    GameObject[] playerUnits;
+    NavMeshAgent[] playerNavMeshAgents;
     GameObject currentTarget;
     [SerializeField]
     GameObject deathModelPrefab;
@@ -24,9 +25,26 @@ public class EnemyAIBody : MonoBehaviour
     void Start()
     {
         //collider = this.GetComponent<Collider>();
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponentInChildren<Animator>();//***TODO: put all getcomponent calls into awake not start methods
         agent = GetComponent<NavMeshAgent>();
-        playerAgents = GameObject.FindGameObjectsWithTag("AI");
+        playerUnits = GameObject.FindGameObjectsWithTag("AI");
+        playerNavMeshAgents = new NavMeshAgent[playerUnits.Length];
+        for (int i = 0; i < playerUnits.Length; i++)
+        {
+            //not all enemy agents have navmeshes though
+            //but can't mess up ordering
+            NavMeshAgent thisAgentsNavMeshAgent = playerUnits[i].gameObject.GetComponent<NavMeshAgent>();
+            if (thisAgentsNavMeshAgent)
+            {
+                playerNavMeshAgents[i] = thisAgentsNavMeshAgent;
+
+            }
+            else
+            {
+                playerNavMeshAgents[i] = null;
+            }
+        }
+
         currentTarget = null;
         territory.thisTerritorysDefenders.Add(this.gameObject);
         startingPosition = this.transform.position;
@@ -44,15 +62,15 @@ public class EnemyAIBody : MonoBehaviour
                 float minDistance = int.MaxValue;
                 GameObject potentialTarget = null;
 
-                for (int i = 0; i < playerAgents.Length; i++)
+                for (int i = 0; i < playerUnits.Length; i++)
                 {
-                    if (playerAgents[i].activeSelf && playerAgents[i].GetComponent<NavMeshAgent>() && territory.thisTerritorysPlayerUnitsThatHaveEntered.Contains(playerAgents[i]))
+                    if (playerUnits[i].activeSelf && playerNavMeshAgents[i] && territory.playerUnitsInYourTerritory.Contains(playerUnits[i]))
                     {
-                        float distance = Vector3.Distance(this.transform.position, playerAgents[i].GetComponent<NavMeshAgent>().nextPosition);
+                        float distance = Vector3.Distance(this.transform.position, playerNavMeshAgents[i].nextPosition);
                         if (distance < minDistance)
                         {
                             minDistance = distance;
-                            potentialTarget = playerAgents[i];//find closest playeragent that is active and not destroyed
+                            potentialTarget = playerUnits[i];//find closest playeragent that is active and not destroyed
                         }
                     }
                 }
@@ -74,10 +92,17 @@ public class EnemyAIBody : MonoBehaviour
                 }
             }
 
-            if (currentTarget)
+            if (currentTarget && territory.playerUnitsInYourTerritory.Contains(currentTarget))
             {
                 agent.SetDestination(currentTarget.transform.position);
             }
+
+            if (currentTarget && !territory.playerUnitsInYourTerritory.Contains(currentTarget))
+            {
+                agent.SetDestination(startingPosition);
+                currentTarget = null;
+            }
+
             if (agent.remainingDistance > 3)
             {
                 this.transform.LookAt(agent.steeringTarget + new Vector3(0, .5f, 0));
@@ -169,17 +194,6 @@ public class EnemyAIBody : MonoBehaviour
 
             //Destroy(this.gameObject);
         }
-    }
-
-    public void TerritoryEntranceDetected(Collision collision)
-    {
-        //Debug.Log("wall collided");
-        if (collision.gameObject.CompareTag("Projectile"))
-        {
-           
-        }
-
-       
     }
 
 }

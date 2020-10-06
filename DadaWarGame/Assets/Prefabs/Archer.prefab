@@ -112,6 +112,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 30
   tagToShoot: AI
+  layerMaskToShootThrough:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!114 &4911839507128144818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,3 +128,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  deathModelPrefab: {fileID: 0}
+  territory: {fileID: 0}

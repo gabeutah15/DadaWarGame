@@ -20,6 +20,8 @@ public class Archer : MonoBehaviour
     [SerializeField]
     public bool holdFire { get; set; }
     int currentTargetIndex;
+    [SerializeField]
+    LayerMask layerMaskToShootThrough;
 
     //public string enemyTag = "AI";
 
@@ -27,6 +29,8 @@ public class Archer : MonoBehaviour
     {
         //if you want to spawn more enemies later and be able to shoot them you will have to check for targets again when that happens
         targets = GameObject.FindGameObjectsWithTag(tagToShoot);
+
+        //layerMaskToShootThrough = 1 << 10;
 
         targetNavMeshAgents = new NavMeshAgent[targets.Length];
         for (int i = 0; i < targets.Length; i++)
@@ -91,14 +95,14 @@ public class Archer : MonoBehaviour
 
                         RaycastHit hit;
                         Vector3 direction = targets[i].transform.position - this.transform.position;
-                        if (Physics.Raycast(this.transform.position, direction, out hit, 100))
+                        if (Physics.Raycast(this.transform.position, direction, out hit, 100, ~layerMaskToShootThrough))
                         {
                             GameObject targetObject = hit.collider.gameObject;
                             if(targetObject == targets[i])
                             {
                                 //Debug.Log("Can See Enemy");
                                 //this randomization actually works decently to make targets more random and not have all the units shoot at the same target
-                                int rand = Random.Range(0, 4);
+                                int rand = Random.Range(0, 5);
                                 if(rand == 0)
                                 {
                                     currentTarget = targets[i];
@@ -137,7 +141,7 @@ public class Archer : MonoBehaviour
             if (currentTarget)
             {
                 Vector3 direction = currentTarget.transform.position - this.transform.position;
-                if (Physics.Raycast(this.transform.position, direction, out hit, 100))
+                if (Physics.Raycast(this.transform.position, direction, out hit, 100, ~layerMaskToShootThrough))
                 {
                     GameObject targetObject = hit.collider.gameObject;
                     if (targetObject == currentTarget)

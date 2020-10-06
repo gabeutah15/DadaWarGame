@@ -248,6 +248,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 30
   tagToShoot: EnemyAI
+  layerMaskToShootThrough:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &6576581519835084816
 GameObject:
   m_ObjectHideFlags: 0
