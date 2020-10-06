@@ -19,6 +19,11 @@ public class AIControl : MonoBehaviour
     GameObject currentTarget;
     [SerializeField]
     bool isMeleeUnit;
+    [HideInInspector]
+    public bool isAwaitingOrders;
+    [HideInInspector]
+    public Vector3 futureDestination;
+    
     // Start is called before the first frame update
     void Start()
     {

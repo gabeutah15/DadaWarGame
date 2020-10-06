@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AgentManager : MonoBehaviour
 {
     GameObject[] agents;
     //public static GameObject[] currentlySelectedAgents;
     int layerMask;
+    [SerializeField]
+    GeneralOrders general;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +28,13 @@ public class AgentManager : MonoBehaviour
             RaycastHit hit;
             currentFormationSelectedUnitNum = 0;
             currentNumFormationsIn = 0;
+            Vector3 futureDestination = Vector3.zero;
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 400, layerMask))
             {
                 int unitNum = 0;
 
+                bool hasSentACourier = false;
                 for (int i = 0; i < agents.Length; i++)
                 {
                     if (agents[i].activeSelf)//calling deactivate on units once killed, not destroy
@@ -39,7 +44,6 @@ public class AgentManager : MonoBehaviour
 
                         if (aiControl)//this is probably a nonperformant call
                         {
-                            
                             if(UnitSelectionManager.selectedUnits.Contains((SelectedUnit)aiControl.selectedUnitNum))
                             {
 
@@ -58,6 +62,7 @@ public class AgentManager : MonoBehaviour
                                     unitNum = 1;
                                     xPos = 1;
                                     currentNumFormationsIn++;
+                                    hasSentACourier = false;
                                 }
                                 currentFormationSelectedUnitNum = aiControl.selectedUnitNum;
 
@@ -93,8 +98,18 @@ public class AgentManager : MonoBehaviour
                                 Vector3 destination = hit.point + new Vector3(xPos, 0, zPos);
                                 //Vector3 destination = hit.point;
 
-
-                                agents[i].GetComponent<AIControl>().agent.SetDestination(destination);
+                                if (!hasSentACourier)
+                                {
+                                    general.GiveOrder(agents[i].GetComponent<NavMeshAgent>());
+                                    hasSentACourier = true;
+                                }
+                                if (hasSentACourier)
+                                {
+                                    //hasSentACourier should be true for the whole unit? and is reset to false for next unit?
+                                    aiControl.isAwaitingOrders = true;
+                                    aiControl.futureDestination = destination;
+                                }
+                                //agents[i].GetComponent<AIControl>().agent.SetDestination(destination);
 
                                 //simple
                                 //a.GetComponent<AIControl>().agent.SetDestination(hit.point);
