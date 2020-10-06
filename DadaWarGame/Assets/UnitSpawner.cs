@@ -20,9 +20,9 @@ public class UnitSpawner : MonoBehaviour
     float formationXOffset = 0;
     float formationZOffset = 0;
 
-    private int numFormations = 3;
-    private int numRows = 3;
-    private int numColumns = 3;
+    //private int numFormations = 3;
+    private int numRows = 4;
+    private int numColumns = 4;
     private int totalNumFormationsSpawned = 0;
 
     public int numArchers { get; set; }
@@ -62,10 +62,10 @@ public class UnitSpawner : MonoBehaviour
                 }
             }
             totalNumFormationsSpawned++;
-            formationXOffset += 10;
+            formationXOffset += 13;
             if((totalNumFormationsSpawned) > 5 && !hasStartedSecondRow)
             {
-                formationZOffset = 12;
+                formationZOffset = 15;
                 formationXOffset = 0;
                 hasStartedSecondRow = true;
             }

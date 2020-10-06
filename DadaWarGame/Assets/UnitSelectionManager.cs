@@ -186,8 +186,11 @@ public class UnitSelectionManager : MonoBehaviour
                     else
                     {
                         selectedUnits.Clear();
+                        
                         selectedUnits.Add(selectedUnit);
                     }
+
+                    
                 }
                 else if (hit.collider.gameObject.GetComponentInParent<AIControl>())//selection plane
                 {
@@ -196,7 +199,7 @@ public class UnitSelectionManager : MonoBehaviour
 
                     if (holdingControl)
                     {
-                        Debug.Log("holding left control");
+                        //Debug.Log("holding left control");
                         if (selectedUnits.Contains(selectedUnit))
                         {
                             selectedUnits.Remove(selectedUnit);

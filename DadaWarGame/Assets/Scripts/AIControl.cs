@@ -90,20 +90,23 @@ public class AIControl : MonoBehaviour
             PursueNearest();
         }
 
-        if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)selectedUnitNum))
-        {
-            if (!highlight.activeSelf)
+        //if (UnitSelectionManager.selectedUnits)//dunno if this is the nullcheck here?
+        //{
+        if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)selectedUnitNum))//null ref here?
             {
-                highlight.SetActive(true);
+                if (!highlight.activeSelf)
+                {
+                    highlight.SetActive(true);
+                }
             }
-        }
-        else
-        {
-            if (highlight.activeSelf)
+            else
             {
-                highlight.SetActive(false);
+                if (highlight.activeSelf)
+                {
+                    highlight.SetActive(false);
+                }
             }
-        }
+        //}
     }
 
     private void PursueNearest()
