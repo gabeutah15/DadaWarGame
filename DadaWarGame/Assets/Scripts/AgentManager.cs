@@ -88,7 +88,7 @@ public class AgentManager : MonoBehaviour
                                 }
                                 xPos -= shiftValue;//center rows of 4
                                 xPos *= 2;
-                                zPos *= 4;
+                                zPos *= 2;
 
                                 Vector3 destination = hit.point + new Vector3(xPos, 0, zPos);
                                 //Vector3 destination = hit.point;
