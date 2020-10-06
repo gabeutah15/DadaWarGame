@@ -92,6 +92,7 @@ public class EnemyAIBody : MonoBehaviour
                 }
             }
 
+            //should do something to switch to closer targets in territory maybe? or probably just make territories smaller
             if (currentTarget && territory.playerUnitsInYourTerritory.Contains(currentTarget))
             {
                 //agent.SetDestination(currentTarget.transform.position);
