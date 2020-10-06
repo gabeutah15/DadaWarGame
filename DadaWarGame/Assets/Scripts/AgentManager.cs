@@ -42,7 +42,11 @@ public class AgentManager : MonoBehaviour
 
                         var aiControl = agents[i].GetComponent<AIControl>();
 
-                        if (aiControl)//this is probably a nonperformant call
+                        if (agents[i].GetComponent<GeneralOrders>() && UnitSelectionManager.selectedUnits.Contains((SelectedUnit)aiControl.selectedUnitNum))
+                        {
+                            aiControl.agent.SetDestination(hit.point);
+                        }
+                        else if (aiControl)//this is probably a nonperformant call
                         {
                             if(UnitSelectionManager.selectedUnits.Contains((SelectedUnit)aiControl.selectedUnitNum))
                             {
