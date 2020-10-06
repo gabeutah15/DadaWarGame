@@ -158,6 +158,20 @@ public class UnitSelectionManager : MonoBehaviour
                     AIControl aiControl = hit.collider.gameObject.GetComponent<AIControl>();
                     SelectedUnit selectedUnit = (SelectedUnit)aiControl.selectedUnitNum;
 
+                    //i would like to redo selection bu I'm not sure what should be done
+                    //holding control of course does not work on mobile
+                    //and single click and drag to move camera gets confused with single touch to select unit
+                    //could do simply add a unit if not selected or remove if is when you touch it, ie just:
+                    //if(selectedUnits.Contains(selectedUnit))
+                    //    {
+                    //    selectedUnits.Remove(selectedUnit);
+                    //}
+                    //    else
+                    //{
+                    //    selectedUnits.Add(selectedUnit);
+                    //}
+                    //but then could end up with annoying scenario of wanting to select only one unit and being unable to clear unit selection quickly
+
                     if (holdingControl)
                     {
                         if (selectedUnits.Contains(selectedUnit))
