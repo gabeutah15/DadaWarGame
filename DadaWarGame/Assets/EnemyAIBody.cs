@@ -16,6 +16,9 @@ public class EnemyAIBody : MonoBehaviour
     GameObject deathModelPrefab;
     [SerializeField]
     Territory territory;
+    Vector3 startingPosition;
+    Quaternion startingRotation;
+    bool hasSetToReturnToStart = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,8 @@ public class EnemyAIBody : MonoBehaviour
         playerAgents = GameObject.FindGameObjectsWithTag("AI");
         currentTarget = null;
         territory.thisTerritorysDefenders.Add(this.gameObject);
+        startingPosition = this.transform.position;
+        startingRotation = this.transform.rotation;
     }
 
     private void Update()
@@ -55,6 +60,7 @@ public class EnemyAIBody : MonoBehaviour
                 if (potentialTarget)
                 {
                     currentTarget = potentialTarget;
+                    hasSetToReturnToStart = false;
                     //agent.SetDestination(currentTarget.transform.position);
                 }
 
@@ -62,6 +68,7 @@ public class EnemyAIBody : MonoBehaviour
                 {
                     if (!currentTarget.activeSelf)
                     {
+                        hasSetToReturnToStart = false;
                         currentTarget = null;
                     }
                 }
@@ -74,6 +81,21 @@ public class EnemyAIBody : MonoBehaviour
             if (agent.remainingDistance > 3)
             {
                 this.transform.LookAt(agent.steeringTarget + new Vector3(0, .5f, 0));
+            }
+
+            //don't have any targets and you are close to last target ie last enemy you killed then go back
+            if(currentTarget == null && (agent.remainingDistance < 5) && !hasSetToReturnToStart)
+            {
+                agent.SetDestination(startingPosition);
+                hasSetToReturnToStart = true;
+            }
+
+            if(agent.remainingDistance < .2)
+            {
+                if (hasSetToReturnToStart)
+                {
+                    this.transform.rotation = startingRotation;
+                }
             }
         }
 
