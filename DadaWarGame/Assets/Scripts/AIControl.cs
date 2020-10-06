@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
@@ -19,6 +20,7 @@ public class AIControl : MonoBehaviour
     GameObject currentTarget;
     [SerializeField]
     bool isMeleeUnit;
+    private AudioSource dieSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +49,7 @@ public class AIControl : MonoBehaviour
             }
         }
 
+        dieSound = GetComponent<AudioSource>();
         currentTarget = null;
     }
 
@@ -64,25 +67,40 @@ public class AIControl : MonoBehaviour
                 }
             }
         }
-
         if (collision.gameObject.CompareTag("EnemySword"))
         {
             health--;
         }
-
-        if (health <= 0)
+        if(this.name == "Catapult (1)")
+            UnityEngine.Debug.Log("health .." + health+ "health == 0: " + (health == 0)+ " dieSound.enabled: "+ dieSound.enabled);
+        if (health == 0 && dieSound.enabled )
         {
+            dieSound.Play();
+            //StartCoroutine(playDieSound());
+        }
+        /*if (health <= 0)
+        {   
             this.gameObject.SetActive(false);//destroy or just setactive false?
             //Destroy(this.gameObject);
-        }
+        }*/
     }
+
+    /*private IEnumerator playDieSound()
+    {
+        *//*dieSound.Play();*//*
+        while (dieSound.isPlaying)
+        {
+            yield return null;
+        }
+    }*/
 
     private void Update()
     {
+        
         if(agent.remainingDistance > 5)
         {
             this.transform.LookAt(agent.steeringTarget + new Vector3(0, .5f, 0));
-            Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
+           // Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
         }
 
         if((agent.remainingDistance < 10) && isMeleeUnit)
@@ -103,6 +121,12 @@ public class AIControl : MonoBehaviour
             {
                 highlight.SetActive(false);
             }
+        }
+        if (health <= 0 && !dieSound.isPlaying && dieSound.enabled)
+        {
+            UnityEngine.Debug.Log("Playing stopped ..");
+            dieSound.enabled = false;
+            this.gameObject.SetActive(false);
         }
     }
 
