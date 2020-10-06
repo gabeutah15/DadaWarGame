@@ -53,7 +53,7 @@ public class UnitSpawner : MonoBehaviour
             {
                 for (int j = 0; j < numColumns; j++)
                 {
-                    GameObject thisUnit = Instantiate(prefab, new Vector3(-20, 0.3f, 0) + new Vector3(i * 3 + formationXOffset, 0, j * 3 - formationZOffset), Quaternion.identity) as GameObject;
+                    GameObject thisUnit = Instantiate(prefab, new Vector3(-20, 0.3f, -100) + new Vector3(i * 3 + formationXOffset, 0, j * 3 - formationZOffset), Quaternion.identity) as GameObject;
                     if (thisUnit.GetComponent<AIControl>())
                     {
                         AIControl control = thisUnit.GetComponent<AIControl>();

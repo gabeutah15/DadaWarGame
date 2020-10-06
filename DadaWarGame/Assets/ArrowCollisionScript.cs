@@ -55,7 +55,15 @@ public class ArrowCollisionScript : MonoBehaviour
                 {
                     if (groundPoundPS && !particleHasPlayed)
                     {
-                        Quaternion rot = Quaternion.Euler(-90, 0, 0);
+                        Vector3 contactNormal = collision.contacts[0].normal;
+                        LayerMask colliderLayer = collision.collider.gameObject.layer;
+                        //this is to rotate the PS 90 degrees if hitting ground because for some reason normal doesn't work then, not sure needs some work
+                        int groundLayer = 1 << 9;
+                        if (colliderLayer == (colliderLayer | (1 << groundLayer)))
+                        {
+                            contactNormal += new Vector3(-90, 0, 0);
+                        }
+                        Quaternion rot = Quaternion.Euler(/*-90, 0, 0*/contactNormal);//instead make this normal to the surface it impacts
                         Instantiate(groundPoundPS, transform.position, rot);
                         //groundPoundPS.gameObject.SetActive(true);
                         groundPoundPS.Play();

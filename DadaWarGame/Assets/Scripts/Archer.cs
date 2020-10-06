@@ -108,18 +108,21 @@ public class Archer : MonoBehaviour
             }
 
             RaycastHit hit;
-            Vector3 direction = currentTarget.transform.position - this.transform.position;
-            if (Physics.Raycast(this.transform.position, direction, out hit, 100))
+            if (currentTarget)
             {
-                GameObject targetObject = hit.collider.gameObject;
-                if (targetObject == currentTarget)
+                Vector3 direction = currentTarget.transform.position - this.transform.position;
+                if (Physics.Raycast(this.transform.position, direction, out hit, 100))
                 {
-                        //nothing you can see them, if can't see then set null
-                        //should set these on layer mask that only sees enemies and walls, so they don't block one another's line of sight
-                }
-                else
-                {
-                    currentTarget = null;
+                    GameObject targetObject = hit.collider.gameObject;
+                    if (targetObject == currentTarget)
+                    {
+                            //nothing you can see them, if can't see then set null
+                            //should set these on layer mask that only sees enemies and walls, so they don't block one another's line of sight
+                    }
+                    else
+                    {
+                        currentTarget = null;
+                    }
                 }
             }
         }

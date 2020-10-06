@@ -14,7 +14,8 @@ public class EnemyAIBody : MonoBehaviour
     GameObject currentTarget;
     [SerializeField]
     GameObject deathModelPrefab;
-   
+    [SerializeField]
+    Territory territory;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class EnemyAIBody : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         playerAgents = GameObject.FindGameObjectsWithTag("AI");
         currentTarget = null;
+        territory.thisTerritorysDefenders.Add(this.gameObject);
     }
 
     private void Update()
@@ -39,7 +41,7 @@ public class EnemyAIBody : MonoBehaviour
 
                 for (int i = 0; i < playerAgents.Length; i++)
                 {
-                    if (playerAgents[i].activeSelf && playerAgents[i].GetComponent<NavMeshAgent>())
+                    if (playerAgents[i].activeSelf && playerAgents[i].GetComponent<NavMeshAgent>() && territory.thisTerritorysPlayerUnitsThatHaveEntered.Contains(playerAgents[i]))
                     {
                         float distance = Vector3.Distance(this.transform.position, playerAgents[i].GetComponent<NavMeshAgent>().nextPosition);
                         if (distance < minDistance)
@@ -135,6 +137,17 @@ public class EnemyAIBody : MonoBehaviour
 
             //Destroy(this.gameObject);
         }
+    }
+
+    public void TerritoryEntranceDetected(Collision collision)
+    {
+        //Debug.Log("wall collided");
+        if (collision.gameObject.CompareTag("Projectile"))
+        {
+           
+        }
+
+       
     }
 
 }
