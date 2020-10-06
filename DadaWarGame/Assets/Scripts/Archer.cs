@@ -11,6 +11,7 @@ public class Archer : MonoBehaviour
 
     //Private
     GameObject[] targets;
+    NavMeshAgent[] targetNavMeshAgents;
     GameObject currentTarget;
     float timer;
     float targetDistance;
@@ -18,6 +19,7 @@ public class Archer : MonoBehaviour
     string tagToShoot;
     [SerializeField]
     public bool holdFire { get; set; }
+    int currentTargetIndex;
 
     //public string enemyTag = "AI";
 
@@ -25,6 +27,24 @@ public class Archer : MonoBehaviour
     {
         //if you want to spawn more enemies later and be able to shoot them you will have to check for targets again when that happens
         targets = GameObject.FindGameObjectsWithTag(tagToShoot);
+
+        targetNavMeshAgents = new NavMeshAgent[targets.Length];
+        for (int i = 0; i < targets.Length; i++)
+        {
+            //not all enemy agents have navmeshes though
+            //but can't mess up ordering
+            NavMeshAgent thisAgentsNavMeshAgent = targets[i].gameObject.GetComponent<NavMeshAgent>();
+            if (thisAgentsNavMeshAgent)
+            {
+                targetNavMeshAgents[i] = thisAgentsNavMeshAgent;
+
+            }
+            else
+            {
+                targetNavMeshAgents[i] = null;
+            }
+        }
+
         holdFire = false;
     }
 
@@ -55,9 +75,12 @@ public class Archer : MonoBehaviour
                 {
                     //added this section because some ai enemy targerts have no navmesh, don't move, in which case just shoot at their position
                     Vector3 targetPos = targets[i].transform.position;
-                    if (targets[i].GetComponent<NavMeshAgent>())
+
+                    NavMeshAgent enemyAgent = targetNavMeshAgents[i];//using this is optimazation but onluy incidentally aligns with right target in targets[i]// targets[i].GetComponent<NavMeshAgent>();
+
+                    if (enemyAgent)
                     {
-                        targetPos = targets[i].GetComponent<NavMeshAgent>().nextPosition;
+                        targetPos = enemyAgent.nextPosition;
                     }
                     float distance = Vector3.Distance(this.transform.position, targetPos);
 
@@ -79,6 +102,7 @@ public class Archer : MonoBehaviour
                                 if(rand == 0)
                                 {
                                     currentTarget = targets[i];
+                                    currentTargetIndex = i;
                                     targetDistance = distance;
                                 }
                             }
@@ -96,9 +120,11 @@ public class Archer : MonoBehaviour
         {
             //similar added for non mesh agent enemies
             Vector3 targetPos = currentTarget.transform.position;
-            if (currentTarget.GetComponent<NavMeshAgent>())
+
+            NavMeshAgent enemyAgent = targetNavMeshAgents[currentTargetIndex]; //currentTarget.GetComponent<NavMeshAgent>();//find this on index as well?
+            if (enemyAgent)
             {
-                targetPos = currentTarget.GetComponent<NavMeshAgent>().nextPosition;
+                targetPos = enemyAgent.nextPosition;
             }
 
             float distance = Vector3.Distance(this.transform.position, targetPos);
@@ -135,10 +161,12 @@ public class Archer : MonoBehaviour
 
         //similar added for non mesh agent enemies
         Vector3 targetPos = targetUnit.transform.position;
-        if (targetUnit.GetComponent<NavMeshAgent>())
+
+        NavMeshAgent enemyAgent = targetNavMeshAgents[currentTargetIndex];//target unit is current target //targetUnit.GetComponent<NavMeshAgent>();
+        if (enemyAgent)
         {
-            targetPos = targetUnit.GetComponent<NavMeshAgent>().nextPosition;
-            if (targetUnit.GetComponent<NavMeshAgent>().velocity.sqrMagnitude < .1f)
+            targetPos = enemyAgent.nextPosition;
+            if (enemyAgent.velocity.sqrMagnitude < .1f)
             {
                 /*targetPosition*/ targetPos = targetUnit.transform.position;
             }
@@ -147,7 +175,7 @@ public class Archer : MonoBehaviour
         //Vector3 targetPosition = targetUnit.GetComponent<NavMeshAgent>().nextPosition;
 
 
-        p.GetComponent<Projectile>().Initialize(/*targetPosition*/targetPos, targetUnit.GetComponent<NavMeshAgent>(), targetDistance);
+        p.GetComponent<Projectile>().Initialize(/*targetPosition*/targetPos, enemyAgent, targetDistance);
     }
 }
 

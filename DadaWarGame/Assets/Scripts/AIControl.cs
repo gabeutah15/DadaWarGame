@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,6 +15,7 @@ public class AIControl : MonoBehaviour
     public int selectedUnitNum;
     GameObject highlight;
     GameObject[] enemyAgents;
+    NavMeshAgent[] enemyNavMeshAgents;
     GameObject currentTarget;
     [SerializeField]
     bool isMeleeUnit;
@@ -28,6 +30,23 @@ public class AIControl : MonoBehaviour
                 highlight = child.gameObject;
         }
         enemyAgents = GameObject.FindGameObjectsWithTag("EnemyAI");
+        enemyNavMeshAgents = new NavMeshAgent[enemyAgents.Length];
+        for (int i = 0; i < enemyAgents.Length; i++)
+        {
+            //not all enemy agents have navmeshes though
+            //but can't mess up ordering
+            NavMeshAgent thisAgentsNavMeshAgent = enemyAgents[i].gameObject.GetComponent<NavMeshAgent>();
+            if (thisAgentsNavMeshAgent)
+            {
+                enemyNavMeshAgents[i] = thisAgentsNavMeshAgent;
+
+            }
+            else
+            {
+                enemyNavMeshAgents[i] = null;
+            }
+        }
+
         currentTarget = null;
     }
 
@@ -101,9 +120,12 @@ public class AIControl : MonoBehaviour
                     //bool enemyIsArcher = true;
                     Vector3 enemyPosition = enemyAgents[i].transform.position;//if archer ie no nav mesh agent
 
-                    if (enemyAgents[i].GetComponent<NavMeshAgent>())
+                    //get component in a loop like this in update is extrememly non performant
+                    NavMeshAgent enemyAgent = enemyNavMeshAgents[i];//i's should line up here// enemyAgents[i].GetComponent<NavMeshAgent>();
+
+                    if (enemyAgent)
                     {
-                        enemyPosition = enemyAgents[i].GetComponent<NavMeshAgent>().nextPosition;//if swordsmen ie has agent
+                        enemyPosition = enemyAgent.nextPosition;//if swordsmen ie has agent
                         //enemyIsArcher = false;//this is only incidentally correct
                     }
 
