@@ -92,17 +92,20 @@ public class GeneralOrders : MonoBehaviour
 
     public void GiveOrder(NavMeshAgent targetAgent)
     {
-        GameObject thisCourier = Instantiate(courierPrefab, this.transform.position + new Vector3(0, 0, 2), Quaternion.identity) as GameObject;
-        //couriers.Add(thisCourier);
-        NavMeshAgent thisCouriersAgent = thisCourier.GetComponent<NavMeshAgent>();
-        Courier courier = thisCourier.GetComponent<Courier>();
-        courier.agent = thisCouriersAgent;
-        courier.target = targetAgent.gameObject;
-        courier.targetsNavMeshAgent = targetAgent;
-        courier.targetUnitNum = targetAgent.gameObject.GetComponent<AIControl>().selectedUnitNum;
-        //thisCouriersAgent.SetDestination(targetAgent.transform.position);//does this always update?
-        //courier.agent.SetDestination(targetAgent.gameObject.transform.position);//set to current position not next navagent postion becaus target might not have next pos yet
-        couriers.Add(courier);
-        //courierDictionary.Add(thisCouriersAgent, targetAgent);
+        if (this.gameObject.activeSelf)
+        {
+            GameObject thisCourier = Instantiate(courierPrefab, this.transform.position + new Vector3(0, 0, 2), Quaternion.identity) as GameObject;
+            //couriers.Add(thisCourier);
+            NavMeshAgent thisCouriersAgent = thisCourier.GetComponent<NavMeshAgent>();
+            Courier courier = thisCourier.GetComponent<Courier>();
+            courier.agent = thisCouriersAgent;
+            courier.target = targetAgent.gameObject;
+            courier.targetsNavMeshAgent = targetAgent;
+            courier.targetUnitNum = targetAgent.gameObject.GetComponent<AIControl>().selectedUnitNum;
+            //thisCouriersAgent.SetDestination(targetAgent.transform.position);//does this always update?
+            //courier.agent.SetDestination(targetAgent.gameObject.transform.position);//set to current position not next navagent postion becaus target might not have next pos yet
+            couriers.Add(courier);
+            //courierDictionary.Add(thisCouriersAgent, targetAgent);
+        }
     }
 }
