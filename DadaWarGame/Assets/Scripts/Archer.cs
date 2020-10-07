@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -22,18 +23,18 @@ public class Archer : MonoBehaviour
     int currentTargetIndex;
     [SerializeField]
     LayerMask layerMaskToShootThrough;
+    private AudioSource[] audioSources;
     [SerializeField]
     bool isPhysicsProjectile = false;
     [SerializeField]
     GameObject physicsBall;
-
     //public string enemyTag = "AI";
 
     void Start()
     {
         //if you want to spawn more enemies later and be able to shoot them you will have to check for targets again when that happens
         targets = GameObject.FindGameObjectsWithTag(tagToShoot);
-
+        audioSources = GetComponents<AudioSource>();
         //layerMaskToShootThrough = 1 << 10;
 
         targetNavMeshAgents = new NavMeshAgent[targets.Length];
@@ -173,6 +174,13 @@ public class Archer : MonoBehaviour
     {
         //if lead ball then need to set initialize position as higher up and further forward
         Transform p = AmmoManager.SpawnAmmo(this.transform.position, Quaternion.identity, this.name);
+        if (this.name.Contains("Catapult"))
+        {
+            if(audioSources!=null && audioSources.Length == 3)
+            {
+                audioSources[2].Play();
+            }
+        }
 
         //similar added for non mesh agent enemies
         Vector3 targetPos = targetUnit.transform.position;

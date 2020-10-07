@@ -33,6 +33,8 @@ public class Projectile : MonoBehaviour
 
     public bool isFlying;
     public float visibleTime = 5;
+    public AudioSource impactSound;
+    private int collisionCount = 0;
 
     Rigidbody rb;
 
@@ -105,6 +107,10 @@ public class Projectile : MonoBehaviour
 
         lastPosition = transform.position;
     }
+    private void Start()
+    {
+        impactSound = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -148,9 +154,17 @@ public class Projectile : MonoBehaviour
         lastPosition = transform.position;
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    isFlying = false;
-    //}
+     private void OnCollisionEnter(Collision collision)
+    {
+        
+        if (IsLeadBall)
+        {   
+            if (collision.gameObject.name.Equals("Plane") && collisionCount ==0)
+            {   
+                collisionCount++;
+                impactSound.Play();
+            }
+        }
+    }
 
 }

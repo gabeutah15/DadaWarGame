@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
@@ -19,11 +20,14 @@ public class AIControl : MonoBehaviour
     GameObject currentTarget;
     [SerializeField]
     bool isMeleeUnit;
+    private AudioSource[] sounds;
     [HideInInspector]
     public bool isAwaitingOrders;
     [HideInInspector]
     public Vector3 futureDestination;
-    
+    [SerializeField]
+    int independentPursueDistance = 30;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +56,8 @@ public class AIControl : MonoBehaviour
             }
         }
 
+        sounds = GetComponents<AudioSource>();   //assumes 'die sound' is first and 'charge ahead' sound is second
+        //dieSound = GetComponent<AudioSource>();
         currentTarget = null;
     }
 
@@ -69,28 +75,42 @@ public class AIControl : MonoBehaviour
                 }
             }
         }
-
         if (collision.gameObject.CompareTag("EnemySword"))
         {
             health--;
         }
-
-        if (health <= 0)
+        //if(this.name == "Catapult (1)")
+            //UnityEngine.Debug.Log("health .." + health+ "health == 0: " + (health == 0)+ " dieSound.enabled: "+ dieSound.enabled);
+        if (health == 0 && sounds != null && sounds.Length > 0 && sounds[0].enabled )
         {
+            sounds[0].Play();
+            //StartCoroutine(playDieSound());
+        }
+        /*if (health <= 0)
+        {   
             this.gameObject.SetActive(false);//destroy or just setactive false?
             //Destroy(this.gameObject);
-        }
+        }*/
     }
 
-    [SerializeField]
-    int independentPursueDistance = 30;
+
+    /*private IEnumerator playDieSound()
+    {
+        *//*dieSound.Play();*//*
+        while (dieSound.isPlaying)
+        {
+            yield return null;
+        }
+    }*/
+    
 
     private void Update()
     {
+        
         if(agent.remainingDistance > 5)
         {
             this.transform.LookAt(agent.steeringTarget + new Vector3(0, .5f, 0));
-            Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
+           // Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
         }
 
         if((agent.remainingDistance < independentPursueDistance) && isMeleeUnit)
@@ -114,7 +134,12 @@ public class AIControl : MonoBehaviour
                     highlight.SetActive(false);
                 }
             }
-        //}
+        if (health <= 0 && sounds !=null && sounds.Length>0 && !sounds[0].isPlaying && sounds[0].enabled)
+        {
+            UnityEngine.Debug.Log("Playing stopped ..");
+            sounds[0].enabled = false;
+            this.gameObject.SetActive(false);
+        }
     }
 
     private void PursueNearest()
@@ -168,7 +193,7 @@ public class AIControl : MonoBehaviour
         }
 
         if (currentTarget)
-        {
+        {   
             agent.SetDestination(currentTarget.transform.position);
         }
         if (agent.remainingDistance > (agent.stoppingDistance + 1))
