@@ -20,8 +20,14 @@ public class AIControl : MonoBehaviour
     GameObject currentTarget;
     [SerializeField]
     bool isMeleeUnit;
-    //private AudioSource dieSound;
     private AudioSource[] sounds;
+    [HideInInspector]
+    public bool isAwaitingOrders;
+    [HideInInspector]
+    public Vector3 futureDestination;
+    [SerializeField]
+    int independentPursueDistance = 30;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +93,7 @@ public class AIControl : MonoBehaviour
         }*/
     }
 
+
     /*private IEnumerator playDieSound()
     {
         *//*dieSound.Play();*//*
@@ -95,6 +102,7 @@ public class AIControl : MonoBehaviour
             yield return null;
         }
     }*/
+    
 
     private void Update()
     {
@@ -105,25 +113,27 @@ public class AIControl : MonoBehaviour
            // Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
         }
 
-        if((agent.remainingDistance < 10) && isMeleeUnit)
+        if((agent.remainingDistance < independentPursueDistance) && isMeleeUnit)
         {
             PursueNearest();
         }
 
-        if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)selectedUnitNum))
-        {
-            if (!highlight.activeSelf)
+        //if (UnitSelectionManager.selectedUnits)//dunno if this is the nullcheck here?
+        //{
+        if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)selectedUnitNum))//null ref here?
             {
-                highlight.SetActive(true);
+                if (!highlight.activeSelf)
+                {
+                    highlight.SetActive(true);
+                }
             }
-        }
-        else
-        {
-            if (highlight.activeSelf)
+            else
             {
-                highlight.SetActive(false);
+                if (highlight.activeSelf)
+                {
+                    highlight.SetActive(false);
+                }
             }
-        }
         if (health <= 0 && sounds !=null && sounds.Length>0 && !sounds[0].isPlaying && sounds[0].enabled)
         {
             UnityEngine.Debug.Log("Playing stopped ..");
@@ -156,7 +166,7 @@ public class AIControl : MonoBehaviour
                     }
 
                     float distance = Vector3.Distance(this.transform.position, enemyPosition);
-                    if ((distance < minDistance) && (distance < 10) /*&& ((distance < 5) || (enemyIsArcher && (distance < 10)))*/)//hardcoded less than ten so only does this at all if close to enemies even if has no 'remaining distance'
+                    if ((distance < minDistance) && (distance < independentPursueDistance) /*&& ((distance < 5) || (enemyIsArcher && (distance < 10)))*/)//hardcoded less than ten so only does this at all if close to enemies even if has no 'remaining distance'
                     {
                         //could instead do some bool for 'isUnderFire' in which case a unit will, if given no other order, always pursue and attack archers that can shoot at it
                         //kind of makes sense but might also be annoying

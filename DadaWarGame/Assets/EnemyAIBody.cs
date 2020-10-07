@@ -92,14 +92,17 @@ public class EnemyAIBody : MonoBehaviour
                 }
             }
 
+            //should do something to switch to closer targets in territory maybe? or probably just make territories smaller
             if (currentTarget && territory.playerUnitsInYourTerritory.Contains(currentTarget))
             {
-                agent.SetDestination(currentTarget.transform.position);
+                //agent.SetDestination(currentTarget.transform.position);
+                SetDestinationIfAttainable(agent, currentTarget.transform.position);
             }
 
             if (currentTarget && !territory.playerUnitsInYourTerritory.Contains(currentTarget))
             {
-                agent.SetDestination(startingPosition);
+                //agent.SetDestination(startingPosition);
+                SetDestinationIfAttainable(agent, startingPosition);
                 currentTarget = null;
             }
 
@@ -111,7 +114,8 @@ public class EnemyAIBody : MonoBehaviour
             //don't have any targets and you are close to last target ie last enemy you killed then go back
             if(currentTarget == null && (agent.remainingDistance < 5) && !hasSetToReturnToStart)
             {
-                agent.SetDestination(startingPosition);
+                //agent.SetDestination(startingPosition);
+                SetDestinationIfAttainable(agent, startingPosition);
                 hasSetToReturnToStart = true;
             }
 
@@ -134,6 +138,20 @@ public class EnemyAIBody : MonoBehaviour
             }
         }
 
+    }
+
+    private void SetDestinationIfAttainable(NavMeshAgent agent, Vector3 destination)
+    {     
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(destination, path);
+        if (path.status == NavMeshPathStatus.PathPartial)
+        {
+            //do something if agent cannot reach destination
+        }
+        else
+        {
+            agent.SetDestination(destination);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -161,6 +179,15 @@ public class EnemyAIBody : MonoBehaviour
             {
                 if(projectileParent.isDeadly){
                     health--;
+                }
+            }
+
+            AddForceTest physicsBall = collision.gameObject.GetComponent<AddForceTest>();
+            if (physicsBall)
+            {
+                if (physicsBall.isDeadly)
+                {
+                    health -= 2;
                 }
             }
         }

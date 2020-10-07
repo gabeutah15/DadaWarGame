@@ -44,10 +44,21 @@ public class GateHouse : MonoBehaviour
             }
         }
 
-        if(gateHealth <= 0)
+        AddForceTest physicsBall = collision.gameObject.GetComponent<AddForceTest>();
+        if (physicsBall)
+        {
+            if (physicsBall.isDeadly)
+            {
+                gateHealth -= 2;
+            }
+        }
+
+        if (gateHealth <= 0)
         {
             gateDestroyed.gameObject.SetActive(true);
             gate.gameObject.SetActive(false);
+            //should do something to remove this from targets list once destroyed so catapult doesn't keep shooting it
+            //also maybe something to prevent arrows from shooting at gates
             //NavMeshBuilder.BuildNavMesh();//this might be editor only?
         }
     }

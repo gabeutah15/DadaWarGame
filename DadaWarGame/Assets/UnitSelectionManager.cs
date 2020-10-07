@@ -5,6 +5,7 @@ using UnityEngine;
 
 public enum SelectedUnit
 {
+    zero = 0,//for the general
     one = 1,
     two,
     three,
@@ -172,8 +173,15 @@ public class UnitSelectionManager : MonoBehaviour
                     //}
                     //but then could end up with annoying scenario of wanting to select only one unit and being unable to clear unit selection quickly
 
-                    if (holdingControl)
+                    if (selectedUnit == 0)
                     {
+                        selectedUnits.Clear();
+                        selectedUnits.Add(selectedUnit);
+                    }
+                    else if (holdingControl)
+                    {
+                        selectedUnits.Remove(SelectedUnit.zero);
+
                         if (selectedUnits.Contains(selectedUnit))
                         {
                             selectedUnits.Remove(selectedUnit);
@@ -185,18 +193,30 @@ public class UnitSelectionManager : MonoBehaviour
                     }
                     else
                     {
+                        selectedUnits.Remove(SelectedUnit.zero);
+
                         selectedUnits.Clear();
                         selectedUnits.Add(selectedUnit);
                     }
+
+                    
                 }
                 else if (hit.collider.gameObject.GetComponentInParent<AIControl>())//selection plane
                 {
                     AIControl aiControl = hit.collider.gameObject.GetComponentInParent<AIControl>();
                     SelectedUnit selectedUnit = (SelectedUnit)aiControl.selectedUnitNum;
 
-                    if (holdingControl)
+                    if(selectedUnit == 0)
                     {
-                        Debug.Log("holding left control");
+
+                        selectedUnits.Clear();
+                        selectedUnits.Add(selectedUnit);
+                    }
+                    else if (holdingControl)
+                    {
+                        selectedUnits.Remove(SelectedUnit.zero);
+
+                        //Debug.Log("holding left control");
                         if (selectedUnits.Contains(selectedUnit))
                         {
                             selectedUnits.Remove(selectedUnit);
@@ -208,6 +228,8 @@ public class UnitSelectionManager : MonoBehaviour
                     }
                     else
                     {
+                        selectedUnits.Remove(SelectedUnit.zero);
+
                         selectedUnits.Clear();
                         selectedUnits.Add(selectedUnit);
                     }
