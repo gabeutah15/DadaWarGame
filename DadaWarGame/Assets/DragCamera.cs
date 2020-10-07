@@ -19,39 +19,10 @@ public class DragCamera : MonoBehaviour
     float maxFov = 90f;
     float sensitivity = 10f;
 
-    //fog of war
-    public GameObject fogOfWarPlane;
-    public GameObject[] playerUnits;
-    public LayerMask fogLayer;
-    public float radius;
-    private float radiusSquared { get { return radius * radius; } }
-    private Mesh mesh;
-    private Vector3[] vertices;
-    private Color[] colors;
-
-    private void Initialize()
-    {
-        playerUnits = GameObject.FindGameObjectsWithTag("AI");
-        fogOfWarPlane.SetActive(true);
-        mesh = fogOfWarPlane.GetComponent<MeshFilter>().mesh;
-        vertices = mesh.vertices;
-        colors = new Color[vertices.Length];
-        for (int i = 0; i < colors.Length; i++)
-        {
-            colors[i] = Color.black;
-        }
-        UpdateColor();
-    }
-
-    void UpdateColor()
-    {
-        mesh.colors = colors;
-    }
+   
 
     private void Start()
     {
-        Initialize();
-
         zMinBound += Camera.main.transform.position.z;
         zMaxBound += Camera.main.transform.position.z;
 
@@ -62,30 +33,6 @@ public class DragCamera : MonoBehaviour
 
     private void Update()
     {
-        //fog of war section
-        for (int j = 0; j < playerUnits.Length; j++)
-        {
-            Ray ray = new Ray(transform.position, playerUnits[j].transform.position - transform.position);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 1000, fogLayer, QueryTriggerInteraction.Collide))
-            {
-                for (int i = 0; i < vertices.Length; i++)
-                {
-                    Vector3 v = fogOfWarPlane.transform.TransformPoint(vertices[i]);
-                    float dist = Vector3.SqrMagnitude(v - hit.point);
-                    if (dist < radiusSquared)
-                    {
-                        float alpha = Mathf.Min(colors[i].a, dist / radiusSquared);
-                        colors[i].a = alpha;
-                    }
-                }
-                UpdateColor();
-            }
-        }
-
-        //end fog section
-
-
         float fov = Camera.main.fieldOfView;
         fov -= Input.GetAxis("Mouse ScrollWheel") * sensitivity;
         fov = Mathf.Clamp(fov, minFov, maxFov);
@@ -117,5 +64,6 @@ public class DragCamera : MonoBehaviour
                 Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, zMinBound);
             }
         }
+
     }
 }

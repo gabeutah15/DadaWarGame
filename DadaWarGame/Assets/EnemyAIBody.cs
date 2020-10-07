@@ -51,97 +51,104 @@ public class EnemyAIBody : MonoBehaviour
         startingRotation = this.transform.rotation;
     }
 
+    float recalibrateTimer = 0;
+    float recalibrateInterval = 2;
+
     private void Update()
     {
-        
-        if (agent)//basically if it's an enemy that moves, right now not an enemy archer
+        recalibrateTimer += Time.deltaTime;
+        if (recalibrateTimer > recalibrateInterval)
         {
-            
-            if (!currentTarget || !currentTarget.activeSelf)
-            {
-                float minDistance = int.MaxValue;
-                GameObject potentialTarget = null;
+            recalibrateTimer = 0;
 
-                for (int i = 0; i < playerUnits.Length; i++)
+            if (agent)//basically if it's an enemy that moves, right now not an enemy archer
+            {
+
+                if (!currentTarget || !currentTarget.activeSelf)
                 {
-                    if (playerUnits[i].activeSelf && playerNavMeshAgents[i] && territory.playerUnitsInYourTerritory.Contains(playerUnits[i]))
+                    float minDistance = int.MaxValue;
+                    GameObject potentialTarget = null;
+
+                    for (int i = 0; i < playerUnits.Length; i++)
                     {
-                        float distance = Vector3.Distance(this.transform.position, playerNavMeshAgents[i].nextPosition);
-                        if (distance < minDistance)
+                        if (playerUnits[i].activeSelf && playerNavMeshAgents[i] && territory.playerUnitsInYourTerritory.Contains(playerUnits[i]))
                         {
-                            minDistance = distance;
-                            potentialTarget = playerUnits[i];//find closest playeragent that is active and not destroyed
+                            float distance = Vector3.Distance(this.transform.position, playerNavMeshAgents[i].nextPosition);
+                            if (distance < minDistance)
+                            {
+                                minDistance = distance;
+                                potentialTarget = playerUnits[i];//find closest playeragent that is active and not destroyed
+                            }
+                        }
+                    }
+
+                    if (potentialTarget)
+                    {
+                        currentTarget = potentialTarget;
+                        hasSetToReturnToStart = false;
+                        //agent.SetDestination(currentTarget.transform.position);
+                    }
+
+                    if (currentTarget)
+                    {
+                        if (!currentTarget.activeSelf)
+                        {
+                            hasSetToReturnToStart = false;
+                            currentTarget = null;
                         }
                     }
                 }
 
-                if (potentialTarget)
+                //should do something to switch to closer targets in territory maybe? or probably just make territories smaller
+                if (currentTarget && territory.playerUnitsInYourTerritory.Contains(currentTarget))
                 {
-                    currentTarget = potentialTarget;
-                    hasSetToReturnToStart = false;
                     //agent.SetDestination(currentTarget.transform.position);
+                    SetDestinationIfAttainable(agent, currentTarget.transform.position);
                 }
 
-                if (currentTarget)
+                if (currentTarget && !territory.playerUnitsInYourTerritory.Contains(currentTarget))
                 {
-                    if (!currentTarget.activeSelf)
+                    //agent.SetDestination(startingPosition);
+                    SetDestinationIfAttainable(agent, startingPosition);
+                    currentTarget = null;
+                }
+
+                if (agent.remainingDistance > 3)
+                {
+                    this.transform.LookAt(agent.steeringTarget + new Vector3(0, .5f, 0));
+                }
+
+                //don't have any targets and you are close to last target ie last enemy you killed then go back
+                if (currentTarget == null && (agent.remainingDistance < 5) && !hasSetToReturnToStart)
+                {
+                    //agent.SetDestination(startingPosition);
+                    SetDestinationIfAttainable(agent, startingPosition);
+                    hasSetToReturnToStart = true;
+                }
+
+                if (agent.remainingDistance < .2)
+                {
+                    if (hasSetToReturnToStart)
                     {
-                        hasSetToReturnToStart = false;
-                        currentTarget = null;
+                        this.transform.rotation = startingRotation;
                     }
                 }
-            }
 
-            //should do something to switch to closer targets in territory maybe? or probably just make territories smaller
-            if (currentTarget && territory.playerUnitsInYourTerritory.Contains(currentTarget))
-            {
-                //agent.SetDestination(currentTarget.transform.position);
-                SetDestinationIfAttainable(agent, currentTarget.transform.position);
-            }
-
-            if (currentTarget && !territory.playerUnitsInYourTerritory.Contains(currentTarget))
-            {
-                //agent.SetDestination(startingPosition);
-                SetDestinationIfAttainable(agent, startingPosition);
-                currentTarget = null;
-            }
-
-            if (agent.remainingDistance > 3)
-            {
-                this.transform.LookAt(agent.steeringTarget + new Vector3(0, .5f, 0));
-            }
-
-            //don't have any targets and you are close to last target ie last enemy you killed then go back
-            if(currentTarget == null && (agent.remainingDistance < 5) && !hasSetToReturnToStart)
-            {
-                //agent.SetDestination(startingPosition);
-                SetDestinationIfAttainable(agent, startingPosition);
-                hasSetToReturnToStart = true;
-            }
-
-            if(agent.remainingDistance < .2)
-            {
-                if (hasSetToReturnToStart)
+                if (/*(agent.remainingDistance > 0) &&*/ (agent.remainingDistance < 5) && (currentTarget != null))//a
                 {
-                    this.transform.rotation = startingRotation;
+                    animator.SetBool("IsInCombat", true);
+                }
+                else
+                {
+                    animator.SetBool("IsInCombat", false);
+
                 }
             }
-
-            if (/*(agent.remainingDistance > 0) &&*/ (agent.remainingDistance < 5) && (currentTarget != null))//a
-            {
-                animator.SetBool("IsInCombat", true);
-            }
-            else
-            {
-                animator.SetBool("IsInCombat", false);
-
-            }
         }
-
     }
 
     private void SetDestinationIfAttainable(NavMeshAgent agent, Vector3 destination)
-    {     
+    {
         NavMeshPath path = new NavMeshPath();
         agent.CalculatePath(destination, path);
         if (path.status == NavMeshPathStatus.PathPartial)
@@ -177,7 +184,8 @@ public class EnemyAIBody : MonoBehaviour
             Projectile projectileParent = collision.gameObject.GetComponentInParent<Projectile>();
             if (projectileParent)
             {
-                if(projectileParent.isDeadly){
+                if (projectileParent.isDeadly)
+                {
                     health--;
                 }
             }
@@ -215,7 +223,7 @@ public class EnemyAIBody : MonoBehaviour
             if (deathModelPrefab)
             {
                 GameObject thisUnitDead = Instantiate(deathModelPrefab, this.transform.position, this.transform.rotation) as GameObject;
-                thisUnitDead.GetComponent<Rigidbody>().AddForce(new Vector3(1f,0,0.5f));//just enough to knock it over
+                thisUnitDead.GetComponent<Rigidbody>().AddForce(new Vector3(1f, 0, 0.5f));//just enough to knock it over
                 deathModelPrefab = null;
             }
 

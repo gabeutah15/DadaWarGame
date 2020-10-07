@@ -78,7 +78,7 @@ public class AIControl : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+
         if (collision.gameObject.CompareTag("Projectile"))
         {
             Projectile projectileParent = collision.gameObject.GetComponentInParent<Projectile>();
@@ -95,8 +95,8 @@ public class AIControl : MonoBehaviour
             health--;
         }
         //if(this.name == "Catapult (1)")
-            //UnityEngine.Debug.Log("health .." + health+ "health == 0: " + (health == 0)+ " dieSound.enabled: "+ dieSound.enabled);
-        if (health == 0 && sounds != null && sounds.Length > 0 && sounds[0].enabled )
+        //UnityEngine.Debug.Log("health .." + health+ "health == 0: " + (health == 0)+ " dieSound.enabled: "+ dieSound.enabled);
+        if (health == 0 && sounds != null && sounds.Length > 0 && sounds[0].enabled)
         {
             sounds[0].Play();
             //StartCoroutine(playDieSound());
@@ -117,43 +117,50 @@ public class AIControl : MonoBehaviour
             yield return null;
         }
     }*/
-    
+    private float recalibrateTimer = 0;
+    private float recalibrateInterval = 1f;
 
     private void Update()
     {
         
-        if(agent.remainingDistance > 5)
-        {
-            this.transform.LookAt(agent.steeringTarget + new Vector3(0, .5f, 0));
-           // Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
-        }
-
-        if((agent.remainingDistance < independentPursueDistance) && isMeleeUnit)
-        {
-            PursueNearest();
-        }
-
         //if (UnitSelectionManager.selectedUnits)//dunno if this is the nullcheck here?
         //{
         if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)selectedUnitNum))//null ref here?
+        {
+            if (!highlight.activeSelf)
             {
-                if (!highlight.activeSelf)
-                {
-                    highlight.SetActive(true);
-                }
+                highlight.SetActive(true);
             }
-            else
+        }
+        else
+        {
+            if (highlight.activeSelf)
             {
-                if (highlight.activeSelf)
-                {
-                    highlight.SetActive(false);
-                }
+                highlight.SetActive(false);
             }
-        if (health <= 0 && sounds !=null && sounds.Length>0 && !sounds[0].isPlaying && sounds[0].enabled)
+        }
+        if (health <= 0 && sounds != null && sounds.Length > 0 && !sounds[0].isPlaying && sounds[0].enabled)
         {
             UnityEngine.Debug.Log("Playing stopped ..");
             sounds[0].enabled = false;
             this.gameObject.SetActive(false);
+        }
+
+        recalibrateTimer += Time.deltaTime;
+        if (recalibrateTimer > recalibrateInterval)
+        {
+            recalibrateTimer = 0;
+            if (agent.remainingDistance > 5)
+            {
+                this.transform.LookAt(agent.steeringTarget + new Vector3(0, .5f, 0));
+                // Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
+            }
+
+            if ((agent.remainingDistance < independentPursueDistance) && isMeleeUnit)
+            {
+                PursueNearest();
+            }
+
         }
     }
 
@@ -208,7 +215,7 @@ public class AIControl : MonoBehaviour
         }
 
         if (currentTarget)
-        {   
+        {
             agent.SetDestination(currentTarget.transform.position);
         }
         if (agent.remainingDistance > (agent.stoppingDistance + 1))
