@@ -10,11 +10,13 @@ public class ArrowCollisionScript : MonoBehaviour
     ParticleSystem groundPoundPS;
     bool particleHasPlayed = false;
     float timeSinceImpact = 0;
+    AddForceTest force;
     // Start is called before the first frame update
     void Start()
     {
         projectileParent = GetComponentInParent<Projectile>();//sometimes this is null but it shouldn't be?
         rb = GetComponent<Rigidbody>();
+        force = GetComponent<AddForceTest>();
     }
 
     private void Update()
@@ -33,6 +35,24 @@ public class ArrowCollisionScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (force)
+        {
+            if (groundPoundPS && !particleHasPlayed)
+            {
+                Vector3 contactNormal = collision.contacts[0].normal;
+                LayerMask colliderLayer = collision.collider.gameObject.layer;
+                int groundLayer = 1 << 9;
+                if (colliderLayer == (colliderLayer | (1 << groundLayer)))
+                {
+                    contactNormal += new Vector3(-90, 0, 0);
+                }
+                Quaternion rot = Quaternion.Euler(contactNormal);
+                Instantiate(groundPoundPS, transform.position, rot);
+                groundPoundPS.Play();
+                particleHasPlayed = true;
+                rb.AddForce(new Vector3(0, 30 * rb.velocity.y, 30 * rb.velocity.x));
+            }
+        }
         //don't collide with other arrows
         if (collision.gameObject && projectileParent)
         {

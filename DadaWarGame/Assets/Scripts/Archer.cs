@@ -22,6 +22,10 @@ public class Archer : MonoBehaviour
     int currentTargetIndex;
     [SerializeField]
     LayerMask layerMaskToShootThrough;
+    [SerializeField]
+    bool isPhysicsProjectile = false;
+    [SerializeField]
+    GameObject physicsBall;
 
     //public string enemyTag = "AI";
 
@@ -62,7 +66,14 @@ public class Archer : MonoBehaviour
             {
                 if (!holdFire)
                 {
-                    ShootProjectile(currentTarget);
+                    if (!isPhysicsProjectile)
+                    {
+                        ShootProjectile(currentTarget);
+                    }
+                    else
+                    {
+                        ShootPhysicsProjectile(currentTarget);
+                    }
                 }
             }
         }
@@ -180,6 +191,17 @@ public class Archer : MonoBehaviour
 
 
         p.GetComponent<Projectile>().Initialize(/*targetPosition*/targetPos, enemyAgent, targetDistance);
+    }
+
+    public void ShootPhysicsProjectile(GameObject target)
+    {
+        if (physicsBall)
+        {
+            GameObject thisPhysicsBall = Instantiate(physicsBall, transform.position + new Vector3(0,2,0), Quaternion.identity);
+            AddForceTest force = thisPhysicsBall.GetComponent<AddForceTest>();
+            force.target = target;
+            force.Throw();
+        }
     }
 }
 

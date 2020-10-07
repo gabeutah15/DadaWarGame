@@ -181,6 +181,15 @@ public class EnemyAIBody : MonoBehaviour
                     health--;
                 }
             }
+
+            AddForceTest physicsBall = collision.gameObject.GetComponent<AddForceTest>();
+            if (physicsBall)
+            {
+                if (physicsBall.isDeadly)
+                {
+                    health -= 2;
+                }
+            }
         }
 
         //this doesn't work for finding just collision with playerweapon (spear) and nor does below with compare tag
