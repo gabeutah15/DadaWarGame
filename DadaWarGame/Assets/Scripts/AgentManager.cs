@@ -120,12 +120,25 @@ public class AgentManager : MonoBehaviour
 
                                 Vector3 destination = hit.point + new Vector3(xPos, 0, zPos);
                                 //Vector3 destination = hit.point;
-                                agents[i].GetComponent<AIControl>().agent.SetDestination(destination);
+                                // agents[i].GetComponent<AIControl>().agent.SetDestination(destination);
                                 //Plays 'charge prompt' on right click
-                                if(agents[i].name.Contains("Catapult"))
-                                    audioSourcesCatapultAI[1].Play();
-                                else
-                                    audioSourcesNonCatapultAI[1].Play();
+                                //if (agents[i].activeSelf)
+                                //{
+                                    if (agents[i].name.Contains("Catapult"))
+                                    {
+                                        if (audioSourcesCatapultAI[1].isActiveAndEnabled)
+                                        {
+                                            audioSourcesCatapultAI[1].Play();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (audioSourcesNonCatapultAI[1].isActiveAndEnabled)
+                                        {
+                                            audioSourcesNonCatapultAI[1].Play();
+                                        }
+                                    }
+                               // }
 
                                 if (!hasSentACourier)
                                 {

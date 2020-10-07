@@ -46,12 +46,15 @@ public class GeneralOrders : MonoBehaviour
                     {
                         var aiControl = agents[j].GetComponent<AIControl>();
 
-                        if (aiControl)//this is probably a nonperformant call
+                        if (aiControl && agents[j].activeSelf)//this is probably a nonperformant call
                         {
                             if(aiControl.selectedUnitNum == couriers[i].targetUnitNum)//this never goes off, why?
                             {
                                 aiControl.isAwaitingOrders = false;
-                                aiControl.agent.SetDestination(aiControl.futureDestination);
+                                if (aiControl.agent)
+                                {
+                                    aiControl.agent.SetDestination(aiControl.futureDestination);
+                                }
                             }
 
                         }

@@ -58,7 +58,10 @@ public class AIControl : MonoBehaviour
             }
 
             GateHouse thisGateHouse = enemyAgents[i].gameObject.GetComponent<GateHouse>();
-            if (thisGateHouse)
+            Gate thisGate = enemyAgents[i].gameObject.GetComponent<Gate>();
+            GateDestroyed thisGateDestroyed = enemyAgents[i].gameObject.GetComponent<GateDestroyed>();
+
+            if (thisGateHouse || thisGate || thisGateDestroyed)
             {
                 enemyIsGateHouse[i] = true;
             }
@@ -98,11 +101,11 @@ public class AIControl : MonoBehaviour
             sounds[0].Play();
             //StartCoroutine(playDieSound());
         }
-        /*if (health <= 0)
-        {   
+        if (health <= 0)
+        {
             this.gameObject.SetActive(false);//destroy or just setactive false?
             //Destroy(this.gameObject);
-        }*/
+        }
     }
 
 

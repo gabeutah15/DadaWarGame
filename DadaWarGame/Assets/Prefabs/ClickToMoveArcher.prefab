@@ -210,9 +210,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  health: 3
+  health: 1
   selectedUnitNum: 5
   isMeleeUnit: 0
+  isAwaitingOrders: 0
+  futureDestination: {x: 0, y: 0, z: 0}
+  independentPursueDistance: 30
 --- !u!195 &432483160834423033
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -252,6 +255,8 @@ MonoBehaviour:
   layerMaskToShootThrough:
     serializedVersion: 2
     m_Bits: 1024
+  isPhysicsProjectile: 0
+  physicsBall: {fileID: 0}
 --- !u!54 &146215714413514771
 Rigidbody:
   m_ObjectHideFlags: 0

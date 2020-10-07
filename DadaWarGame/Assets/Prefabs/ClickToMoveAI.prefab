@@ -417,9 +417,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  health: 3
+  health: 2
   selectedUnitNum: 0
   isMeleeUnit: 1
+  isAwaitingOrders: 0
+  futureDestination: {x: 0, y: 0, z: 0}
+  independentPursueDistance: 30
 --- !u!195 &8919823698986203169
 NavMeshAgent:
   m_ObjectHideFlags: 0
