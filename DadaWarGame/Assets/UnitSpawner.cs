@@ -16,6 +16,8 @@ public class UnitSpawner : MonoBehaviour
     GameObject archerPrefab;
     [SerializeField]
     GameObject spearmanPrefab;
+    [SerializeField]
+    GameObject cavalryPrefab;
 
     float formationXOffset = 0;
     float formationZOffset = 0;
@@ -27,6 +29,8 @@ public class UnitSpawner : MonoBehaviour
 
     public int numArchers { get; set; }
     public int numSpearmen { get; set; }
+    public int numCavalry { get; set; }
+
 
     bool hasStartedSecondRow = false;
 
@@ -34,13 +38,16 @@ public class UnitSpawner : MonoBehaviour
     void Awake()
     {
         numArchers = 6;
-        numSpearmen = 6;
+        numSpearmen = 3;
+        numCavalry = 3;
         SpawnUnits();
     }
 
     private void SpawnUnits()
     {
         SpawnFormation(numSpearmen, spearmanPrefab);
+        SpawnFormation(numCavalry, cavalryPrefab);
+
         SpawnFormation(numArchers, archerPrefab);
 
     }
