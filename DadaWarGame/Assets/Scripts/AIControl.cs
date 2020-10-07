@@ -17,6 +17,7 @@ public class AIControl : MonoBehaviour
     GameObject highlight;
     GameObject[] enemyAgents;
     NavMeshAgent[] enemyNavMeshAgents;
+    bool[] enemyIsGateHouse;
     GameObject currentTarget;
     [SerializeField]
     bool isMeleeUnit;
@@ -40,6 +41,7 @@ public class AIControl : MonoBehaviour
         }
         enemyAgents = GameObject.FindGameObjectsWithTag("EnemyAI");
         enemyNavMeshAgents = new NavMeshAgent[enemyAgents.Length];
+        enemyIsGateHouse = new bool[enemyAgents.Length];
         for (int i = 0; i < enemyAgents.Length; i++)
         {
             //not all enemy agents have navmeshes though
@@ -53,6 +55,16 @@ public class AIControl : MonoBehaviour
             else
             {
                 enemyNavMeshAgents[i] = null;
+            }
+
+            GateHouse thisGateHouse = enemyAgents[i].gameObject.GetComponent<GateHouse>();
+            if (thisGateHouse)
+            {
+                enemyIsGateHouse[i] = true;
+            }
+            else
+            {
+                enemyIsGateHouse[i] = false;
             }
         }
 
@@ -151,7 +163,7 @@ public class AIControl : MonoBehaviour
 
             for (int i = 0; i < enemyAgents.Length; i++)
             {
-                if (enemyAgents[i].activeSelf)
+                if (enemyAgents[i].activeSelf && enemyIsGateHouse[i] == false)
                 {
                     //bool enemyIsArcher = true;
                     Vector3 enemyPosition = enemyAgents[i].transform.position;//if archer ie no nav mesh agent
