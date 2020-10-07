@@ -6,12 +6,30 @@ public class AgentManager : MonoBehaviour
 {
     GameObject[] agents;
     int layerMask;
-
+    public float attackASVolume;
+    private AudioSource[] audioSourcesNonCatapultAI;
+    private AudioSource[] audioSourcesCatapultAI;
     // Start is called before the first frame update
     void Start()
     {
         agents = GameObject.FindGameObjectsWithTag("AI");
         layerMask = 1 << 9;//9 is the ground layer mask
+        for(int x=0; x< agents.Length; x++)
+        {
+            if(agents[x].GetComponents<AudioSource>() !=null && (agents[x].GetComponents<AudioSource>()).Length ==2 && audioSourcesNonCatapultAI == null)
+            {
+                audioSourcesNonCatapultAI = agents[x].GetComponents<AudioSource>();
+                audioSourcesNonCatapultAI[1].volume = attackASVolume;
+            }
+            else if (agents[x].GetComponents<AudioSource>() != null && (agents[x].GetComponents<AudioSource>()).Length == 3 && audioSourcesCatapultAI == null)
+            {
+                audioSourcesCatapultAI = agents[x].GetComponents<AudioSource>();
+                audioSourcesCatapultAI[1].volume = attackASVolume;
+            }
+
+            if (audioSourcesCatapultAI != null && audioSourcesNonCatapultAI != null)
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -64,7 +82,11 @@ public class AgentManager : MonoBehaviour
 
 
                                 agents[i].GetComponent<AIControl>().agent.SetDestination(destination);
-
+                                //Plays 'charge prompt' on right click
+                                if(agents[i].name.Contains("Catapult"))
+                                    audioSourcesCatapultAI[1].Play();
+                                else
+                                    audioSourcesNonCatapultAI[1].Play();
                                 //simple
                                 //a.GetComponent<AIControl>().agent.SetDestination(hit.point);
                             }

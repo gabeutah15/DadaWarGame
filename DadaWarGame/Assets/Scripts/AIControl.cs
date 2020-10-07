@@ -20,7 +20,8 @@ public class AIControl : MonoBehaviour
     GameObject currentTarget;
     [SerializeField]
     bool isMeleeUnit;
-    private AudioSource dieSound;
+    //private AudioSource dieSound;
+    private AudioSource[] sounds;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +50,8 @@ public class AIControl : MonoBehaviour
             }
         }
 
-        dieSound = GetComponent<AudioSource>();
+        sounds = GetComponents<AudioSource>();   //assumes 'die sound' is first and 'charge ahead' sound is second
+        //dieSound = GetComponent<AudioSource>();
         currentTarget = null;
     }
 
@@ -71,11 +73,11 @@ public class AIControl : MonoBehaviour
         {
             health--;
         }
-        if(this.name == "Catapult (1)")
-            UnityEngine.Debug.Log("health .." + health+ "health == 0: " + (health == 0)+ " dieSound.enabled: "+ dieSound.enabled);
-        if (health == 0 && dieSound.enabled )
+        //if(this.name == "Catapult (1)")
+            //UnityEngine.Debug.Log("health .." + health+ "health == 0: " + (health == 0)+ " dieSound.enabled: "+ dieSound.enabled);
+        if (health == 0 && sounds != null && sounds.Length > 0 && sounds[0].enabled )
         {
-            dieSound.Play();
+            sounds[0].Play();
             //StartCoroutine(playDieSound());
         }
         /*if (health <= 0)
@@ -122,10 +124,10 @@ public class AIControl : MonoBehaviour
                 highlight.SetActive(false);
             }
         }
-        if (health <= 0 && !dieSound.isPlaying && dieSound.enabled)
+        if (health <= 0 && sounds !=null && sounds.Length>0 && !sounds[0].isPlaying && sounds[0].enabled)
         {
             UnityEngine.Debug.Log("Playing stopped ..");
-            dieSound.enabled = false;
+            sounds[0].enabled = false;
             this.gameObject.SetActive(false);
         }
     }
@@ -181,7 +183,7 @@ public class AIControl : MonoBehaviour
         }
 
         if (currentTarget)
-        {
+        {   
             agent.SetDestination(currentTarget.transform.position);
         }
         if (agent.remainingDistance > (agent.stoppingDistance + 1))
