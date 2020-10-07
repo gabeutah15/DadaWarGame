@@ -8,15 +8,13 @@ public class AgentManager : MonoBehaviour
     GameObject[] agents;
     //public static GameObject[] currentlySelectedAgents;
     int layerMask;
-<<<<<<< HEAD
     public float attackASVolume;
     private AudioSource[] audioSourcesNonCatapultAI;
     private AudioSource[] audioSourcesCatapultAI;
-=======
     [SerializeField]
     GeneralOrders general;
-
->>>>>>> main
+    int currentFormationSelectedUnitNum = 0;
+    int currentNumFormationsIn = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,8 +38,7 @@ public class AgentManager : MonoBehaviour
         }
     }
 
-    int currentFormationSelectedUnitNum = 0;
-    int currentNumFormationsIn = 0;
+    
     // Update is called once per frame
     void Update()
     {
@@ -123,15 +120,13 @@ public class AgentManager : MonoBehaviour
 
                                 Vector3 destination = hit.point + new Vector3(xPos, 0, zPos);
                                 //Vector3 destination = hit.point;
-
-<<<<<<< HEAD
                                 agents[i].GetComponent<AIControl>().agent.SetDestination(destination);
                                 //Plays 'charge prompt' on right click
                                 if(agents[i].name.Contains("Catapult"))
                                     audioSourcesCatapultAI[1].Play();
                                 else
                                     audioSourcesNonCatapultAI[1].Play();
-=======
+
                                 if (!hasSentACourier)
                                 {
                                     general.GiveOrder(agents[i].GetComponent<NavMeshAgent>());
@@ -144,8 +139,6 @@ public class AgentManager : MonoBehaviour
                                     aiControl.futureDestination = destination;
                                 }
                                 //agents[i].GetComponent<AIControl>().agent.SetDestination(destination);
-
->>>>>>> main
                                 //simple
                                 //a.GetComponent<AIControl>().agent.SetDestination(hit.point);
                             }
