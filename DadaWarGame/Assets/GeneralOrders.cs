@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class GeneralOrders : MonoBehaviour
 {
@@ -15,12 +16,16 @@ public class GeneralOrders : MonoBehaviour
     GameObject[] agents;
     [SerializeField]
     private int totalStartingCouriers = 5;
-    private int couriersCurrentlyAvailable = 5;
+    [HideInInspector]
+    public static int couriersCurrentlyAvailable = 5;
     Queue<NavMeshAgent> agentsAwaitingOrders;
+    public Text numCouriersAvailable;
 
     // Start is called before the first frame update
     void Start()
     {
+        
+
         agentsAwaitingOrders = new Queue<NavMeshAgent>();
         agents = GameObject.FindGameObjectsWithTag("AI");
         couriers = new List<Courier>();
@@ -35,6 +40,8 @@ public class GeneralOrders : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        numCouriersAvailable.text = "Couriers Available: " + couriersCurrentlyAvailable.ToString();
+
         for (int i = 0; i < couriers.Count; i++)
         {
             //Courier thisCourier = couriers[i];//this ends up being a value not ref?

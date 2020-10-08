@@ -29,6 +29,9 @@ public class AIControl : MonoBehaviour
     [SerializeField]
     int independentPursueDistance = 5;
     Animator animator;
+    public float lineOfSight = 50;
+    [SerializeField]
+    private bool IsScout;
 
     // Start is called before the first frame update
     void Start()
@@ -164,13 +167,13 @@ public class AIControl : MonoBehaviour
         if (recalibrateTimer > recalibrateInterval)
         {
             recalibrateTimer = 0;
-            if (agent.remainingDistance > 5)
+            if (/*!IsScout && */agent.remainingDistance > 5)//probably remove isscout ref later? well won't matter with 2d art and no attacking and no formation
             {
                 this.transform.LookAt(agent.steeringTarget + new Vector3(0, .5f, 0));
                 // Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
             }
 
-            if ((agent.remainingDistance < independentPursueDistance) && isMeleeUnit)
+            if (isMeleeUnit && (agent.remainingDistance < independentPursueDistance))
             {
                 PursueNearest();
             }

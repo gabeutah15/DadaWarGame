@@ -19,7 +19,18 @@ public enum SelectedUnit
     eleven,
     twelve,
     thirteen,
-    fourteen
+    fourteen,
+    fifteen,
+    sixteen,
+    seventeen,
+    eighteen,
+    nineteen,
+    twenty,
+    twentyone,//***21-25 are reserved for scouts
+    twentytwo,
+    twentythree,
+    twentyfour,
+    twentyfive
 }
 
 public class UnitSelectionManager : MonoBehaviour
