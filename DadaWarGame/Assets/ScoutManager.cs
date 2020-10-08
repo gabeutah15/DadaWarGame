@@ -18,7 +18,7 @@ public class ScoutManager : MonoBehaviour
     public Text numCurrentScoutsDisplay;
     bool hasSetInitialScoutsFalse = false;
 
-    void Start()
+    void Awake()
     {
         general = FindObjectOfType<GeneralOrders>();//should only be one, could alternatively expose this as serialized field
         scouts = new List<GameObject>();

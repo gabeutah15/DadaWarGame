@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3682091065352846949}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.224, z: -0.848}
-  m_LocalScale: {x: 2.115057, y: 0.19999999, z: 2.38652}
+  m_LocalRotation: {x: -0.32003427, y: 0, z: 0, w: 0.947406}
+  m_LocalPosition: {x: 0, y: 1.02, z: -1.11}
+  m_LocalScale: {x: 1.15, y: 0.19999999, z: 1.9}
   m_Children: []
   m_Father: {fileID: 3682091066237307879}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -37.33, y: 0, z: 0}
 --- !u!33 &3682091065352846945
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -316,6 +316,7 @@ MonoBehaviour:
   courierPrefab: {fileID: 6120023298019081293, guid: 7ab37eea03c8b4d498ec4744a94cda90,
     type: 3}
   totalStartingCouriers: 5
+  numCouriersAvailable: {fileID: 0}
 --- !u!114 &3682091066237307876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +337,7 @@ MonoBehaviour:
   futureDestination: {x: 0, y: 0, z: 0}
   independentPursueDistance: 30
   lineOfSight: 0
+  IsScout: 0
 --- !u!54 &5483256023686168102
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -507,6 +507,7 @@ MonoBehaviour:
   futureDestination: {x: 0, y: 0, z: 0}
   independentPursueDistance: 15
   lineOfSight: 50
+  IsScout: 0
 --- !u!195 &8919823698986203169
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -517,7 +518,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.6
-  m_Speed: 12
+  m_Speed: 10
   m_Acceleration: 12
   avoidancePriority: 50
   m_AngularSpeed: 10
