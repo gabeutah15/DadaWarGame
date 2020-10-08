@@ -115,6 +115,8 @@ MonoBehaviour:
   layerMaskToShootThrough:
     serializedVersion: 2
     m_Bits: 1024
+  isPhysicsProjectile: 0
+  physicsBall: {fileID: 0}
 --- !u!114 &4911839507128144818
 MonoBehaviour:
   m_ObjectHideFlags: 0

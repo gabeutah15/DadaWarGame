@@ -16,7 +16,7 @@ public class EnemyAIBody : MonoBehaviour
     [SerializeField]
     GameObject deathModelPrefab;
     [SerializeField]
-    Territory territory;
+    public Territory territory;
     Vector3 startingPosition;
     Quaternion startingRotation;
     bool hasSetToReturnToStart = false;

@@ -27,7 +27,7 @@ public class AIControl : MonoBehaviour
     [HideInInspector]
     public Vector3 futureDestination;
     [SerializeField]
-    int independentPursueDistance = 30;
+    int independentPursueDistance = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -216,11 +216,31 @@ public class AIControl : MonoBehaviour
 
         if (currentTarget)
         {
-            agent.SetDestination(currentTarget.transform.position);
+            //agent.SetDestination(currentTarget.transform.position);
+            SetDestinationIfAttainable(agent, currentTarget.transform.position);
         }
+        else
+        {
+            agent.SetDestination(agent.transform.position);//if your target is null and you were pursuing nearest then just stop
+        }
+
         if (agent.remainingDistance > (agent.stoppingDistance + 1))
         {
             this.transform.LookAt(agent.steeringTarget + new Vector3(0, .5f, 0));
+        }
+    }
+
+    private void SetDestinationIfAttainable(NavMeshAgent agent, Vector3 destination)
+    {
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(destination, path);
+        if (path.status == NavMeshPathStatus.PathPartial)
+        {
+            //do something if agent cannot reach destination
+        }
+        else
+        {
+            agent.SetDestination(destination);
         }
     }
 }

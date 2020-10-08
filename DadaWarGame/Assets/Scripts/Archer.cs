@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -29,11 +30,17 @@ public class Archer : MonoBehaviour
     [SerializeField]
     GameObject physicsBall;
     float timerForRecalibrateTargets = 0;
-    float recalibrateTargetsInterval = 2;
+    float recalibrateTargetsInterval = .2f;
+    EnemyAIBody aiBody;
     //public string enemyTag = "AI";
 
     void Start()
     {
+        aiBody = GetComponent<EnemyAIBody>();
+        //if (aiBody)
+        //{
+        //    aiBody.territory.playerUnitsInYourTerritory.Count > 0;
+        //}
         //if you want to spawn more enemies later and be able to shoot them you will have to check for targets again when that happens
         targets = GameObject.FindGameObjectsWithTag(tagToShoot);
         audioSources = GetComponents<AudioSource>();
@@ -80,9 +87,23 @@ public class Archer : MonoBehaviour
         }
     }
 
-    void Update()
+    void LateUpdate()
     {
         timerForRecalibrateTargets += Time.deltaTime;
+
+        //so ai archers don't bother looking for targets if not units in their territory, seems to work,
+        //meant as an optimization on large numbers of friendly units and enemy archers (each enemy archer doing this
+        //below loop for each friendly unit
+        //**would probbaly be better at this point to split out into a friendly and enemy archer class
+        //andthe enemy archer class only ever loops through units in its territory
+        if (aiBody)
+        {
+            if(aiBody.territory.playerUnitsInYourTerritory.Count == 0)
+            {
+                timerForRecalibrateTargets = 0;//if nobody in your territory don't look for targets
+                currentTarget = null;
+            }
+        }
 
         if(timerForRecalibrateTargets >= recalibrateTargetsInterval)
         {
@@ -97,22 +118,34 @@ public class Archer : MonoBehaviour
                         //added this section because some ai enemy targerts have no navmesh, don't move, in which case just shoot at their position
                         Vector3 targetPos = targets[i].transform.position;
 
-                        NavMeshAgent enemyAgent = targetNavMeshAgents[i];//using this is optimazation but onluy incidentally aligns with right target in targets[i]// targets[i].GetComponent<NavMeshAgent>();
+                        //don't really need to reference this here just to check range, ok to just chekc current position as optimization
+                        //NavMeshAgent enemyAgent = targetNavMeshAgents[i];//using this is optimazation but onluy incidentally aligns with right target in targets[i]// targets[i].GetComponent<NavMeshAgent>();
+                        //if (enemyAgent)
+                        //{
+                            //targetPos = enemyAgent.nextPosition;
+                        //}
 
-                        if (enemyAgent)
-                        {
-                            targetPos = enemyAgent.nextPosition;
-                        }
                         float distance = Vector3.Distance(this.transform.position, targetPos);
 
                         //this could be changed to make them pick a kind of random target within range rather than just the first one, because right now
                         //all of the archers end up shooting at the same target and then switching to a new target
                         if (distance < range)
                         {
+                            //no sight section
+                            //tested just doing this to test performance but lag not caused by raycast
+                            //int rand = Random.Range(0, 5);
+                            //if (rand == 0)
+                            //{
+                            //    currentTarget = targets[i];
+                            //    currentTargetIndex = i;
+                            //    targetDistance = distance;
+                            //}
+                            //end no sight
 
                             RaycastHit hit;
-                            Vector3 direction = targets[i].transform.position - this.transform.position;
-                            if (Physics.Raycast(this.transform.position, direction, out hit, 100, ~layerMaskToShootThrough))
+                            Vector3 thisPosition = this.transform.position;
+                            Vector3 direction = targetPos - thisPosition;
+                            if (Physics.Raycast(thisPosition, direction, out hit, 100, ~layerMaskToShootThrough))
                             {
                                 GameObject targetObject = hit.collider.gameObject;
                                 if(targetObject == targets[i])
