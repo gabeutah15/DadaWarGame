@@ -156,6 +156,7 @@ public class AIControl : MonoBehaviour
                 highlight.SetActive(false);
             }
         }
+
         if (health <= 0 && sounds != null && sounds.Length > 0 && !sounds[0].isPlaying && sounds[0].enabled)
         {
             UnityEngine.Debug.Log("Playing stopped ..");

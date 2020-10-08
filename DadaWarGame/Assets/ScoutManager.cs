@@ -31,7 +31,7 @@ public class ScoutManager : MonoBehaviour
         }
     }
 
-    public void SpawnScout()
+    public void SpawnScout()//***this fails if you try to spawn scouts while MAX couriers are out, ie while there aren't enough couriers to spawn a scout
     {
         //need to check here on num available couriers, or only be able to call this if num available couriers is greater than 0
         //that can be done in the onclick ui for the button
