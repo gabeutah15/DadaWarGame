@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
+//using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
@@ -125,10 +125,17 @@ public class AIControl : MonoBehaviour
     private float recalibrateTimer = 0;
     private float recalibrateInterval = 1f;
 
+    private float recalibrateTimerAnim = 0;
+    private float recalibrateIntervalAnim = .2f;
+
     private void Update()
     {
-        if (animator)
+        recalibrateTimerAnim += Time.deltaTime;
+
+        if (animator && (recalibrateTimerAnim > recalibrateIntervalAnim))
         {
+            recalibrateTimerAnim = 0;
+
             if (agent.velocity.sqrMagnitude > 0.1f)//a
             {
                 animator.SetBool("IsMoving", true);
@@ -136,6 +143,51 @@ public class AIControl : MonoBehaviour
             else
             {
                 animator.SetBool("IsMoving", false);
+            }
+
+            Vector3 rotation = (this.transform.rotation * Vector3.forward).normalized;
+            float x = rotation.x;
+            float z = rotation.z;
+            //Debug.Log(rotation);
+            if (Mathf.Abs(x) > Mathf.Abs(z))
+            {
+                //more left or right than forward or back
+                if (x < 0)
+                {
+                    //RIGHT
+                    animator.SetBool("Left", false);
+                    animator.SetBool("Right", true);
+                    animator.SetBool("Forward", false);
+                    animator.SetBool("Backward", false);
+                }
+                else
+                {
+                    //LEFT
+                    animator.SetBool("Left", true);
+                    animator.SetBool("Right", false);
+                    animator.SetBool("Forward", false);
+                    animator.SetBool("Backward", false);
+                }
+            }
+            else
+            {
+                //more left or right than forward or back
+                if (z < 0)
+                {
+                    //Backward
+                    animator.SetBool("Left", false);
+                    animator.SetBool("Right", false);
+                    animator.SetBool("Forward", false);
+                    animator.SetBool("Backward", true);
+                }
+                else
+                {
+                    //Forward
+                    animator.SetBool("Left", false);
+                    animator.SetBool("Right", false);
+                    animator.SetBool("Forward", true);
+                    animator.SetBool("Backward", false);
+                }
             }
         }
 
