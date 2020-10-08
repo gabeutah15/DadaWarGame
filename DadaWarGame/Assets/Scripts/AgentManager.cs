@@ -64,7 +64,9 @@ public class AgentManager : MonoBehaviour
                         Scout scout = agents[i].GetComponent<Scout>();
                         if ((agents[i].GetComponent<GeneralOrders>() || scout) && UnitSelectionManager.selectedUnits.Contains((SelectedUnit)aiControl.selectedUnitNum))
                         {
-                            scout.IsReturningToGeneral = false;
+                            if(scout)
+                                scout.IsReturningToGeneral = false;
+
                             aiControl.agent.SetDestination(hit.point);
                         }
                         else if (aiControl)//this is probably a nonperformant call

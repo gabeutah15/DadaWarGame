@@ -1207,11 +1207,11 @@ PrefabInstance:
         type: 3}
       propertyPath: territory
       value: 
-      objectReference: {fileID: 1748974973}
+      objectReference: {fileID: 654938541}
     - target: {fileID: 7795922413589018616, guid: 565c63ee821604c42b365663e6dc8bdd,
         type: 3}
       propertyPath: m_Speed
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 565c63ee821604c42b365663e6dc8bdd, type: 3}
@@ -2202,11 +2202,11 @@ PrefabInstance:
         type: 3}
       propertyPath: territory
       value: 
-      objectReference: {fileID: 1748974973}
+      objectReference: {fileID: 654938541}
     - target: {fileID: 7795922413589018616, guid: 565c63ee821604c42b365663e6dc8bdd,
         type: 3}
       propertyPath: m_Speed
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 565c63ee821604c42b365663e6dc8bdd, type: 3}
@@ -3575,11 +3575,11 @@ PrefabInstance:
         type: 3}
       propertyPath: territory
       value: 
-      objectReference: {fileID: 1748974973}
+      objectReference: {fileID: 654938541}
     - target: {fileID: 7795922413589018616, guid: 565c63ee821604c42b365663e6dc8bdd,
         type: 3}
       propertyPath: m_Speed
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 565c63ee821604c42b365663e6dc8bdd, type: 3}
@@ -5163,11 +5163,11 @@ PrefabInstance:
         type: 3}
       propertyPath: territory
       value: 
-      objectReference: {fileID: 1748974973}
+      objectReference: {fileID: 654938541}
     - target: {fileID: 7795922413589018616, guid: 565c63ee821604c42b365663e6dc8bdd,
         type: 3}
       propertyPath: m_Speed
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 565c63ee821604c42b365663e6dc8bdd, type: 3}
@@ -6655,8 +6655,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 654938538}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -52.8, y: 0, z: -40.5}
-  m_LocalScale: {x: 4.599323, y: 1, z: 2.3691318}
+  m_LocalPosition: {x: -53.5, y: 0, z: -20.8}
+  m_LocalScale: {x: 5.3356743, y: 1, z: 5.36166}
   m_Children: []
   m_Father: {fileID: 60514481}
   m_RootOrder: 1
@@ -9136,6 +9136,7 @@ MonoBehaviour:
   futureDestination: {x: 0, y: 0, z: 0}
   independentPursueDistance: 5
   lineOfSight: 0
+  IsScout: 0
 --- !u!136 &1036287767
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11225,11 +11226,11 @@ PrefabInstance:
         type: 3}
       propertyPath: territory
       value: 
-      objectReference: {fileID: 1748974973}
+      objectReference: {fileID: 654938541}
     - target: {fileID: 7795922413589018616, guid: 565c63ee821604c42b365663e6dc8bdd,
         type: 3}
       propertyPath: m_Speed
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 565c63ee821604c42b365663e6dc8bdd, type: 3}
@@ -11884,11 +11885,11 @@ PrefabInstance:
         type: 3}
       propertyPath: territory
       value: 
-      objectReference: {fileID: 1748974973}
+      objectReference: {fileID: 654938541}
     - target: {fileID: 7795922413589018616, guid: 565c63ee821604c42b365663e6dc8bdd,
         type: 3}
       propertyPath: m_Speed
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 565c63ee821604c42b365663e6dc8bdd, type: 3}
@@ -15399,11 +15400,11 @@ PrefabInstance:
         type: 3}
       propertyPath: territory
       value: 
-      objectReference: {fileID: 1748974973}
+      objectReference: {fileID: 654938541}
     - target: {fileID: 7795922413589018616, guid: 565c63ee821604c42b365663e6dc8bdd,
         type: 3}
       propertyPath: m_Speed
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 565c63ee821604c42b365663e6dc8bdd, type: 3}
@@ -15703,11 +15704,11 @@ PrefabInstance:
         type: 3}
       propertyPath: territory
       value: 
-      objectReference: {fileID: 1748974973}
+      objectReference: {fileID: 654938541}
     - target: {fileID: 7795922413589018616, guid: 565c63ee821604c42b365663e6dc8bdd,
         type: 3}
       propertyPath: m_Speed
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 565c63ee821604c42b365663e6dc8bdd, type: 3}
