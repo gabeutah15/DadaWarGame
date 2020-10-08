@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: -2278857651260049698}
   m_Layer: 0
   m_Name: SwordsmanModelForDeath
-  m_TagString: EnemyAI
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea062acee58c26428a09f3ccce3001b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeUntilBodyDisappears: 5
 --- !u!1 &4684428873632819149
 GameObject:
   m_ObjectHideFlags: 0

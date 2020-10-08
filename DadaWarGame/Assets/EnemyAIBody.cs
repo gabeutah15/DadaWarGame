@@ -219,6 +219,7 @@ public class EnemyAIBody : MonoBehaviour
 
         if (health <= 0)
         {
+            //TargetsManager.RemoveFromTargetsList(this.gameObject);
             this.gameObject.SetActive(false);
             if (deathModelPrefab)
             {

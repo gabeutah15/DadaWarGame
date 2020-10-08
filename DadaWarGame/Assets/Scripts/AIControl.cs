@@ -103,6 +103,7 @@ public class AIControl : MonoBehaviour
         }
         if (health <= 0)
         {
+            //TargetsManager.RemoveFromUsedByEnemyTargetsList(this.gameObject);
             this.gameObject.SetActive(false);//destroy or just setactive false?
             //Destroy(this.gameObject);
         }

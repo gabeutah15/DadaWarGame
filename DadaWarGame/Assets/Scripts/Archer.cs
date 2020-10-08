@@ -11,8 +11,12 @@ public class Archer : MonoBehaviour
     float range;
 
     //Private
+    //GameObject[] targetsInitial;
     GameObject[] targets;
+    //List<GameObject> targets;
     NavMeshAgent[] targetNavMeshAgents;
+    //List<NavMeshAgent> targetNavMeshAgents;
+
     GameObject currentTarget;
     float timer;
     float targetDistance;
@@ -34,11 +38,30 @@ public class Archer : MonoBehaviour
 
     void Start()
     {
+        //targetmanagersection
+        //if(tagToShoot == "AI")//if you are shooting AI, whih is player units, ie you are enemy
+        //{
+        //    targets = TargetsManager.targetsUsedByEnemy;
+        //    targetNavMeshAgents = TargetsManager.targetNavMeshAgentsUsedByEnemy;
+        //}
+        //else if (tagToShoot == "EnemyAI")//if you are shooting enemy ai, ie you are player unit
+        //{
+        //    targets = TargetsManager.targets;
+        //    targetNavMeshAgents = TargetsManager.targetNavMeshAgents;
+        //}
+        //end targetmanagersection
+
         //if you want to spawn more enemies later and be able to shoot them you will have to check for targets again when that happens
         targets = GameObject.FindGameObjectsWithTag(tagToShoot);
+        //targets = new List<GameObject>();
+        //for (int i = 0; i < targetsInitial.Length; i++)
+        //{
+        //    targets.Add(targetsInitial[i]);
+        //}
+
         audioSources = GetComponents<AudioSource>();
-        //layerMaskToShootThrough = 1 << 10;
-        targetNavMeshAgents = new NavMeshAgent[targets.Length];
+        layerMaskToShootThrough = 1 << 10;
+        targetNavMeshAgents = new NavMeshAgent[targets.Length];//new List<NavMeshAgent>();
         for (int i = 0; i < targets.Length; i++)
         {
             //not all enemy agents have navmeshes though
@@ -63,7 +86,7 @@ public class Archer : MonoBehaviour
         if (timer > 2)
         {
             timer -= 2;
-            if (currentTarget && currentTarget.activeSelf)
+            if (currentTarget /*&& currentTarget.activeSelf*/)
             {
                 if (!holdFire)
                 {
@@ -88,11 +111,12 @@ public class Archer : MonoBehaviour
         {
             timerForRecalibrateTargets = 0;
             //need put if this .active self around all stuff in this and fixed update?
-            if (!currentTarget || !currentTarget.activeSelf)//if current target is null or inactive
+            //***main performance hits here are from acquiring active status
+            if (!currentTarget /*|| !currentTarget.activeSelf*/)//if current target is null or inactive
             {
                 for (int i = 0; i < targets.Length; i++)
                 {
-                    if (targets[i] && targets[i].activeSelf/* && targets[i].GetComponent<NavMeshAgent>()*/)
+                    if (targets[i] /*&& targets[i].activeSelf*/)
                     {
                         //added this section because some ai enemy targerts have no navmesh, don't move, in which case just shoot at their position
                         Vector3 targetPos = targets[i].transform.position;
@@ -139,6 +163,8 @@ public class Archer : MonoBehaviour
             }
             else
             {
+                //might be greater sourceo fperfoamnce hits if archers have already acquired targets
+
                 //similar added for non mesh agent enemies
                 Vector3 targetPos = currentTarget.transform.position;
 
