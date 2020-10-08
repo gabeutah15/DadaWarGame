@@ -101,7 +101,7 @@ MonoBehaviour:
   cameraDragSpeed: 80
   xMaxBound: 50
   xMinBound: -50
-  zMaxBound: 120
+  zMaxBound: 200
   zMinBound: -120
 --- !u!114 &6675893542444818862
 MonoBehaviour:
@@ -121,8 +121,8 @@ MonoBehaviour:
   fogLayer:
     serializedVersion: 2
     m_Bits: 2048
-  radius: 20
-  fogUpdateInterval: 0.2
+  radius: 60
+  fogUpdateInterval: 0.1
 --- !u!82 &1305270677
 AudioSource:
   m_ObjectHideFlags: 0

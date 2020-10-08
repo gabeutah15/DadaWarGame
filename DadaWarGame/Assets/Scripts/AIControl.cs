@@ -28,10 +28,12 @@ public class AIControl : MonoBehaviour
     public Vector3 futureDestination;
     [SerializeField]
     int independentPursueDistance = 5;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         agent = this.GetComponent<NavMeshAgent>();
         capsuleCollider = this.GetComponent<Collider>();
         foreach (Transform child in transform)
@@ -122,7 +124,19 @@ public class AIControl : MonoBehaviour
 
     private void Update()
     {
-        
+        if (animator)
+        {
+            if (agent.velocity.sqrMagnitude > 0.1f)//a
+            {
+                animator.SetBool("IsMoving", true);
+            }
+            else
+            {
+                animator.SetBool("IsMoving", false);
+            }
+        }
+
+
         //if (UnitSelectionManager.selectedUnits)//dunno if this is the nullcheck here?
         //{
         if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)selectedUnitNum))//null ref here?
