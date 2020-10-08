@@ -13,10 +13,15 @@ public class GeneralOrders : MonoBehaviour
     //Dictionary<NavMeshAgent, NavMeshAgent> courierDictionary;
     NavMeshAgent generalsAgent;
     GameObject[] agents;
+    [SerializeField]
+    private int totalStartingCouriers = 5;
+    private int couriersCurrentlyAvailable = 5;
+    Queue<NavMeshAgent> agentsAwaitingOrders;
 
     // Start is called before the first frame update
     void Start()
     {
+        agentsAwaitingOrders = new Queue<NavMeshAgent>();
         agents = GameObject.FindGameObjectsWithTag("AI");
         couriers = new List<Courier>();
         //for (int i = 0; i < 5; i++)
@@ -68,6 +73,7 @@ public class GeneralOrders : MonoBehaviour
                     //thisCourier.available = true;//do later with fixed num couriers
                     couriers[i].gameObject.SetActive(false);
                     couriers.Remove(couriers[i]);
+                    couriersCurrentlyAvailable++;
                 }
             }
 
@@ -91,24 +97,45 @@ public class GeneralOrders : MonoBehaviour
 
         //    entry.Key.SetDestination(entry.Value.nextPosition);//next or this position?
         //}
+
+        if ((couriersCurrentlyAvailable > 0) && (agentsAwaitingOrders.Count > 0))
+        {
+            NavMeshAgent thisTargetAgnet = agentsAwaitingOrders.Dequeue();
+            couriersCurrentlyAvailable--;
+            GameObject thisCourier = Instantiate(courierPrefab, this.transform.position + new Vector3(0, 0, 2), Quaternion.identity) as GameObject;
+            //couriers.Add(thisCourier);
+            NavMeshAgent thisCouriersAgent = thisCourier.GetComponent<NavMeshAgent>();
+            Courier courier = thisCourier.GetComponent<Courier>();
+            courier.agent = thisCouriersAgent;
+            courier.target = thisTargetAgnet.gameObject;
+            courier.targetsNavMeshAgent = thisTargetAgnet;
+            courier.targetUnitNum = thisTargetAgnet.gameObject.GetComponent<AIControl>().selectedUnitNum;
+            couriers.Add(courier);
+        }
     }
 
     public void GiveOrder(NavMeshAgent targetAgent)
     {
         if (this.gameObject.activeSelf)
         {
-            GameObject thisCourier = Instantiate(courierPrefab, this.transform.position + new Vector3(0, 0, 2), Quaternion.identity) as GameObject;
-            //couriers.Add(thisCourier);
-            NavMeshAgent thisCouriersAgent = thisCourier.GetComponent<NavMeshAgent>();
-            Courier courier = thisCourier.GetComponent<Courier>();
-            courier.agent = thisCouriersAgent;
-            courier.target = targetAgent.gameObject;
-            courier.targetsNavMeshAgent = targetAgent;
-            courier.targetUnitNum = targetAgent.gameObject.GetComponent<AIControl>().selectedUnitNum;
-            //thisCouriersAgent.SetDestination(targetAgent.transform.position);//does this always update?
-            //courier.agent.SetDestination(targetAgent.gameObject.transform.position);//set to current position not next navagent postion becaus target might not have next pos yet
-            couriers.Add(courier);
-            //courierDictionary.Add(thisCouriersAgent, targetAgent);
+            if((couriersCurrentlyAvailable > 0) && (agentsAwaitingOrders.Count == 0))//couriers available and no one waiting to get one
+            {
+                couriersCurrentlyAvailable--;
+                GameObject thisCourier = Instantiate(courierPrefab, this.transform.position + new Vector3(0, 0, 2), Quaternion.identity) as GameObject;
+                //couriers.Add(thisCourier);
+                NavMeshAgent thisCouriersAgent = thisCourier.GetComponent<NavMeshAgent>();
+                Courier courier = thisCourier.GetComponent<Courier>();
+                courier.agent = thisCouriersAgent;
+                courier.target = targetAgent.gameObject;
+                courier.targetsNavMeshAgent = targetAgent;
+                courier.targetUnitNum = targetAgent.gameObject.GetComponent<AIControl>().selectedUnitNum;
+                couriers.Add(courier);
+            }
+            else
+            {
+                agentsAwaitingOrders.Enqueue(targetAgent);
+            }
         }
     }
+   
 }
