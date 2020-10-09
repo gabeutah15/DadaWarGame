@@ -9180,7 +9180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7837b9da2968a743825204328f6bd70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  archerPrefab: {fileID: 432483160834423027, guid: fcd008fe2d0826840881f0a11c6e3302,
+  archerPrefab: {fileID: 8919823698986203179, guid: 73dc0b9e278d70c4ba0233f077087796,
     type: 3}
   spearmanPrefab: {fileID: 8919823698986203179, guid: c88901e2c4442134cae0d539374288cd,
     type: 3}
