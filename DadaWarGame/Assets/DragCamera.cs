@@ -24,6 +24,8 @@ public class DragCamera : MonoBehaviour
     Vector3 touchStart;
     public float zoomOutMin = 15;
     public float zoomOutMax = 40;
+    
+
 
     void zoom(float increment)
     {
@@ -138,7 +140,7 @@ public class DragCamera : MonoBehaviour
             {
                 if (isDragging && (xAbs < dragMargin) && (yAbs < dragMargin))
                 {
-                    Debug.Log("dragging on none");
+                    //Debug.Log("dragging on none");
                 }
 
                 Camera.main.transform.position -= new Vector3(xInput * speed, 0, yInput * speed);

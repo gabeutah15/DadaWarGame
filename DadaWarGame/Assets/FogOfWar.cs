@@ -61,7 +61,7 @@ public class FogOfWar : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         //fog of war section
         timerForFogUpdate += Time.deltaTime;
@@ -73,7 +73,7 @@ public class FogOfWar : MonoBehaviour
                 //could probably cache some of these positions to be more performant, or even just do a playerUnits array instead of list and make it of vector3s not game objects
                 Ray ray = new Ray(transform.position, playerUnits[j].transform.position - transform.position);
                 RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, 1000, fogLayer, QueryTriggerInteraction.Collide))
+                if (Physics.Raycast(ray, out hit, 200, fogLayer, QueryTriggerInteraction.Collide))
                 {
                     radius = playerUnitSightDistances[j];
                     for (int i = 0; i < vertices.Length; i++)

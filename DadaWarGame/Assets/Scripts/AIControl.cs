@@ -33,6 +33,17 @@ public class AIControl : MonoBehaviour
     [SerializeField]
     private bool IsScout;
 
+    private int leftAnimHash;
+    private int rightAnimHash;
+    private int forwardAnimHash;
+    private int backwardAnimHash;
+    private int isMovingHash;
+
+    [SerializeField]
+    bool hasFourFacingAnim = false;
+    [SerializeField]
+    bool hasMovingAnim = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,6 +90,12 @@ public class AIControl : MonoBehaviour
         sounds = GetComponents<AudioSource>();   //assumes 'die sound' is first and 'charge ahead' sound is second
         //dieSound = GetComponent<AudioSource>();
         currentTarget = null;
+
+        leftAnimHash = Animator.StringToHash("Left2");
+        rightAnimHash = Animator.StringToHash("Right2");
+        forwardAnimHash = Animator.StringToHash("Forward2");
+        backwardAnimHash = Animator.StringToHash("Backward2");
+        isMovingHash = Animator.StringToHash("IsMoving");
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -126,72 +143,84 @@ public class AIControl : MonoBehaviour
     private float recalibrateInterval = 1f;
 
     private float recalibrateTimerAnim = 0;
-    private float recalibrateIntervalAnim = .2f;
+    private float recalibrateIntervalAnim = .1f;
 
-    private void Update()
+    //***check if this should be in late update or not?
+    private void LateUpdate()
     {
         recalibrateTimerAnim += Time.deltaTime;
 
-        if (animator && (recalibrateTimerAnim > recalibrateIntervalAnim))
+        if (/*animator && (recalibrateTimerAnim > recalibrateIntervalAnim)*/true)//may go back to this if needed for performance
         {
             recalibrateTimerAnim = 0;
 
-            if (agent.velocity.sqrMagnitude > 0.1f)//a
+            //probably what's goin on is this script on lots of objects, some with ismoving, some with frontleftbackright, and some with no animator
+
+            if (hasMovingAnim)
             {
-                animator.SetBool("IsMoving", true);
-            }
-            else
-            {
-                animator.SetBool("IsMoving", false);
+                if (agent.velocity.sqrMagnitude > 0.1f)//a
+                {
+                    animator.SetBool(isMovingHash, true);
+                }
+                else
+                {
+                    animator.SetBool(isMovingHash, false);
+                }
+
             }
 
-            Vector3 rotation = (this.transform.rotation * Vector3.forward).normalized;
-            float x = rotation.x;
-            float z = rotation.z;
-            //Debug.Log(rotation);
-            if (Mathf.Abs(x) > Mathf.Abs(z))
+            if (hasFourFacingAnim)
             {
-                //more left or right than forward or back
-                if (x < 0)
+                Vector3 rotation = (this.transform.rotation * Vector3.forward).normalized;
+                float x = rotation.x;
+                float z = rotation.z;
+                //Debug.Log(rotation);
+                if (Mathf.Abs(x) > Mathf.Abs(z))
                 {
-                    //RIGHT
-                    animator.SetBool("Left", false);
-                    animator.SetBool("Right", true);
-                    animator.SetBool("Forward", false);
-                    animator.SetBool("Backward", false);
+                    //more left or right than forward or back
+                    if (x < 0)
+                    {
+                        //RIGHT
+                        animator.SetBool(leftAnimHash,       false);
+                        animator.SetBool(rightAnimHash,     true);
+                        animator.SetBool(forwardAnimHash,   false);
+                        animator.SetBool(backwardAnimHash,  false);
+                    }
+                    else
+                    {
+                        //LEFT
+                        animator.SetBool(leftAnimHash, true);
+                        animator.SetBool(rightAnimHash, false);
+                        animator.SetBool(forwardAnimHash, false);
+                        animator.SetBool(backwardAnimHash, false);
+                    }
                 }
                 else
                 {
-                    //LEFT
-                    animator.SetBool("Left", true);
-                    animator.SetBool("Right", false);
-                    animator.SetBool("Forward", false);
-                    animator.SetBool("Backward", false);
-                }
-            }
-            else
-            {
-                //more left or right than forward or back
-                if (z < 0)
-                {
-                    //Backward
-                    animator.SetBool("Left", false);
-                    animator.SetBool("Right", false);
-                    animator.SetBool("Forward", false);
-                    animator.SetBool("Backward", true);
-                }
-                else
-                {
-                    //Forward
-                    animator.SetBool("Left", false);
-                    animator.SetBool("Right", false);
-                    animator.SetBool("Forward", true);
-                    animator.SetBool("Backward", false);
+                    //more forward or back
+                    if (z < 0)
+                    {
+                        //Backward
+                        animator.SetBool(leftAnimHash, false);
+                        animator.SetBool(rightAnimHash, false);
+                        animator.SetBool(forwardAnimHash, false);
+                        animator.SetBool(backwardAnimHash, true);
+                    }
+                    else
+                    {
+                        //Forward
+                        animator.SetBool(leftAnimHash, false);
+                        animator.SetBool(rightAnimHash, false);
+                        animator.SetBool(forwardAnimHash, true);
+                        animator.SetBool(backwardAnimHash, false);
+                    }
                 }
             }
         }
+    }
 
-
+    private void Update()
+    {
         //if (UnitSelectionManager.selectedUnits)//dunno if this is the nullcheck here?
         //{
         if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)selectedUnitNum))//null ref here?
