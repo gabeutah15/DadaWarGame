@@ -423,7 +423,7 @@ Animator:
   m_GameObject: {fileID: 4883371606423103950}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 97b5ca99bf601074ea4f9acb038cd32a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 16dacc40a5410f1439d28a7ce5876591, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 8919823698986203180}
   - component: {fileID: 8919823698986203169}
   m_Layer: 8
-  m_Name: ClickToMoveSaber2
+  m_Name: ClickToMoveLancer
   m_TagString: AI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -515,8 +515,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
-  m_Acceleration: 8
+  m_Speed: 10
+  m_Acceleration: 12
   avoidancePriority: 50
   m_AngularSpeed: 10
   m_StoppingDistance: 1

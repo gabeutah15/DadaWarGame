@@ -9184,7 +9184,7 @@ MonoBehaviour:
     type: 3}
   spearmanPrefab: {fileID: 8919823698986203179, guid: c88901e2c4442134cae0d539374288cd,
     type: 3}
-  cavalryPrefab: {fileID: 8919823698986203179, guid: 422004f00ae54cc46a269a5555a17a14,
+  cavalryPrefab: {fileID: 8919823698986203179, guid: d044a95af81ec3f4c8558a17f007ae5b,
     type: 3}
 --- !u!4 &988754645
 Transform:

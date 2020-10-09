@@ -361,9 +361,22 @@ public class AIControl : MonoBehaviour
         {
             //agent.SetDestination(currentTarget.transform.position);
             SetDestinationIfAttainable(agent, currentTarget.transform.position);
+
+            if(agent.remainingDistance < 5)
+            {
+                if (animator)
+                {
+                    animator.speed = 3f;
+                }
+            }
+            else
+            {
+                animator.speed = 1f;
+            }
         }
         else
         {
+            animator.speed = 1f;
             agent.SetDestination(agent.transform.position);//if your target is null and you were pursuing nearest then just stop
         }
 
