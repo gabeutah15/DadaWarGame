@@ -78,7 +78,7 @@ public class DeathCounterAndRandomNames : MonoBehaviour
         }
 
         int diff = totalEnemies - totalDeadEnemies;
-        if(diff <= 100 && !hasDisplayedNames && hasFinishedGeneratingNames)
+        if(diff <= 5 && !hasDisplayedNames && hasFinishedGeneratingNames)
         {
             DisplayNames();
             

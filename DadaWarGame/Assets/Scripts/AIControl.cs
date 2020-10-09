@@ -38,11 +38,8 @@ public class AIControl : MonoBehaviour
     private int forwardAnimHash;
     private int backwardAnimHash;
     private int isMovingHash;
+    private int isDeadHash;
 
-    [SerializeField]
-    bool hasFourFacingAnim = false;
-    [SerializeField]
-    bool hasMovingAnim = false;
 
     bool HasGottenNumEnemies = false;
 
@@ -58,7 +55,7 @@ public class AIControl : MonoBehaviour
                 highlight = child.gameObject;
         }
         enemyAgents = GameObject.FindGameObjectsWithTag("EnemyAI");
-        
+
         enemyNavMeshAgents = new NavMeshAgent[enemyAgents.Length];
         enemyIsGateHouse = new bool[enemyAgents.Length];
         for (int i = 0; i < enemyAgents.Length; i++)
@@ -99,11 +96,15 @@ public class AIControl : MonoBehaviour
         forwardAnimHash = Animator.StringToHash("Forward2");
         backwardAnimHash = Animator.StringToHash("Backward2");
         isMovingHash = Animator.StringToHash("IsMoving");
+        isDeadHash = Animator.StringToHash("Death");
+
         if (animator)
         {
-            animator.speed = 0f;
+            animator.speed = 1f;
         }
     }
+
+    float deathAnimationTimeElapsed = 0;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -132,7 +133,13 @@ public class AIControl : MonoBehaviour
         }
         if (health <= 0)
         {
-            this.gameObject.SetActive(false);//destroy or just setactive false?
+            isDead = true;
+            animator.SetBool(isDeadHash, true);
+            agent.speed = 0;
+            highlight.SetActive(false);//this is not working
+                                       //also the deathanimation time elapsed below is not always working, sometimes takes way more or less time
+
+            
             //Destroy(this.gameObject);
         }
     }
@@ -155,123 +162,148 @@ public class AIControl : MonoBehaviour
     //***check if this should be in late update or not?
     private void LateUpdate()
     {
-        recalibrateTimerAnim += Time.deltaTime;
+        //recalibrateTimerAnim += Time.deltaTime;
 
-        if (/*animator && (recalibrateTimerAnim > recalibrateIntervalAnim)*/true)//may go back to this if needed for performance
+
+
+        if (animator)
         {
             recalibrateTimerAnim = 0;
 
             //probably what's goin on is this script on lots of objects, some with ismoving, some with frontleftbackright, and some with no animator
 
-            if (hasMovingAnim)
+            if (agent.velocity.sqrMagnitude > 0.1f)//a
             {
-                if (agent.velocity.sqrMagnitude > 0.1f)//a
+                animator.SetBool(isMovingHash, true);
+            }
+            else
+            {
+                animator.SetBool(isMovingHash, false);
+            }
+
+
+
+            Vector3 rotation = (this.transform.rotation * Vector3.forward).normalized;
+            float x = rotation.x;
+            float z = rotation.z;
+            //Debug.Log(rotation);
+            if (Mathf.Abs(x) > Mathf.Abs(z))
+            {
+                //more left or right than forward or back
+                if (x < 0)
                 {
-                    animator.SetBool(isMovingHash, true);
+                    //RIGHT
+                    animator.SetBool(leftAnimHash, false);
+                    animator.SetBool(rightAnimHash, true);
+                    animator.SetBool(forwardAnimHash, false);
+                    animator.SetBool(backwardAnimHash, false);
                 }
                 else
                 {
-                    animator.SetBool(isMovingHash, false);
+                    //LEFT
+                    animator.SetBool(leftAnimHash, true);
+                    animator.SetBool(rightAnimHash, false);
+                    animator.SetBool(forwardAnimHash, false);
+                    animator.SetBool(backwardAnimHash, false);
                 }
-
             }
-
-            if (hasFourFacingAnim)
+            else
             {
-                Vector3 rotation = (this.transform.rotation * Vector3.forward).normalized;
-                float x = rotation.x;
-                float z = rotation.z;
-                //Debug.Log(rotation);
-                if (Mathf.Abs(x) > Mathf.Abs(z))
+                //more forward or back
+                if (z < 0)
                 {
-                    //more left or right than forward or back
-                    if (x < 0)
-                    {
-                        //RIGHT
-                        animator.SetBool(leftAnimHash,       false);
-                        animator.SetBool(rightAnimHash,     true);
-                        animator.SetBool(forwardAnimHash,   false);
-                        animator.SetBool(backwardAnimHash,  false);
-                    }
-                    else
-                    {
-                        //LEFT
-                        animator.SetBool(leftAnimHash, true);
-                        animator.SetBool(rightAnimHash, false);
-                        animator.SetBool(forwardAnimHash, false);
-                        animator.SetBool(backwardAnimHash, false);
-                    }
+                    //Backward
+                    animator.SetBool(leftAnimHash, false);
+                    animator.SetBool(rightAnimHash, false);
+                    animator.SetBool(forwardAnimHash, false);
+                    animator.SetBool(backwardAnimHash, true);
                 }
                 else
                 {
-                    //more forward or back
-                    if (z < 0)
-                    {
-                        //Backward
-                        animator.SetBool(leftAnimHash, false);
-                        animator.SetBool(rightAnimHash, false);
-                        animator.SetBool(forwardAnimHash, false);
-                        animator.SetBool(backwardAnimHash, true);
-                    }
-                    else
-                    {
-                        //Forward
-                        animator.SetBool(leftAnimHash, false);
-                        animator.SetBool(rightAnimHash, false);
-                        animator.SetBool(forwardAnimHash, true);
-                        animator.SetBool(backwardAnimHash, false);
-                    }
+                    //Forward
+                    animator.SetBool(leftAnimHash, false);
+                    animator.SetBool(rightAnimHash, false);
+                    animator.SetBool(forwardAnimHash, true);
+                    animator.SetBool(backwardAnimHash, false);
                 }
             }
+
         }
     }
 
+    private bool isDead;
+
     private void Update()
     {
-        if (!HasGottenNumEnemies)
+
+      
+
+        if (!isDead)
         {
-            HasGottenNumEnemies = true;
-            DeathCounterAndRandomNames.totalEnemies = enemyAgents.Length;
-        }
-        //if (UnitSelectionManager.selectedUnits)//dunno if this is the nullcheck here?
-        //{
-        if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)selectedUnitNum))//null ref here?
-        {
-            if (!highlight.activeSelf)
+
+
+            if (!HasGottenNumEnemies)
             {
-                highlight.SetActive(true);
+                HasGottenNumEnemies = true;
+                DeathCounterAndRandomNames.totalEnemies = enemyAgents.Length;
+            }
+            //if (UnitSelectionManager.selectedUnits)//dunno if this is the nullcheck here?
+            //{
+            if (UnitSelectionManager.selectedUnits.Count > 0)
+            {
+                if(selectedUnitNum >= 0)
+                {
+                    if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)selectedUnitNum))//null ref here?
+                    {
+                        if (!highlight.activeSelf)
+                        {
+                            highlight.SetActive(true);
+                        }
+                    }
+                    else
+                    {
+                        if (highlight.activeSelf)
+                        {
+                            highlight.SetActive(false);
+                        }
+                    }
+                }
+            }
+
+            
+
+            recalibrateTimer += Time.deltaTime;
+            if (recalibrateTimer > recalibrateInterval)
+            {
+                recalibrateTimer = 0;
+                if (/*!IsScout && */agent.remainingDistance > 5)//probably remove isscout ref later? well won't matter with 2d art and no attacking and no formation
+                {
+                    this.transform.LookAt(agent.steeringTarget + new Vector3(0, .5f, 0));
+                    // Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
+                }
+
+                if (isMeleeUnit && (agent.remainingDistance < independentPursueDistance))
+                {
+                    PursueNearest();
+                }
+
             }
         }
         else
         {
-            if (highlight.activeSelf)
-            {
-                highlight.SetActive(false);
-            }
-        }
+            deathAnimationTimeElapsed += Time.deltaTime;
 
-        if (health <= 0 && sounds != null && sounds.Length > 0 && !sounds[0].isPlaying && sounds[0].enabled)
-        {
-            UnityEngine.Debug.Log("Playing stopped ..");
-            sounds[0].enabled = false;
-            this.gameObject.SetActive(false);
-        }
-
-        recalibrateTimer += Time.deltaTime;
-        if (recalibrateTimer > recalibrateInterval)
-        {
-            recalibrateTimer = 0;
-            if (/*!IsScout && */agent.remainingDistance > 5)//probably remove isscout ref later? well won't matter with 2d art and no attacking and no formation
+            if (health <= 0 && sounds != null && sounds.Length > 0 && !sounds[0].isPlaying && sounds[0].enabled)
             {
-                this.transform.LookAt(agent.steeringTarget + new Vector3(0, .5f, 0));
-                // Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
+                UnityEngine.Debug.Log("Playing stopped ..");
+                sounds[0].enabled = false;
+                //this.gameObject.SetActive(false);
             }
 
-            if (isMeleeUnit && (agent.remainingDistance < independentPursueDistance))
+            if (deathAnimationTimeElapsed > 1f)//length of death animation, which should not be fixed?
             {
-                PursueNearest();
+                this.gameObject.SetActive(false);
             }
-
         }
     }
 
