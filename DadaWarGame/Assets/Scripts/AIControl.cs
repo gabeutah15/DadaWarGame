@@ -99,6 +99,10 @@ public class AIControl : MonoBehaviour
         forwardAnimHash = Animator.StringToHash("Forward2");
         backwardAnimHash = Animator.StringToHash("Backward2");
         isMovingHash = Animator.StringToHash("IsMoving");
+        if (animator)
+        {
+            animator.speed = 0f;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
