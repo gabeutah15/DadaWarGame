@@ -44,6 +44,8 @@ public class AIControl : MonoBehaviour
     [SerializeField]
     bool hasMovingAnim = false;
 
+    bool HasGottenNumEnemies = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +58,7 @@ public class AIControl : MonoBehaviour
                 highlight = child.gameObject;
         }
         enemyAgents = GameObject.FindGameObjectsWithTag("EnemyAI");
+        
         enemyNavMeshAgents = new NavMeshAgent[enemyAgents.Length];
         enemyIsGateHouse = new bool[enemyAgents.Length];
         for (int i = 0; i < enemyAgents.Length; i++)
@@ -221,6 +224,11 @@ public class AIControl : MonoBehaviour
 
     private void Update()
     {
+        if (!HasGottenNumEnemies)
+        {
+            HasGottenNumEnemies = true;
+            DeathCounterAndRandomNames.totalEnemies = enemyAgents.Length;
+        }
         //if (UnitSelectionManager.selectedUnits)//dunno if this is the nullcheck here?
         //{
         if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)selectedUnitNum))//null ref here?

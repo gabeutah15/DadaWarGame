@@ -55,6 +55,7 @@ public class GateHouse : MonoBehaviour
 
         if (gateHealth <= 0)
         {
+            DeathCounterAndRandomNames.totalDeadEnemies++;
             gateDestroyed.gameObject.SetActive(true);
             gate.gameObject.SetActive(false);
             //should do something to remove this from targets list once destroyed so catapult doesn't keep shooting it

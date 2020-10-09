@@ -219,6 +219,8 @@ public class EnemyAIBody : MonoBehaviour
 
         if (health <= 0)
         {
+            DeathCounterAndRandomNames.totalDeadEnemies++;
+
             this.gameObject.SetActive(false);
             if (deathModelPrefab)
             {
