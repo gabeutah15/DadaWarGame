@@ -66,7 +66,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Saber_right_idle
+  m_Name: Messager_right_idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -83,7 +83,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 4897ebe75cc7be148a7c12151b3415d3, type: 2}
+  m_Motion: {fileID: 7400000, guid: 93f949b413591804bbed0b52b0f7fc23, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -149,16 +149,16 @@ AnimatorStateMachine:
     m_Position: {x: 820, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6006802130550162343}
-    m_Position: {x: 150, y: -260, z: 0}
+    m_Position: {x: 140, y: -280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1572181417985415394}
-    m_Position: {x: 420, y: -360, z: 0}
+    m_Position: {x: 430, y: -370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3896070346783065638}
     m_Position: {x: 700, y: -320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -9148135439495026516}
-    m_Position: {x: 840, y: -110, z: 0}
+    m_Position: {x: 860, y: -80, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -437,7 +437,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Saber_back_idle
+  m_Name: Messager_back_idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -454,7 +454,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a05ca3f7787b6a846ac12ebb1a912c28, type: 2}
+  m_Motion: {fileID: 7400000, guid: 58491eca92d853944965b0898c71b99b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -585,7 +585,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Saber_left_idle
+  m_Name: Messager_left_idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -602,7 +602,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 533f82f712e10924b91cd96a6bf19157, type: 2}
+  m_Motion: {fileID: 7400000, guid: aae8d1997b251a343a36eed9076ed3f9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -775,7 +775,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SaberAnimator
+  m_Name: MessagerAnimator 2
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Left2
@@ -783,37 +783,37 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Right2
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Forward2
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Backward2
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Death
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IsMoving
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -852,7 +852,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 4c98c1dd30ff05045bba7b3bd0d37501, type: 2}
+  m_Motion: {fileID: 7400000, guid: 78012d79aaae0e44ba6afb07d9e55108, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -949,7 +949,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Saber_front_idle
+  m_Name: Messager_front_idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -966,7 +966,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9a05f9ba0409ded4e99ab00ca20526f0, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9d6d84a3771343d4fae6bb841beef7b4, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1065,7 +1065,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ee14d0251267326418b907130f8e8971, type: 2}
+  m_Motion: {fileID: 7400000, guid: 406acfbfe96cb8240baee81650d7e5db, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1563,7 +1563,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 25df4c532fd44f54b81a2ac3400ad439, type: 2}
+  m_Motion: {fileID: 7400000, guid: 488daca01579859438f29c54658bd4c7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1594,7 +1594,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 37e8560a99df3994eae12971fe893a27, type: 2}
+  m_Motion: {fileID: 7400000, guid: 499cb07dfe3476849b6597dc5005fa8d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1675,7 +1675,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Saber_death_move
+  m_Name: Messager_death_move
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -1688,7 +1688,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 67d8db7beb6444c409af9bd489a8cb7a, type: 2}
+  m_Motion: {fileID: 7400000, guid: de1199f3d6b1d1d4387b66551296ef54, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

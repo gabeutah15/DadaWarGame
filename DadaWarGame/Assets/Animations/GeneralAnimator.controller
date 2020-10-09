@@ -66,7 +66,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Archer_right_idle
+  m_Name: General_right_idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -83,7 +83,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 29ff9a7573439a24291bb3ab4fafcd04, type: 2}
+  m_Motion: {fileID: 7400000, guid: 40c70fc41f5889c4186a9f65b8dfd164, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -152,20 +152,20 @@ AnimatorStateMachine:
     m_Position: {x: 150, y: -260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1572181417985415394}
-    m_Position: {x: 420, y: -360, z: 0}
+    m_Position: {x: 450, y: -370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3896070346783065638}
-    m_Position: {x: 700, y: -320, z: 0}
+    m_Position: {x: 730, y: -330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -9148135439495026516}
-    m_Position: {x: 840, y: -110, z: 0}
+    m_Position: {x: 890, y: -110, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 10, y: 530, z: 0}
-  m_EntryPosition: {x: -30, y: -180, z: 0}
+  m_EntryPosition: {x: -90, y: -260, z: 0}
   m_ExitPosition: {x: 400, y: 520, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -6006802130550162343}
@@ -437,7 +437,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Archer_back_idle
+  m_Name: General_back_idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -454,7 +454,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 460596ccde8f3a3438686a81702b6825, type: 2}
+  m_Motion: {fileID: 7400000, guid: 24e7331ad9b4d71489a36f9c91e5e1fa, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -585,7 +585,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Archer_left_idle
+  m_Name: General_left_idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -602,7 +602,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5401b5b9c44b5cf49babe96935cf895f, type: 2}
+  m_Motion: {fileID: 7400000, guid: c9d7da779634e794ab5268119101a235, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -775,7 +775,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ArcherAnimator
+  m_Name: GeneralAnimator
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Left2
@@ -852,7 +852,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 385d6576e4821a44eb9ca06a8225ed73, type: 2}
+  m_Motion: {fileID: 7400000, guid: acd8fe2c161b9df4a89606ca93945778, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -949,7 +949,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Archer_front_idle
+  m_Name: General_front_idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -966,7 +966,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 36a7c899b18131f40a2204e646938244, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1e8159d42733fa14cabf69bcafab1a1f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1065,7 +1065,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b999222dd20f68f44b734970aff18b96, type: 2}
+  m_Motion: {fileID: 7400000, guid: 94e4a3adc4b887443b17f8bd02c7d1d9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1563,7 +1563,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cb9561de448d4e04887197c94aa0473d, type: 2}
+  m_Motion: {fileID: 7400000, guid: a3983ddccd8f02f4082011eee06e89d0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1594,7 +1594,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8332ac7a9c7d3494dae182cc0914e0fd, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1f4b2c11115d0cc43a6ec5117eb17f04, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1675,7 +1675,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Archer_death
+  m_Name: General_death_move
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -1688,7 +1688,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f27da41c48fc3bb4cb399189f9e8d7f0, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5d051847079f30a4fa7021bdf0e11bb2, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
