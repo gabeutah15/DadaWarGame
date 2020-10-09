@@ -1,0 +1,910 @@
+fileFormatVersion: 2
+guid: 1dbf3ceda23768b46b75c0c354f76047
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5429472787122405164
+    second: Messager_idle_anim_sheet_0
+  - first:
+      213: -8409309421969801435
+    second: Messager_idle_anim_sheet_1
+  - first:
+      213: -5527157852897260060
+    second: Messager_idle_anim_sheet_2
+  - first:
+      213: -253492215089993129
+    second: Messager_idle_anim_sheet_3
+  - first:
+      213: -6067007018334887854
+    second: Messager_idle_anim_sheet_4
+  - first:
+      213: 2539391892702520150
+    second: Messager_idle_anim_sheet_5
+  - first:
+      213: 8904663947599848095
+    second: Messager_idle_anim_sheet_6
+  - first:
+      213: -5660457114757497114
+    second: Messager_idle_anim_sheet_7
+  - first:
+      213: 629658054095435001
+    second: Messager_idle_anim_sheet_8
+  - first:
+      213: 3239150305534352964
+    second: Messager_idle_anim_sheet_9
+  - first:
+      213: 7579770145525600206
+    second: Messager_idle_anim_sheet_10
+  - first:
+      213: -5496402274433167811
+    second: Messager_idle_anim_sheet_11
+  - first:
+      213: 6561133806966449375
+    second: Messager_idle_anim_sheet_12
+  - first:
+      213: -8294632223511872378
+    second: Messager_idle_anim_sheet_13
+  - first:
+      213: 7926643826784798361
+    second: Messager_idle_anim_sheet_14
+  - first:
+      213: 7826949663469396930
+    second: Messager_idle_anim_sheet_15
+  - first:
+      213: -7010703502675634872
+    second: Messager_idle_anim_sheet_16
+  - first:
+      213: 6070806550015949889
+    second: Messager_idle_anim_sheet_17
+  - first:
+      213: 6617432302370609687
+    second: Messager_idle_anim_sheet_18
+  - first:
+      213: 212497486342399350
+    second: Messager_idle_anim_sheet_19
+  - first:
+      213: 360546542445470605
+    second: Messager_idle_anim_sheet_20
+  - first:
+      213: -1839756137821438519
+    second: Messager_idle_anim_sheet_21
+  - first:
+      213: 6985643761638555227
+    second: Messager_idle_anim_sheet_22
+  - first:
+      213: 6779439759089232289
+    second: Messager_idle_anim_sheet_23
+  - first:
+      213: 5578758958188090459
+    second: Messager_idle_anim_sheet_24
+  - first:
+      213: 7451615436097000487
+    second: Messager_idle_anim_sheet_25
+  - first:
+      213: 8050945816209137286
+    second: Messager_idle_anim_sheet_26
+  - first:
+      213: -8066771439024466087
+    second: Messager_idle_anim_sheet_27
+  - first:
+      213: -7640371207592525837
+    second: Messager_idle_anim_sheet_28
+  - first:
+      213: 5505951609581364862
+    second: Messager_idle_anim_sheet_29
+  - first:
+      213: -3746061292752477314
+    second: Messager_idle_anim_sheet_30
+  - first:
+      213: 6652541902249603296
+    second: Messager_idle_anim_sheet_31
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2400
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2fb41abbbc595b40800000000000000
+      internalID: 5429472787122405164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 2400
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52ff42992a12c4b80800000000000000
+      internalID: -8409309421969801435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 2400
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ed4c8887379b43b0800000000000000
+      internalID: -5527157852897260060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 2400
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75aeb366c2a6b7cf0800000000000000
+      internalID: -253492215089993129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 2400
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 250e85ed249adcba0800000000000000
+      internalID: -6067007018334887854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 2400
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6536a0ed87bbd3320800000000000000
+      internalID: 2539391892702520150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 2400
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f92aae07ea8b39b70800000000000000
+      internalID: 8904663947599848095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 2400
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eefb889e340271b0800000000000000
+      internalID: -5660457114757497114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f472540aaefcb800800000000000000
+      internalID: 629658054095435001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1600
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44e19778a06c3fc20800000000000000
+      internalID: 3239150305534352964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1600
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecf0a2bb9c0c03960800000000000000
+      internalID: 7579770145525600206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 1600
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3e03c9a04bd8b3b0800000000000000
+      internalID: -5496402274433167811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1600
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd4aa006f64dd0b50800000000000000
+      internalID: 6561133806966449375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 1600
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68cf01780fb83ec80800000000000000
+      internalID: -8294632223511872378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 1600
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9960d843098110e60800000000000000
+      internalID: 7926643826784798361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 1600
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c3e4fdff39ee9c60800000000000000
+      internalID: 7826949663469396930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8459e610f4af4be90800000000000000
+      internalID: -7010703502675634872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_17
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 800
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14cb0d98466df3450800000000000000
+      internalID: 6070806550015949889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_18
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 800
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71adefb4e97d5db50800000000000000
+      internalID: 6617432302370609687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 800
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6752a158651f2f200800000000000000
+      internalID: 212497486342399350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_20
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 800
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d83257b8b2be00500800000000000000
+      internalID: 360546542445470605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_21
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 800
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cdfec34a8fd776e0800000000000000
+      internalID: -1839756137821438519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_22
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 800
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5eb3eb5dfdf1f060800000000000000
+      internalID: 6985643761638555227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_23
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 800
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a96ca8ba88651e50800000000000000
+      internalID: 6779439759089232289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b54545607bbbb6d40800000000000000
+      internalID: 5578758958188090459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_25
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 724116f32c4796760800000000000000
+      internalID: 7451615436097000487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_26
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e10196094babf60800000000000000
+      internalID: 8050945816209137286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_27
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 0
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9571ea4ad121d0090800000000000000
+      internalID: -8066771439024466087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_28
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ff335bfdd2f7f590800000000000000
+      internalID: -7640371207592525837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_29
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 0
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e76669f21d1196c40800000000000000
+      internalID: 5505951609581364862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_30
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 0
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e73e5aa0a11530cc0800000000000000
+      internalID: -3746061292752477314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Messager_idle_anim_sheet_31
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 0
+        width: 450
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e03df80d93925c50800000000000000
+      internalID: 6652541902249603296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c5e470b7a93afda4d98650849cbd6054
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
