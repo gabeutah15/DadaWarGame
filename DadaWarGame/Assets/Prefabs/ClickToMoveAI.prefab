@@ -519,7 +519,7 @@ MonoBehaviour:
   isMeleeUnit: 1
   isAwaitingOrders: 0
   futureDestination: {x: 0, y: 0, z: 0}
-  independentPursueDistance: 5
+  independentPursueDistance: 15
   lineOfSight: 50
   IsScout: 0
   hasFourFacingAnim: 0
