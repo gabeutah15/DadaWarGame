@@ -89,6 +89,7 @@ public class UnitSpawner : MonoBehaviour
                         //thisUnit.GetComponent<MeshRenderer>().material.color = color;
                         control.selectedUnitNum = totalNumFormationsSpawned + 1;
                     }
+                    //thisUnit.SetActive(false);
                 }
 
                 

@@ -177,7 +177,7 @@ public class DragCamera : MonoBehaviour
         float dragMargin = 0.05f;
         //so the idea of added stuff below with the dragging and so on is to only take drag input if you drag at least a bit so
         //that touch input of select unit is not mistaken for drag move camera, not sure if it works yet or the .5f margin should be larger
-        if (Input.GetMouseButton(1) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(-1) && !IsPointerOverUIObject())//not using click input anymore
+        if (/*Input.GetMouseButton(1)*//*(Input.touchCount == 2) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(-1) && !IsPointerOverUIObject()*/false)//not using click input anymore
         {
             float speed = cameraDragSpeed * Time.deltaTime;
             var xInput = Input.GetAxis("Mouse X");
