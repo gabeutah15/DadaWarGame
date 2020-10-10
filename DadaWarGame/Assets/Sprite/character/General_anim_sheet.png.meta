@@ -1,0 +1,1078 @@
+fileFormatVersion: 2
+guid: 43d54da615d952740b99704c419499e0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2605367255846143564
+    second: Saber_anim_sheet_0
+  - first:
+      213: -2418236873751876500
+    second: Saber_anim_sheet_1
+  - first:
+      213: -6716532643710117670
+    second: Saber_anim_sheet_2
+  - first:
+      213: -7818411003835152545
+    second: Saber_anim_sheet_3
+  - first:
+      213: -8641488636066351675
+    second: Saber_anim_sheet_4
+  - first:
+      213: -1024896348531899774
+    second: Saber_anim_sheet_5
+  - first:
+      213: -3910306860420814772
+    second: Saber_anim_sheet_6
+  - first:
+      213: 353962963909101098
+    second: Saber_anim_sheet_7
+  - first:
+      213: 6491424105491071897
+    second: Saber_anim_sheet_8
+  - first:
+      213: 8710648785279699708
+    second: Saber_anim_sheet_9
+  - first:
+      213: 6911692996221922344
+    second: Saber_anim_sheet_10
+  - first:
+      213: -9070259762491266951
+    second: Saber_anim_sheet_11
+  - first:
+      213: 1261902250328375465
+    second: Saber_anim_sheet_12
+  - first:
+      213: -3731612933234911506
+    second: Saber_anim_sheet_13
+  - first:
+      213: -1349394609049516908
+    second: Saber_anim_sheet_14
+  - first:
+      213: -3074590423875823836
+    second: Saber_anim_sheet_15
+  - first:
+      213: 2001771065505235071
+    second: Saber_anim_sheet_16
+  - first:
+      213: 7850273339204805008
+    second: Saber_anim_sheet_17
+  - first:
+      213: 7883033889045849626
+    second: Saber_anim_sheet_18
+  - first:
+      213: 2699961394856223856
+    second: Saber_anim_sheet_19
+  - first:
+      213: 2309894174655270876
+    second: Saber_anim_sheet_20
+  - first:
+      213: 3456945530508797363
+    second: Saber_anim_sheet_21
+  - first:
+      213: 2301693419880028871
+    second: Saber_anim_sheet_22
+  - first:
+      213: 1274481040122260169
+    second: Saber_anim_sheet_23
+  - first:
+      213: -9123255399650517959
+    second: Saber_anim_sheet_24
+  - first:
+      213: -7562978195160050130
+    second: Saber_anim_sheet_25
+  - first:
+      213: 6551434083238860095
+    second: Saber_anim_sheet_26
+  - first:
+      213: 4588185224958885410
+    second: Saber_anim_sheet_27
+  - first:
+      213: -5468449714378013445
+    second: Saber_anim_sheet_28
+  - first:
+      213: -1205252395389038851
+    second: Saber_anim_sheet_29
+  - first:
+      213: -1736310960893883009
+    second: Saber_anim_sheet_30
+  - first:
+      213: 2617380016779250452
+    second: Saber_anim_sheet_31
+  - first:
+      213: 9193787702504644969
+    second: Saber_anim_sheet_32
+  - first:
+      213: 507525604612767557
+    second: Saber_anim_sheet_33
+  - first:
+      213: -4164343106092686676
+    second: Saber_anim_sheet_34
+  - first:
+      213: -3879726445196218473
+    second: Saber_anim_sheet_35
+  - first:
+      213: 3147046722509007846
+    second: Saber_anim_sheet_36
+  - first:
+      213: 6406031761325147148
+    second: Saber_anim_sheet_37
+  - first:
+      213: -5443991082798741520
+    second: Saber_anim_sheet_38
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Saber_anim_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b93bddd840e7dbd0800000000000000
+      internalID: -2605367255846143564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6ca44d2062b07ed0800000000000000
+      internalID: -2418236873751876500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad8d75175251ac2a0800000000000000
+      internalID: -6716532643710117670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f578660ad9c6f7390800000000000000
+      internalID: -7818411003835152545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c5b0bcbed3431880800000000000000
+      internalID: -8641488636066351675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 282492e7336d6c1f0800000000000000
+      internalID: -1024896348531899774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4828ddc0accbb9c0800000000000000
+      internalID: -3910306860420814772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a264277b07789e400800000000000000
+      internalID: 353962963909101098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9930436b4db261a50800000000000000
+      internalID: 6491424105491071897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfac8c15be072e870800000000000000
+      internalID: 8710648785279699708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82cec5c09244bef50800000000000000
+      internalID: 6911692996221922344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97860346dc6ff1280800000000000000
+      internalID: -9070259762491266951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a0c61c296d238110800000000000000
+      internalID: 1261902250328375465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee69743eec5a63cc0800000000000000
+      internalID: -3731612933234911506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 494c6c1a0ccf54de0800000000000000
+      internalID: -1349394609049516908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4275013ac4cd455d0800000000000000
+      internalID: -3074590423875823836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f704811ad28b7cb10800000000000000
+      internalID: 2001771065505235071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_17
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 091a50d6206c1fc60800000000000000
+      internalID: 7850273339204805008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_18
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a16a1f45e89266d60800000000000000
+      internalID: 7883033889045849626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0746ca76590387520800000000000000
+      internalID: 2699961394856223856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_20
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf421573846e0020800000000000000
+      internalID: 2309894174655270876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_21
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b5e9d1f4a989ff20800000000000000
+      internalID: 3456945530508797363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_22
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ca9dc178f141ff10800000000000000
+      internalID: 2301693419880028871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_23
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ca2575e0cddfa110800000000000000
+      internalID: 1274481040122260169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93c9aa41d8fa36180800000000000000
+      internalID: -9123255399650517959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_25
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e26d571e667ea0790800000000000000
+      internalID: -7562978195160050130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_26
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f35d6d4769e5bea50800000000000000
+      internalID: 6551434083238860095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_27
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ebe5127228caf30800000000000000
+      internalID: 4588185224958885410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_28
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf4896635f92c14b0800000000000000
+      internalID: -5468449714378013445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_29
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfec5240555164fe0800000000000000
+      internalID: -1205252395389038851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_30
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7d8d44616267e7e0800000000000000
+      internalID: -1736310960893883009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_31
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41b455ef14dc25420800000000000000
+      internalID: 2617380016779250452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 961e4246435e69f70800000000000000
+      internalID: 9193787702504644969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_33
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54ffb5139d71b0700800000000000000
+      internalID: 507525604612767557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_34
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2af7632084536c0800000000000000
+      internalID: -4164343106092686676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_35
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 0
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79fe3609a51782ac0800000000000000
+      internalID: -3879726445196218473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_36
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ebe4b2025e8cab20800000000000000
+      internalID: 3147046722509007846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_37
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 0
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c04c7a142fbc6e850800000000000000
+      internalID: 6406031761325147148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saber_anim_sheet_38
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 0
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f7036524fe0374b0800000000000000
+      internalID: -5443991082798741520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c95283aa8af25a64196b6733113266de
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -45,4 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AmmoPrefab: {fileID: 507953718228763600, guid: 5f6e017938fda6c46bc02d8193ddb60d,
     type: 3}
+  LeadPrefab: {fileID: 7025228105291645408, guid: 33288d1afed8b9e4cbe0fbd5bfdacf2b,
+    type: 3}
   PoolSize: 1000
+  LeadPoolSize: 1000

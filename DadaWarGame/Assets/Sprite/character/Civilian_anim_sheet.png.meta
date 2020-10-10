@@ -1,0 +1,1822 @@
+fileFormatVersion: 2
+guid: 96454f1e5f1a7394db4d89119a8bcd82
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1224187555991594446
+    second: Civilian_anim_sheet_0
+  - first:
+      213: 3165581492394084709
+    second: Civilian_anim_sheet_1
+  - first:
+      213: 4939714783921819019
+    second: Civilian_anim_sheet_2
+  - first:
+      213: 2575776164670558751
+    second: Civilian_anim_sheet_3
+  - first:
+      213: 3046049906830523559
+    second: Civilian_anim_sheet_4
+  - first:
+      213: -8334925683769965895
+    second: Civilian_anim_sheet_5
+  - first:
+      213: 4412137741566303113
+    second: Civilian_anim_sheet_6
+  - first:
+      213: 3796618082582186552
+    second: Civilian_anim_sheet_7
+  - first:
+      213: -2977088740227928733
+    second: Civilian_anim_sheet_8
+  - first:
+      213: -1919583962469840412
+    second: Civilian_anim_sheet_9
+  - first:
+      213: -7288023990248620199
+    second: Civilian_anim_sheet_10
+  - first:
+      213: -1762795759212996049
+    second: Civilian_anim_sheet_11
+  - first:
+      213: 3165345471200617090
+    second: Civilian_anim_sheet_12
+  - first:
+      213: -5120476900952874081
+    second: Civilian_anim_sheet_13
+  - first:
+      213: -617529220742787432
+    second: Civilian_anim_sheet_14
+  - first:
+      213: -5718687031830771124
+    second: Civilian_anim_sheet_15
+  - first:
+      213: 8111566977348576367
+    second: Civilian_anim_sheet_16
+  - first:
+      213: -3408744230670876678
+    second: Civilian_anim_sheet_17
+  - first:
+      213: 1897598139292403377
+    second: Civilian_anim_sheet_18
+  - first:
+      213: 4756174665001247084
+    second: Civilian_anim_sheet_19
+  - first:
+      213: -653336886900788856
+    second: Civilian_anim_sheet_20
+  - first:
+      213: 20401755199141460
+    second: Civilian_anim_sheet_21
+  - first:
+      213: 3722120298500342104
+    second: Civilian_anim_sheet_22
+  - first:
+      213: 8285873543638684468
+    second: Civilian_anim_sheet_23
+  - first:
+      213: 8616712795993977557
+    second: Civilian_anim_sheet_24
+  - first:
+      213: -7958593683161229276
+    second: Civilian_anim_sheet_25
+  - first:
+      213: 8849897959044151337
+    second: Civilian_anim_sheet_26
+  - first:
+      213: -7437790061627589058
+    second: Civilian_anim_sheet_27
+  - first:
+      213: 4698440982790627602
+    second: Civilian_anim_sheet_28
+  - first:
+      213: 7789548255468300472
+    second: Civilian_anim_sheet_29
+  - first:
+      213: -1750374508998477393
+    second: Civilian_anim_sheet_30
+  - first:
+      213: -7651607486622675259
+    second: Civilian_anim_sheet_31
+  - first:
+      213: -2084066859732002439
+    second: Civilian_anim_sheet_32
+  - first:
+      213: 3680243380051957126
+    second: Civilian_anim_sheet_33
+  - first:
+      213: 2476353099424444474
+    second: Civilian_anim_sheet_34
+  - first:
+      213: 5563676293611335825
+    second: Civilian_anim_sheet_35
+  - first:
+      213: -4671002059158478195
+    second: Civilian_anim_sheet_36
+  - first:
+      213: 3518950630994220664
+    second: Civilian_anim_sheet_37
+  - first:
+      213: -6941810360690932008
+    second: Civilian_anim_sheet_38
+  - first:
+      213: 799970956347805741
+    second: Civilian_anim_sheet_39
+  - first:
+      213: 2737259191558169954
+    second: Civilian_anim_sheet_40
+  - first:
+      213: 8762076741875527832
+    second: Civilian_anim_sheet_41
+  - first:
+      213: 8564021270059271780
+    second: Civilian_anim_sheet_42
+  - first:
+      213: -1326055049992082448
+    second: Civilian_anim_sheet_43
+  - first:
+      213: 6185481657084049997
+    second: Civilian_anim_sheet_44
+  - first:
+      213: -6630030786382542354
+    second: Civilian_anim_sheet_45
+  - first:
+      213: 2026307000291664721
+    second: Civilian_anim_sheet_46
+  - first:
+      213: -3778594551209666403
+    second: Civilian_anim_sheet_47
+  - first:
+      213: -1058651289312117081
+    second: Civilian_anim_sheet_48
+  - first:
+      213: 1396149279294818170
+    second: Civilian_anim_sheet_49
+  - first:
+      213: -4775130367566430207
+    second: Civilian_anim_sheet_50
+  - first:
+      213: 5667755216508563731
+    second: Civilian_anim_sheet_51
+  - first:
+      213: -4296430517920241237
+    second: Civilian_anim_sheet_52
+  - first:
+      213: -7468412918827889996
+    second: Civilian_anim_sheet_53
+  - first:
+      213: -2328939869877195489
+    second: Civilian_anim_sheet_54
+  - first:
+      213: -149258507465505377
+    second: Civilian_anim_sheet_55
+  - first:
+      213: 6544220753102412641
+    second: Civilian_anim_sheet_56
+  - first:
+      213: 4663737540186421422
+    second: Civilian_anim_sheet_57
+  - first:
+      213: 7416521230262955328
+    second: Civilian_anim_sheet_58
+  - first:
+      213: 4742827394655765093
+    second: Civilian_anim_sheet_59
+  - first:
+      213: 3870643119227109674
+    second: Civilian_anim_sheet_60
+  - first:
+      213: -1258112097679487204
+    second: Civilian_anim_sheet_61
+  - first:
+      213: 5626293977478355235
+    second: Civilian_anim_sheet_62
+  - first:
+      213: -5905333754632997382
+    second: Civilian_anim_sheet_63
+  - first:
+      213: 7351334553296446739
+    second: Civilian_anim_sheet_64
+  - first:
+      213: -5968434546591158687
+    second: Civilian_anim_sheet_65
+  - first:
+      213: -8775292505180341311
+    second: Civilian_anim_sheet_66
+  - first:
+      213: -8228648562901950183
+    second: Civilian_anim_sheet_67
+  - first:
+      213: -1250849349195737456
+    second: Civilian_anim_sheet_68
+  - first:
+      213: -2642297534010038467
+    second: Civilian_anim_sheet_69
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec5255d98103df010800000000000000
+      internalID: 1224187555991594446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56943b968976eeb20800000000000000
+      internalID: 3165581492394084709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8dc76b9c646d8440800000000000000
+      internalID: 4939714783921819019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f125b1456cefeb320800000000000000
+      internalID: 2575776164670558751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7acbeb8604eb54a20800000000000000
+      internalID: 3046049906830523559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b28c9d3045645c80800000000000000
+      internalID: -8334925683769965895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98b572246ef0b3d30800000000000000
+      internalID: 4412137741566303113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83ac220e70c40b430800000000000000
+      internalID: 3796618082582186552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d26e560914fa6d0800000000000000
+      internalID: -2977088740227928733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 4050
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e9c2787e844c55e0800000000000000
+      internalID: -1919583962469840412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95fb4b26bccbbda90800000000000000
+      internalID: -7288023990248620199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 4950
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2a5b80c89a4987e0800000000000000
+      internalID: -1762795759212996049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 282ed427fe09deb20800000000000000
+      internalID: 3165345471200617090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 5850
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f936c16536960f8b0800000000000000
+      internalID: -5120476900952874081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 6300
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89ec33f02781e67f0800000000000000
+      internalID: -617529220742787432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 6750
+        y: 3000
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4a0816817423a0b0800000000000000
+      internalID: -5718687031830771124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f64a6a06033129070800000000000000
+      internalID: 8111566977348576367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_17
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aff33b8be25b1b0d0800000000000000
+      internalID: -3408744230670876678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_18
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b647fa247f955a10800000000000000
+      internalID: 1897598139292403377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c61ac1598a3510240800000000000000
+      internalID: 4756174665001247084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_20
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8817e991091eee6f0800000000000000
+      internalID: -653336886900788856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_21
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 456707bc94b784000800000000000000
+      internalID: 20401755199141460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_22
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 851426bd0b0a7a330800000000000000
+      internalID: 3722120298500342104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_23
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 433146666165df270800000000000000
+      internalID: 8285873543638684468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_24
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d2b8c872a6b49770800000000000000
+      internalID: 8616712795993977557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_25
+      rect:
+        serializedVersion: 2
+        x: 4050
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 428d18b26356d8190800000000000000
+      internalID: -7958593683161229276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_26
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 928f7431e4721da70800000000000000
+      internalID: 8849897959044151337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_27
+      rect:
+        serializedVersion: 2
+        x: 4950
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3eb1c69859a7c890800000000000000
+      internalID: -7437790061627589058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_28
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2116f513e27343140800000000000000
+      internalID: 4698440982790627602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_29
+      rect:
+        serializedVersion: 2
+        x: 5850
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b8a3f71ed80a1c60800000000000000
+      internalID: 7789548255468300472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_30
+      rect:
+        serializedVersion: 2
+        x: 6300
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa93f3f68ab65b7e0800000000000000
+      internalID: -1750374508998477393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_31
+      rect:
+        serializedVersion: 2
+        x: 6750
+        y: 2250
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cec227e78700d590800000000000000
+      internalID: -7651607486622675259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9799281ab38e313e0800000000000000
+      internalID: -2084066859732002439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_33
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 685dafafad9d21330800000000000000
+      internalID: 3680243380051957126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_34
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30b1ad0606cd5220800000000000000
+      internalID: 2476353099424444474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_35
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19037f58c16263d40800000000000000
+      internalID: 5563676293611335825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_36
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d82adbe00644d2fb0800000000000000
+      internalID: -4671002059158478195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_37
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8761c8664f2d5d030800000000000000
+      internalID: 3518950630994220664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_38
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d604e8914cb9af90800000000000000
+      internalID: -6941810360690932008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_39
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d209dbba8511a1b00800000000000000
+      internalID: 799970956347805741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_40
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2656ffa6bb2bcf520800000000000000
+      internalID: 2737259191558169954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_41
+      rect:
+        serializedVersion: 2
+        x: 4050
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 890f33e8f56299970800000000000000
+      internalID: 8762076741875527832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_42
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 466c5c298f389d670800000000000000
+      internalID: 8564021270059271780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_43
+      rect:
+        serializedVersion: 2
+        x: 4950
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fbeb9035f7e89de0800000000000000
+      internalID: -1326055049992082448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_44
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4a70378bce37d550800000000000000
+      internalID: 6185481657084049997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_45
+      rect:
+        serializedVersion: 2
+        x: 5850
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee9c3cf80266df3a0800000000000000
+      internalID: -6630030786382542354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_46
+      rect:
+        serializedVersion: 2
+        x: 6300
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 153a54e1b73ee1c10800000000000000
+      internalID: 2026307000291664721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_47
+      rect:
+        serializedVersion: 2
+        x: 6750
+        y: 1500
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d98dbe8864cbf8bc0800000000000000
+      internalID: -3778594551209666403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aeba87e24aee41f0800000000000000
+      internalID: -1058651289312117081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_49
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7709c55f5e106310800000000000000
+      internalID: 1396149279294818170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_50
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 100c50dfa345bbdb0800000000000000
+      internalID: -4775130367566430207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_51
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3113cd12759e7ae40800000000000000
+      internalID: 5667755216508563731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_52
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba9673915330064c0800000000000000
+      internalID: -4296430517920241237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_53
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba4359050eda5890800000000000000
+      internalID: -7468412918827889996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_54
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1da9b01781fdafd0800000000000000
+      internalID: -2328939869877195489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_55
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9540d2ad2abdedf0800000000000000
+      internalID: -149258507465505377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_56
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b98682a1eb1da50800000000000000
+      internalID: 6544220753102412641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_57
+      rect:
+        serializedVersion: 2
+        x: 4050
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea83770559ce8b040800000000000000
+      internalID: 4663737540186421422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_58
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04d67f6b3c6cce660800000000000000
+      internalID: 7416521230262955328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_59
+      rect:
+        serializedVersion: 2
+        x: 4950
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 562c2790368e1d140800000000000000
+      internalID: 4742827394655765093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_60
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2187ddc86947b530800000000000000
+      internalID: 3870643119227109674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_61
+      rect:
+        serializedVersion: 2
+        x: 5850
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1f413286b94a8ee0800000000000000
+      internalID: -1258112097679487204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_62
+      rect:
+        serializedVersion: 2
+        x: 6300
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3295489209c941e40800000000000000
+      internalID: 5626293977478355235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_63
+      rect:
+        serializedVersion: 2
+        x: 6750
+        y: 750
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af5f9faec3a0c0ea0800000000000000
+      internalID: -5905333754632997382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3152a42c3df250660800000000000000
+      internalID: 7351334553296446739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_65
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16ea349e66cdb2da0800000000000000
+      internalID: -5968434546591158687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_66
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cbf394c5f5e73680800000000000000
+      internalID: -8775292505180341311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_67
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 0
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91163b2bab7fdcd80800000000000000
+      internalID: -8228648562901950183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_68
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 096d8a9e42714aee0800000000000000
+      internalID: -1250849349195737456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian_anim_sheet_69
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 0
+        width: 450
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d37e07e646ca45bd0800000000000000
+      internalID: -2642297534010038467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: fa9283219c1e44142aed73414debade5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

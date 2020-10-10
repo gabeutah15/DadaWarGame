@@ -29,9 +29,19 @@ public class Projectile : MonoBehaviour
     public bool enableRandomSpeed = false;
     public float randomSpeedMin = 8f;
     public float randomSpeedMax = 20f;
+    public bool IsLeadBall;
 
     public bool isFlying;
     public float visibleTime = 5;
+    public AudioSource impactSound;
+    private int collisionCount = 0;
+
+    Rigidbody rb;
+
+    private void Awake()
+    {
+        rb = GetComponentInChildren<Rigidbody>();
+    }
 
     public void Initialize(Vector3 _target, NavMeshAgent _targetNavMeshAgent, float distanceToTarget)
     {
@@ -63,7 +73,10 @@ public class Projectile : MonoBehaviour
             //added some extra direction to account for arrows falling short
             Vector3 extraDirection = predictTarget - transform.position;
             extraDirection = extraDirection.normalized;
-            extraDirection *= 7;
+            int addedScalar = 7;
+            if (IsLeadBall)
+                addedScalar = 17;
+            extraDirection *= addedScalar;
             //calculate distance to target
             predictTarget += extraDirection;
             float dist = Vector3.Distance(transform.position, predictTarget);
@@ -94,6 +107,10 @@ public class Projectile : MonoBehaviour
 
         lastPosition = transform.position;
     }
+    private void Start()
+    {
+        impactSound = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -102,9 +119,22 @@ public class Projectile : MonoBehaviour
             isDeadly = true;
         }
 
+        if (!isFlying)
+        {
+            isDeadly = false;
+        }
+
         //if(elapsedTime > .2f)
         //{
         //    isFlying = false;
+        //}
+        //if (elapsedTime > flightDuration)
+        //{
+        //    if (rb && IsLeadBall)
+        //    {
+        //        isFlying = false;
+        //        rb.AddForce(new Vector3(0, 10 * velocity.y, 10 * velocity.x));
+        //    }
         //}
 
         if (elapsedTime < flightDuration && isFlying)
@@ -124,9 +154,17 @@ public class Projectile : MonoBehaviour
         lastPosition = transform.position;
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    isFlying = false;
-    //}
+     private void OnCollisionEnter(Collision collision)
+    {
+        
+        if (IsLeadBall)
+        {   
+            if (collision.gameObject.name.Equals("Plane") && collisionCount ==0)
+            {   
+                collisionCount++;
+                impactSound.Play();
+            }
+        }
+    }
 
 }
