@@ -132,3 +132,7 @@ MonoBehaviour:
   health: 2
   deathModelPrefab: {fileID: 0}
   territory: {fileID: 0}
+  IsPatroller: 0
+  bloodParticle: {fileID: 3258049893282364285, guid: 427d772535b6ce1468280476e8f4f3e2,
+    type: 3}
+  addedXDistanceForPatrolPoint: 0

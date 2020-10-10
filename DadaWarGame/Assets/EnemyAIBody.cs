@@ -22,6 +22,8 @@ public class EnemyAIBody : MonoBehaviour
     bool hasSetToReturnToStart = false;
     [SerializeField]
     bool IsPatroller;
+    [SerializeField]
+    GameObject bloodParticle;
 
     //added for patrolling:
     Vector3[] wayPoints;
@@ -237,6 +239,7 @@ public class EnemyAIBody : MonoBehaviour
         if (parent)
         {
             //Debug.Log("collided with child of ai control");
+            Instantiate(bloodParticle, transform.position + new Vector3(0,0,-0.5f), Quaternion.identity);
             health--;
 
         }
@@ -248,6 +251,7 @@ public class EnemyAIBody : MonoBehaviour
             {
                 if (projectileParent.isDeadly)
                 {
+                    Instantiate(bloodParticle, transform.position + new Vector3(0, 0, -0.5f), Quaternion.identity);
                     health--;
                 }
             }
@@ -257,6 +261,7 @@ public class EnemyAIBody : MonoBehaviour
             {
                 if (physicsBall.isDeadly)
                 {
+                    Instantiate(bloodParticle, transform.position + new Vector3(0, 0, -0.5f), Quaternion.identity);
                     health -= 2;
                 }
             }

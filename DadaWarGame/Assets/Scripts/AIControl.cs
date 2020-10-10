@@ -32,6 +32,8 @@ public class AIControl : MonoBehaviour
     public float lineOfSight = 50;
     [SerializeField]
     private bool IsScout;
+    [SerializeField]
+    GameObject bloodParticle;
 
     private int leftAnimHash;
     private int rightAnimHash;
@@ -119,12 +121,14 @@ public class AIControl : MonoBehaviour
             {
                 if (projectileParent.isDeadly)
                 {
+                    Instantiate(bloodParticle, transform.position + new Vector3(0, 0, -0.5f), Quaternion.identity);
                     health--;
                 }
             }
         }
         if (collision.gameObject.CompareTag("EnemySword"))
         {
+            Instantiate(bloodParticle, transform.position + new Vector3(0, 0, -0.5f), Quaternion.identity);
             health--;
         }
         //if(this.name == "Catapult (1)")

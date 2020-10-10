@@ -346,6 +346,10 @@ MonoBehaviour:
   deathModelPrefab: {fileID: 3924667053880018147, guid: 68b1857da61203b46829aab93466bf20,
     type: 3}
   territory: {fileID: 0}
+  IsPatroller: 0
+  bloodParticle: {fileID: 3258049893282364285, guid: 427d772535b6ce1468280476e8f4f3e2,
+    type: 3}
+  addedXDistanceForPatrolPoint: 0
 --- !u!195 &7795922413589018616
 NavMeshAgent:
   m_ObjectHideFlags: 0

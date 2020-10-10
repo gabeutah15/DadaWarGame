@@ -219,6 +219,8 @@ MonoBehaviour:
   independentPursueDistance: 1
   lineOfSight: 100
   IsScout: 1
+  bloodParticle: {fileID: 3258049893282364285, guid: 427d772535b6ce1468280476e8f4f3e2,
+    type: 3}
 --- !u!195 &432483160834423033
 NavMeshAgent:
   m_ObjectHideFlags: 0
