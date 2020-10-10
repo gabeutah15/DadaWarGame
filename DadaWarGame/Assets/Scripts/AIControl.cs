@@ -286,7 +286,7 @@ public class AIControl : MonoBehaviour
                     // Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
                 }
 
-                if (isMeleeUnit && (agent.remainingDistance < independentPursueDistance))
+                if (isMeleeUnit /*&& (agent.remainingDistance < independentPursueDistance)*/)//the latter is how much left in fcurrent patrol, but should always break current patrol to pusue
                 {
                     PursueNearest();
                 }
@@ -357,6 +357,8 @@ public class AIControl : MonoBehaviour
                 {
                     //if you have a current target but it is not active set it to null to ensure you find a new one
                     currentTarget = null;
+                    animator.speed = 1f;
+                    agent.SetDestination(agent.transform.position);
                 }
             }
         }
@@ -378,11 +380,11 @@ public class AIControl : MonoBehaviour
                 animator.speed = 1f;
             }
         }
-        else
-        {
-            animator.speed = 1f;
-            agent.SetDestination(agent.transform.position);//if your target is null and you were pursuing nearest then just stop
-        }
+        //else if (!isAwaitingOrders)//else if no current target and no other orders either
+        //{
+        //    animator.speed = 1f;
+        //    agent.SetDestination(agent.transform.position);//if your target is null and you were pursuing nearest then just stop
+        //}
 
         if (agent.remainingDistance > (agent.stoppingDistance + 1))
         {

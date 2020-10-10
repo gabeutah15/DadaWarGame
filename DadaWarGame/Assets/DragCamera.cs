@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class DragCamera : MonoBehaviour
 {
@@ -168,7 +169,7 @@ public class DragCamera : MonoBehaviour
         //Camera.main.fieldOfView = fov;
         bool prevDrag = isDragging;
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(1))
         {
             isDragging = false;
         }
@@ -176,7 +177,7 @@ public class DragCamera : MonoBehaviour
         float dragMargin = 0.05f;
         //so the idea of added stuff below with the dragging and so on is to only take drag input if you drag at least a bit so
         //that touch input of select unit is not mistaken for drag move camera, not sure if it works yet or the .5f margin should be larger
-        if (/*Input.GetMouseButton(0)*/false)//not using click input anymore
+        if (Input.GetMouseButton(1) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(-1) && !IsPointerOverUIObject())//not using click input anymore
         {
             float speed = cameraDragSpeed * Time.deltaTime;
             var xInput = Input.GetAxis("Mouse X");
@@ -228,8 +229,15 @@ public class DragCamera : MonoBehaviour
                     Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, zMinBound);
                 }
             }
-
         }
+    }
 
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 }

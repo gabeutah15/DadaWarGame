@@ -12,6 +12,7 @@ TagManager:
   - EnemyAI
   - PlayerProjectile
   - DeathRoster
+  - PatrolParent
   layers:
   - Default
   - TransparentFX

@@ -20,10 +20,23 @@ public class EnemyAIBody : MonoBehaviour
     Vector3 startingPosition;
     Quaternion startingRotation;
     bool hasSetToReturnToStart = false;
+    [SerializeField]
+    bool IsPatroller;
+
+    //added for patrolling:
+    Vector3[] wayPoints;
+    [SerializeField]
+    int addedXDistanceForPatrolPoint;
+    PatrolParent patrolParent;
+    int destinationIndex = 1;
+    //[SerializeField]
+    //EnemyAIBody[] EnemiesInTeam;//don't need to track this, just give them all the patrol points based off of their starting point
+    //end added for patrolling
 
     // Start is called before the first frame update
     void Start()
     {
+        patrolParent = GetComponentInParent<PatrolParent>();
         //collider = this.GetComponent<Collider>();
         animator = GetComponentInChildren<Animator>();//***TODO: put all getcomponent calls into awake not start methods
         agent = GetComponent<NavMeshAgent>();
@@ -49,6 +62,41 @@ public class EnemyAIBody : MonoBehaviour
         territory.thisTerritorysDefenders.Add(this.gameObject);
         startingPosition = this.transform.position;
         startingRotation = this.transform.rotation;
+
+        wayPoints = new Vector3[2];
+        wayPoints[0] = startingPosition;
+        wayPoints[1] = startingPosition + new Vector3(addedXDistanceForPatrolPoint, 0,0);
+    }
+
+    public void GoToDestination(int index)
+    {
+        SetDestinationIfAttainable(agent, wayPoints[index]);
+    }
+
+    // Update is called once per frame
+    void CheckIfArrivingAtWayPoint()
+    {
+        bool everyOneHassArrived = true;
+        foreach (var otherAgent in patrolParent.agentsOnThisPatrol)
+        {
+            if (otherAgent.gameObject.activeSelf)
+            {
+                if(otherAgent.remainingDistance > 1f)//what about dead agents though? will they be forever at a certain remaining distanc? 
+                {
+                    everyOneHassArrived = false;
+                }
+            }
+            else
+            {
+                //remove from patrol parent? don't really need to remove though...if already checking if active before doing anything, and can't remove inside loop
+            }
+        }
+        if (everyOneHassArrived && (agent.remainingDistance < 0.1))
+        {
+            destinationIndex++;
+            destinationIndex = destinationIndex % wayPoints.Length;
+            GoToDestination(destinationIndex);
+        }
     }
 
     float recalibrateTimer = 0;
@@ -122,8 +170,21 @@ public class EnemyAIBody : MonoBehaviour
                 if (currentTarget == null && (agent.remainingDistance < 5) && !hasSetToReturnToStart)
                 {
                     //agent.SetDestination(startingPosition);
-                    SetDestinationIfAttainable(agent, startingPosition);
-                    hasSetToReturnToStart = true;
+                    if (!IsPatroller)
+                    {
+                        SetDestinationIfAttainable(agent, startingPosition);
+                        hasSetToReturnToStart = true;//dunno if need to set this back to false later?
+                    }
+                    else
+                    {
+                        GoToDestination(destinationIndex);
+                    }
+
+                }
+                
+                if((currentTarget == null) && !hasSetToReturnToStart && IsPatroller)
+                {
+                    CheckIfArrivingAtWayPoint();
                 }
 
                 if (agent.remainingDistance < .2)
@@ -131,6 +192,7 @@ public class EnemyAIBody : MonoBehaviour
                     if (hasSetToReturnToStart)
                     {
                         this.transform.rotation = startingRotation;
+                        hasSetToReturnToStart = false;
                     }
                 }
 
