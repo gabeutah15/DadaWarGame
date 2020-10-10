@@ -7,14 +7,14 @@ public class EnemyAIBody : MonoBehaviour
 {
     //Collider collider;
     [SerializeField]
-    float health = 1;
+    public float health = 1;
     Animator animator;
     NavMeshAgent agent;
     GameObject[] playerUnits;
     NavMeshAgent[] playerNavMeshAgents;
     GameObject currentTarget;
     [SerializeField]
-    GameObject deathModelPrefab;
+    public GameObject deathModelPrefab;
     [SerializeField]
     public Territory territory;
     Vector3 startingPosition;
