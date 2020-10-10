@@ -85,7 +85,7 @@ public class DeathCounterAndRandomNames : MonoBehaviour
         }
 
         int diff = totalEnemies - totalDeadEnemies;
-        if(diff <= 105 && !hasDisplayedNames && hasFinishedGeneratingNames)
+        if(diff <= 5 && !hasDisplayedNames && hasFinishedGeneratingNames)
         {
             for (int i = 0; i < rosterUIObjects.Length; i++)
             {
