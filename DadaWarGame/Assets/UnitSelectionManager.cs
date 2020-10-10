@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public enum SelectedUnit
 {
@@ -39,15 +40,26 @@ public class UnitSelectionManager : MonoBehaviour
     //global variable not ideal but if can only select one at a time is fine for prototype i guess
     //public static ;
     public static HashSet<SelectedUnit> selectedUnits;
-    int layerMask;
+    [SerializeField]
+    LayerMask layerMask;
+    //int layerMask;
     List<KeyCode> inputKeys;
     bool holdingControl = false;
+
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         //selectedUnit = SelectedUnit.one;
-        layerMask = 1 << 8;//8 is selection layer
+        //layerMask = 1 << 8;//8 is selection layer
         selectedUnits = new HashSet<SelectedUnit>();
         //inputKeys.Add(KeyCode.Alpha0);
         //inputKeys.Add(KeyCode.Alpha1);
@@ -62,6 +74,11 @@ public class UnitSelectionManager : MonoBehaviour
         //inputKeys.Add(KeyCode.LeftBracket);
         //inputKeys.Add(KeyCode.RightBracket);
 
+    }
+
+    public void ClearSelection()
+    {
+        selectedUnits.Clear();
     }
 
     // Update is called once per frame
@@ -159,12 +176,13 @@ public class UnitSelectionManager : MonoBehaviour
         //}
 
         //this works ok but you have to click the specific unit
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(-1) && !IsPointerOverUIObject())
         {
             RaycastHit hit;
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 400, layerMask))
             {
+                //AIControl aiControl = h;
                 if (hit.collider.gameObject.GetComponent<AIControl>())
                 {
                     AIControl aiControl = hit.collider.gameObject.GetComponent<AIControl>();
@@ -174,41 +192,48 @@ public class UnitSelectionManager : MonoBehaviour
                     //holding control of course does not work on mobile
                     //and single click and drag to move camera gets confused with single touch to select unit
                     //could do simply add a unit if not selected or remove if is when you touch it, ie just:
-                    //if(selectedUnits.Contains(selectedUnit))
-                    //    {
-                    //    selectedUnits.Remove(selectedUnit);
-                    //}
-                    //    else
-                    //{
-                    //    selectedUnits.Add(selectedUnit);
-                    //}
-                    //but then could end up with annoying scenario of wanting to select only one unit and being unable to clear unit selection quickly
-
                     if (selectedUnit == 0)
                     {
                         selectedUnits.Clear();
                         selectedUnits.Add(selectedUnit);
                     }
-                    else if (holdingControl)
+                    else if (selectedUnits.Contains(selectedUnit))
                     {
-                        selectedUnits.Remove(SelectedUnit.zero);
-
-                        if (selectedUnits.Contains(selectedUnit))
-                        {
-                            selectedUnits.Remove(selectedUnit);
-                        }
-                        else
-                        {
-                            selectedUnits.Add(selectedUnit);
-                        }
+                        selectedUnits.Remove(selectedUnit);
                     }
                     else
                     {
-                        selectedUnits.Remove(SelectedUnit.zero);
-
-                        selectedUnits.Clear();
+                        selectedUnits.Remove(SelectedUnit.zero);//i think this is needed, cannot select anything else with general
                         selectedUnits.Add(selectedUnit);
                     }
+                    //but then could end up with annoying scenario of wanting to select only one unit and being unable to clear unit selection quickly
+                    //just add a clear selection button
+
+                    //if (selectedUnit == 0)
+                    //{
+                    //    selectedUnits.Clear();
+                    //    selectedUnits.Add(selectedUnit);
+                    //}
+                    //else if (holdingControl)
+                    //{
+                    //    selectedUnits.Remove(SelectedUnit.zero);
+
+                    //    if (selectedUnits.Contains(selectedUnit))
+                    //    {
+                    //        selectedUnits.Remove(selectedUnit);
+                    //    }
+                    //    else
+                    //    {
+                    //        selectedUnits.Add(selectedUnit);
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    selectedUnits.Remove(SelectedUnit.zero);
+
+                    //    selectedUnits.Clear();
+                    //    selectedUnits.Add(selectedUnit);
+                    //}
 
                     
                 }
@@ -217,33 +242,48 @@ public class UnitSelectionManager : MonoBehaviour
                     AIControl aiControl = hit.collider.gameObject.GetComponentInParent<AIControl>();
                     SelectedUnit selectedUnit = (SelectedUnit)aiControl.selectedUnitNum;
 
-                    if(selectedUnit == 0)
+                    if (selectedUnit == 0)
                     {
-
                         selectedUnits.Clear();
                         selectedUnits.Add(selectedUnit);
                     }
-                    else if (holdingControl)
+                    else if (selectedUnits.Contains(selectedUnit))
                     {
-                        selectedUnits.Remove(SelectedUnit.zero);
-
-                        //Debug.Log("holding left control");
-                        if (selectedUnits.Contains(selectedUnit))
-                        {
-                            selectedUnits.Remove(selectedUnit);
-                        }
-                        else
-                        {
-                            selectedUnits.Add(selectedUnit);
-                        }
+                        selectedUnits.Remove(selectedUnit);
                     }
                     else
                     {
-                        selectedUnits.Remove(SelectedUnit.zero);
-
-                        selectedUnits.Clear();
+                        selectedUnits.Remove(SelectedUnit.zero);//i think this is needed, cannot select anything else with general
                         selectedUnits.Add(selectedUnit);
                     }
+
+                    //if(selectedUnit == 0)
+                    //{
+
+                    //    selectedUnits.Clear();
+                    //    selectedUnits.Add(selectedUnit);
+                    //}
+                    //else if (holdingControl)
+                    //{
+                    //    selectedUnits.Remove(SelectedUnit.zero);
+
+                    //    //Debug.Log("holding left control");
+                    //    if (selectedUnits.Contains(selectedUnit))
+                    //    {
+                    //        selectedUnits.Remove(selectedUnit);
+                    //    }
+                    //    else
+                    //    {
+                    //        selectedUnits.Add(selectedUnit);
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    selectedUnits.Remove(SelectedUnit.zero);
+
+                    //    selectedUnits.Clear();
+                    //    selectedUnits.Add(selectedUnit);
+                    //}
 
                 }
             }

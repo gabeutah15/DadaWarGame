@@ -65,7 +65,8 @@ public class GeneralOrders : MonoBehaviour
                                 aiControl.isAwaitingOrders = false;
                                 if (aiControl.agent)
                                 {
-                                    aiControl.agent.SetDestination(aiControl.futureDestination);
+                                    aiControl.agent.SetDestination(aiControl.futureDestination);//maybe shouldn't set this til reach unit though
+                                    //otherwise first courier will send second command when it gets there if second command got in before it arrived
                                 }
                             }
 

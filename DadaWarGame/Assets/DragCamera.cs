@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class DragCamera : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class DragCamera : MonoBehaviour
     private Vector3 lastMousePos;
 
     Vector3 touchStart;
-    public float zoomOutMin = 15;
+    public float zoomOutMin = 1;
     public float zoomOutMax = 40;
     
 
@@ -31,7 +32,7 @@ public class DragCamera : MonoBehaviour
     {
         //Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize - increment, zoomOutMin, zoomOutMax);
         var thisCamPos = Camera.main.transform.position;
-        var change = increment * 10;
+        var change = increment * 5;
         var newY = thisCamPos.y - change;
         newY = Mathf.Clamp(newY, zoomOutMin, zoomOutMax);
         //Debug.Log(newY);
@@ -52,6 +53,66 @@ public class DragCamera : MonoBehaviour
         lastMousePos = Vector3.zero;
 
     }
+    [SerializeField]
+    float speedButtonMoveCam = 1;
+    float step = 1;//find a proper value for this
+    public void MoveCameraUP()
+    {
+       //this.transform.Translate(0, 0, step);
+        Camera.main.transform.position -= new Vector3(0, 0, step);
+    }
+
+    private bool upIsPressed;
+    private bool downIsPressed;
+    private bool leftIsPressed;
+    private bool rightIsPressed;
+
+
+    public void UpPressed()
+    {
+        upIsPressed = true;
+    }
+    public void UpReleased()
+    {
+        upIsPressed = false;
+    }
+    public void DownPressed()
+    {
+        downIsPressed = true;
+    }
+    public void DownReleased()
+    {
+        downIsPressed = false;
+    }
+    public void RightPressed()
+    {
+        rightIsPressed = true;
+    }
+    public void RightReleased()
+    {
+        rightIsPressed = false;
+    }
+    public void LeftPressed()
+    {
+        leftIsPressed = true;
+    }
+    public void LeftReleased()
+    {
+        leftIsPressed = false;
+    }
+
+    void ReceiveButtonInput()
+    {
+        if (upIsPressed && Camera.main.transform.position.z < zMaxBound)
+            Camera.main.transform.position -= new Vector3(0, 0, -step);
+        if (downIsPressed && Camera.main.transform.position.z > zMinBound)
+            Camera.main.transform.position -= new Vector3(0, 0, step);
+        if (leftIsPressed && Camera.main.transform.position.x > xMinBound)
+            Camera.main.transform.position -= new Vector3(step, 0, 0);
+        if (rightIsPressed && Camera.main.transform.position.x < xMaxBound)
+            Camera.main.transform.position -= new Vector3(-step, 0, 0);
+
+    }
 
     Vector3 cameraTarget;
     [SerializeField]
@@ -60,6 +121,8 @@ public class DragCamera : MonoBehaviour
 
     private void Update()
     {
+        ReceiveButtonInput();
+
         if(Input.touchCount == 2)
         {
             Touch touchZero = Input.GetTouch(0);
@@ -113,7 +176,7 @@ public class DragCamera : MonoBehaviour
         float dragMargin = 0.05f;
         //so the idea of added stuff below with the dragging and so on is to only take drag input if you drag at least a bit so
         //that touch input of select unit is not mistaken for drag move camera, not sure if it works yet or the .5f margin should be larger
-        if (Input.GetMouseButton(0))
+        if (/*Input.GetMouseButton(0)*/false)//not using click input anymore
         {
             float speed = cameraDragSpeed * Time.deltaTime;
             var xInput = Input.GetAxis("Mouse X");

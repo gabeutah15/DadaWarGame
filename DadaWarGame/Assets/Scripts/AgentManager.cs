@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class AgentManager : MonoBehaviour
 {
     GameObject[] agents;
-    //public static GameObject[] currentlySelectedAgents;
-    int layerMask;
+    //public static GameObject[] currentlySelectedAgents;//asdf
+    [SerializeField]
+    LayerMask layerMask;
+    //int layerMask;
     public float attackASVolume;
     private AudioSource[] audioSourcesNonCatapultAI;
     private AudioSource[] audioSourcesCatapultAI;
@@ -19,7 +22,7 @@ public class AgentManager : MonoBehaviour
     void Start()
     {
         agents = GameObject.FindGameObjectsWithTag("AI");
-        layerMask = 1 << 9;//9 is the ground layer mask
+        //layerMask = 1 << 9;//9 is the ground layer mask
         for (int x = 0; x < agents.Length; x++)
         {
             if (agents[x].GetComponents<AudioSource>() != null && (agents[x].GetComponents<AudioSource>()).Length == 2 && audioSourcesNonCatapultAI == null)
@@ -38,11 +41,21 @@ public class AgentManager : MonoBehaviour
         }
     }
 
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        // if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(-1) && !IsPointerOverUIObject())
         {
             RaycastHit hit;
             currentFormationSelectedUnitNum = 0;
@@ -53,32 +66,35 @@ public class AgentManager : MonoBehaviour
             {
                 int unitNum = 0;
 
-                bool hasSentACourier = false;
-                for (int i = 0; i < agents.Length; i++)
+                if (!hit.collider.gameObject.GetComponent<AIControl>() && !hit.collider.gameObject.GetComponentInParent<AIControl>())
                 {
 
-
-                    if (agents[i].activeSelf)//calling deactivate on units once killed, not destroy
+                    bool hasSentACourier = false;
+                    for (int i = 0; i < agents.Length; i++)
                     {
 
-                        var aiControl = agents[i].GetComponent<AIControl>();
 
-                        if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)aiControl.selectedUnitNum))
+                        if (agents[i].activeSelf)//calling deactivate on units once killed, not destroy
                         {
 
-                            Scout scout = agents[i].GetComponent<Scout>();
+                            var aiControl = agents[i].GetComponent<AIControl>();
 
-                            if (agents[i].GetComponent<GeneralOrders>() || scout)
+                            if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)aiControl.selectedUnitNum))
                             {
-                                if (scout)
-                                    scout.IsReturningToGeneral = false;
 
-                                aiControl.agent.SetDestination(hit.point);
-                            }
-                            else if (aiControl)//this is probably a nonperformant call
-                            {
-                                //if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)aiControl.selectedUnitNum))
-                                //{
+                                Scout scout = agents[i].GetComponent<Scout>();
+
+                                if (agents[i].GetComponent<GeneralOrders>() || scout)
+                                {
+                                    if (scout)
+                                        scout.IsReturningToGeneral = false;
+
+                                    aiControl.agent.SetDestination(hit.point);
+                                }
+                                else if (aiControl)//this is probably a nonperformant call
+                                {
+                                    //if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)aiControl.selectedUnitNum))
+                                    //{
 
                                     //***this formation movement will be broken by being able to select multiple units at once
 
@@ -165,10 +181,11 @@ public class AgentManager : MonoBehaviour
                                     //agents[i].GetComponent<AIControl>().agent.SetDestination(destination);
                                     //simple
                                     //a.GetComponent<AIControl>().agent.SetDestination(hit.point);
-                               // }
+                                    // }
+
+                                }
 
                             }
-
                         }
                     }
                 }

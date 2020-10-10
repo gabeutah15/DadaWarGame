@@ -57,7 +57,7 @@ public class ScoutManager : MonoBehaviour
                 numCurrentScouts++;
                 GeneralOrders.couriersCurrentlyAvailable--;
                 scoutToSpawn.SetActive(true);
-                scoutToSpawn.transform.position = general.gameObject.transform.position + new Vector3(2 + spawnIndex * 2, 0, 4);
+                scoutToSpawn.transform.position = general.gameObject.transform.position + new Vector3(4 + spawnIndex * 4, 0, 6);
                 scoutToSpawn.GetComponent<NavMeshAgent>().SetDestination(scoutToSpawn.transform.position);
             }
         }

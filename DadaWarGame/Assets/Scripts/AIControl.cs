@@ -269,6 +269,10 @@ public class AIControl : MonoBehaviour
                     }
                 }
             }
+            else
+            {
+                highlight.SetActive(false);
+            }
 
             
 
