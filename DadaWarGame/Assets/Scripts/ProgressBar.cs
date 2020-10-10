@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class ProgressBar : MonoBehaviour
 {
-    public int maximum;
+    public static int maximum;
     public int current;
     public Image mask;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        //maximum = DeathCounterAndRandomNames.totalEnemies;//total enemies not yet filled out by the time this gappens
     }
 
     // Update is called once per frame

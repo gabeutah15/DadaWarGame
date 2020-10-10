@@ -9,14 +9,19 @@ public class UIManager : MonoBehaviour
     //public GameObject SpawnOBJ;
     //RaycastHit hit;
 
+    private void Start()
+    {
+        //PB.maximum = DeathCounterAndRandomNames.totalEnemies;
+    }
+
     // Update is called once per frame
     void Update()
     {
         //update messagerNum
-        MUIM.MessagerNum = 4;
+        MUIM.MessagerNum = GeneralOrders.couriersCurrentlyAvailable;
         //update progressBar
-        PB.current = 50;
-        PB.maximum = 100;
+        PB.current = DeathCounterAndRandomNames.totalDeadEnemies;
+        //PB.maximum = 100;
 
         //spawn characters
         //if (Input.GetMouseButtonUp(0))
