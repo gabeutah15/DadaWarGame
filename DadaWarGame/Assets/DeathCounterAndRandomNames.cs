@@ -22,10 +22,10 @@ public class DeathCounterAndRandomNames : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI namesListDisplayPro3;
     [SerializeField]
+    TextMeshProUGUI namesListDisplayPro4;
 
     GameObject[] rosterUIObjects;
 
-    TextMeshProUGUI namesListDisplayPro4;
 
     // Start is called before the first frame update
     void Start()
@@ -85,11 +85,16 @@ public class DeathCounterAndRandomNames : MonoBehaviour
         }
 
         int diff = totalEnemies - totalDeadEnemies;
-        if(diff <= 5 && !hasDisplayedNames && hasFinishedGeneratingNames)
+        if(diff <= 105 && !hasDisplayedNames && hasFinishedGeneratingNames)
         {
             for (int i = 0; i < rosterUIObjects.Length; i++)
             {
                 rosterUIObjects[i].SetActive(true);//this will block input, which i think is good for the end screen
+
+                //if (i == (rosterUIObjects.Length + 1))
+                //{
+                //    hasDisplayedNames = true;
+                //}
             }
             DisplayNames();
             
