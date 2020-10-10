@@ -40,6 +40,9 @@ public class AIControl : MonoBehaviour
     private int isMovingHash;
     private int isDeadHash;
 
+    //[HideInInspector]
+    //public bool canBeControlled;
+
 
     bool HasGottenNumEnemies = false;
 
@@ -139,7 +142,7 @@ public class AIControl : MonoBehaviour
             highlight.SetActive(false);//this is not working
                                        //also the deathanimation time elapsed below is not always working, sometimes takes way more or less time
 
-            
+
             //Destroy(this.gameObject);
         }
     }
@@ -235,80 +238,84 @@ public class AIControl : MonoBehaviour
 
     private void Update()
     {
-
-      
-
-        if (!isDead)
-        {
+        //instead of can be controlled just place each unit off the map so you cannot click it until it 'spawns'
+        //if (canBeControlled)
+        //{
 
 
-            if (!HasGottenNumEnemies)
+
+            if (!isDead)
             {
-                HasGottenNumEnemies = true;
-                DeathCounterAndRandomNames.totalEnemies = enemyAgents.Length;
-            }
-            //if (UnitSelectionManager.selectedUnits)//dunno if this is the nullcheck here?
-            //{
-            if (UnitSelectionManager.selectedUnits.Count > 0)
-            {
-                if(selectedUnitNum >= 0)
+
+
+                if (!HasGottenNumEnemies)
                 {
-                    if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)selectedUnitNum))//null ref here?
+                    HasGottenNumEnemies = true;
+                    DeathCounterAndRandomNames.totalEnemies = enemyAgents.Length;
+                }
+                //if (UnitSelectionManager.selectedUnits)//dunno if this is the nullcheck here?
+                //{
+                if (UnitSelectionManager.selectedUnits.Count > 0)
+                {
+                    if (selectedUnitNum >= 0)
                     {
-                        if (!highlight.activeSelf)
+                        if (UnitSelectionManager.selectedUnits.Contains((SelectedUnit)selectedUnitNum))//null ref here?
                         {
-                            highlight.SetActive(true);
+                            if (!highlight.activeSelf)
+                            {
+                                highlight.SetActive(true);
+                            }
+                        }
+                        else
+                        {
+                            if (highlight.activeSelf)
+                            {
+                                highlight.SetActive(false);
+                            }
                         }
                     }
-                    else
+                }
+                else
+                {
+                    highlight.SetActive(false);
+                }
+
+
+
+                recalibrateTimer += Time.deltaTime;
+                if (recalibrateTimer > recalibrateInterval)
+                {
+                    recalibrateTimer = 0;
+                    if (/*!IsScout && */agent.remainingDistance > 5)//probably remove isscout ref later? well won't matter with 2d art and no attacking and no formation
                     {
-                        if (highlight.activeSelf)
-                        {
-                            highlight.SetActive(false);
-                        }
+                        this.transform.LookAt(agent.steeringTarget + new Vector3(0, .5f, 0));
+                        // Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
                     }
+
+                    if (isMeleeUnit /*&& (agent.remainingDistance < independentPursueDistance)*/)//the latter is how much left in fcurrent patrol, but should always break current patrol to pusue
+                    {
+                        PursueNearest();
+                    }
+
                 }
             }
             else
             {
-                highlight.SetActive(false);
-            }
+                deathAnimationTimeElapsed += Time.deltaTime;
 
-            
-
-            recalibrateTimer += Time.deltaTime;
-            if (recalibrateTimer > recalibrateInterval)
-            {
-                recalibrateTimer = 0;
-                if (/*!IsScout && */agent.remainingDistance > 5)//probably remove isscout ref later? well won't matter with 2d art and no attacking and no formation
+                if (health <= 0 && sounds != null && sounds.Length > 0 && !sounds[0].isPlaying && sounds[0].enabled)
                 {
-                    this.transform.LookAt(agent.steeringTarget + new Vector3(0, .5f, 0));
-                    // Debug.DrawRay(this.transform.position, agent.steeringTarget + new Vector3(0, .5f, 0));//trying to debug why this lookat makes them flip to the ground when near the target destination
+                    UnityEngine.Debug.Log("Playing stopped ..");
+                    sounds[0].enabled = false;
+                    //this.gameObject.SetActive(false);
                 }
 
-                if (isMeleeUnit /*&& (agent.remainingDistance < independentPursueDistance)*/)//the latter is how much left in fcurrent patrol, but should always break current patrol to pusue
+                if (deathAnimationTimeElapsed > 1f)//length of death animation, which should not be fixed?
                 {
-                    PursueNearest();
+                    this.gameObject.SetActive(false);
                 }
-
             }
-        }
-        else
-        {
-            deathAnimationTimeElapsed += Time.deltaTime;
-
-            if (health <= 0 && sounds != null && sounds.Length > 0 && !sounds[0].isPlaying && sounds[0].enabled)
-            {
-                UnityEngine.Debug.Log("Playing stopped ..");
-                sounds[0].enabled = false;
-                //this.gameObject.SetActive(false);
-            }
-
-            if (deathAnimationTimeElapsed > 1f)//length of death animation, which should not be fixed?
-            {
-                this.gameObject.SetActive(false);
-            }
-        }
+        //}
     }
 
     private void PursueNearest()
@@ -368,7 +375,7 @@ public class AIControl : MonoBehaviour
             //agent.SetDestination(currentTarget.transform.position);
             SetDestinationIfAttainable(agent, currentTarget.transform.position);
 
-            if(agent.remainingDistance < 5)
+            if (agent.remainingDistance < 5)
             {
                 if (animator)
                 {
