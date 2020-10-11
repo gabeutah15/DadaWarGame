@@ -477,7 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3527cac515455bf41981b2afdd68e683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 30
+  range: 40
   tagToShoot: EnemyAI
   layerMaskToShootThrough:
     serializedVersion: 2

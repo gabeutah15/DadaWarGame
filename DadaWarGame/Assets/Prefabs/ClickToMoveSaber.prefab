@@ -497,7 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  health: 2
+  health: 3
   selectedUnitNum: 3
   isMeleeUnit: 1
   isAwaitingOrders: 0
