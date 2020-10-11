@@ -1,20 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
+//using System.Diagnostics;
 using UnityEngine;
 
 public class FogOfWar : MonoBehaviour
 {
     //fog of war
     public GameObject[] fogOfWarPlanes;
+    [HideInInspector]
     public GameObject[] playerUnitsInitial;
+    [HideInInspector]
     public List<GameObject> playerUnits;
     private List<float> playerUnitSightDistances;
     public LayerMask fogLayer;
     public float radius;
     private float radiusSquared { get { return radius * radius; } }
-    private Mesh[] mesh;
-    private Vector3[][] vertices;
+    private Mesh[] meshes;
+    private Vector3[][] vertices;//int[,] array = new int[4, 2];
     private Color[] colors;
     float timerForFogUpdate = 0;
     [SerializeField]
@@ -38,14 +40,20 @@ public class FogOfWar : MonoBehaviour
             }
         }
 
+        vertices = new Vector3[fogOfWarPlanes.Length][];
+        meshes = new Mesh[fogOfWarPlanes.Length];
+
         for (int i = 0; i < fogOfWarPlanes.Length; i++)
         {
             fogOfWarPlanes[i].SetActive(true);
-            mesh[i] = fogOfWarPlanes[i].GetComponent<MeshFilter>().mesh;
-            vertices[i] = mesh.vertices;
+            meshes[i] = fogOfWarPlanes[i].GetComponent<MeshFilter>().mesh;
+            vertices[i] = new Vector3[meshes[i].vertexCount];
+            vertices[i] = meshes[i].vertices;
 
         }
-        colors = new Color[vertices.Length];
+
+        colors = new Color[vertices[0].Length];
+
         for (int i = 0; i < colors.Length; i++)
         {
             colors[i] = Color.white;
@@ -55,7 +63,10 @@ public class FogOfWar : MonoBehaviour
 
     void UpdateColor()
     {
-        mesh.colors = colors;
+        for (int i = 0; i < meshes.Length; i++)
+        {
+            meshes[i].colors = colors;
+        }
     }
 
     // Start is called before the first frame update
@@ -87,14 +98,24 @@ public class FogOfWar : MonoBehaviour
                 if (Physics.Raycast(ray, out hit, 200, fogLayer, QueryTriggerInteraction.Collide))
                 {
                     radius = playerUnitSightDistances[j];
-                    for (int i = 0; i < vertices.Length; i++)
+
+                    for (int x = 0; x < fogOfWarPlanes.Length; x++)
                     {
-                        Vector3 v = fogOfWarPlanes.transform.TransformPoint(vertices[i]);
-                        float dist = Vector3.SqrMagnitude(v - hit.point);
-                        if (dist < radiusSquared)
+                        for (int i = 0; i < vertices[x].Length; i++)
                         {
-                            float alpha = Mathf.Min(colors[i].a, dist / radiusSquared);
-                            colors[i].a = alpha;
+                            //Debug.Log("X:" + x);
+                            //Debug.Log("i:" + i);
+                            //Debug.Log("j:" + j);
+
+
+
+                            Vector3 v = fogOfWarPlanes[x].transform.TransformPoint(vertices[x][i]);
+                            float dist = Vector3.SqrMagnitude(v - hit.point);
+                            if (dist < radiusSquared)
+                            {
+                                float alpha = Mathf.Min(colors[i].a, dist / radiusSquared);
+                                colors[i].a = alpha;
+                            }
                         }
                     }
                     UpdateColor();
