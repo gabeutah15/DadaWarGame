@@ -141,6 +141,8 @@ public class AgentManager : MonoBehaviour
                                         xPos -= shiftValue;
                                     }
                                     xPos -= shiftValue;//center rows of 4
+
+                                    //end spacing section
                                     xPos *= 2;
                                     zPos *= 2;
 
