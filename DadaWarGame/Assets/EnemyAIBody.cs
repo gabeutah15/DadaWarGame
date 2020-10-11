@@ -29,6 +29,10 @@ public class EnemyAIBody : MonoBehaviour
     Vector3[] wayPoints;
     [SerializeField]
     int addedXDistanceForPatrolPoint;
+    [SerializeField]
+    int addedYDistanceForPatrolPoint;
+    [SerializeField]
+    int addedZDistanceForPatrolPoint;
     PatrolParent patrolParent;
     int destinationIndex = 1;
     //[SerializeField]
@@ -67,7 +71,15 @@ public class EnemyAIBody : MonoBehaviour
 
         wayPoints = new Vector3[2];
         wayPoints[0] = startingPosition;
-        wayPoints[1] = startingPosition + new Vector3(addedXDistanceForPatrolPoint, 0,0);
+
+        NavMeshHit myNavHit;
+        Vector3 firstWaypoint = startingPosition + new Vector3(addedXDistanceForPatrolPoint, addedYDistanceForPatrolPoint, addedZDistanceForPatrolPoint);
+        if (NavMesh.SamplePosition(firstWaypoint, out myNavHit, 100, -1))
+        {
+            firstWaypoint = myNavHit.position;
+        }
+
+        wayPoints[1] = firstWaypoint;// startingPosition + new Vector3(addedXDistanceForPatrolPoint, addedYDistanceForPatrolPoint, addedZDistanceForPatrolPoint);
     }
 
     public void GoToDestination(int index)
