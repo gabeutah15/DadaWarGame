@@ -96,7 +96,7 @@ public class UnitSpawner : MonoBehaviour
                 {
                     //if(!isCav ||   (   !((i == 0) && (j == 0)) && !((i == 0) && (j == 3)) && !((i == 3) && (j == 0)) && !((i == 3) && (j == 3)))   )
                     //{
-                        GameObject thisUnit = Instantiate(prefab, new Vector3(-20, 0.3f, -100) + new Vector3(j * 2 + formationXOffset, 0, i * 2 - formationZOffset), Quaternion.identity) as GameObject;
+                        GameObject thisUnit = Instantiate(prefab, new Vector3(-20, 0.3f, -140) + new Vector3(j * 2 + formationXOffset, 0, i * 2 - formationZOffset), Quaternion.identity) as GameObject;
                         if (thisUnit.GetComponent<AIControl>())
                         {
                             AIControl control = thisUnit.GetComponent<AIControl>();

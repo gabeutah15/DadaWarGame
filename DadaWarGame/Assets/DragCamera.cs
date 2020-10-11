@@ -13,7 +13,7 @@ public class DragCamera : MonoBehaviour
     [SerializeField]
     float xMinBound = -30;
     [SerializeField]
-    float zMaxBound = 30;
+    public static float zMaxBound = -30;
     [SerializeField]
     float zMinBound = -30;
 
