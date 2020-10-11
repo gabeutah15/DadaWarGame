@@ -7081,8 +7081,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 2.9, y: -52.6}
-  m_SizeDelta: {x: 120, y: 109.82468}
+  m_AnchoredPosition: {x: 169.1, y: -399.3}
+  m_SizeDelta: {x: 414.33612, y: 191.1539}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1001 &537261055
 PrefabInstance:
@@ -25078,6 +25078,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: fogplanetestEvenMoreSimpler
       objectReference: {fileID: 0}
+    - target: {fileID: 1103961984907309209, guid: a9cdc698990b6da43935beb1958454ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464500988172882252, guid: a9cdc698990b6da43935beb1958454ab,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf34557d24fadc6468d401c432f9259c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9cdc698990b6da43935beb1958454ab, type: 3}
 --- !u!1 &919132149226710062 stripped

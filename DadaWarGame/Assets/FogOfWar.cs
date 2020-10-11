@@ -44,7 +44,7 @@ public class FogOfWar : MonoBehaviour
         colors = new Color[vertices.Length];
         for (int i = 0; i < colors.Length; i++)
         {
-            colors[i] = Color.black;
+            colors[i] = Color.white;
         }
         UpdateColor();
     }

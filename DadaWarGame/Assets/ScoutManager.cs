@@ -86,6 +86,7 @@ public class ScoutManager : MonoBehaviour
         numCurrentScouts--;
         GeneralOrders.couriersCurrentlyAvailable++;
         //Call to increase available couriers
+        scout.GetComponent<Scout>().IsReturningToGeneral = false;
         scout.SetActive(false);
     }
 

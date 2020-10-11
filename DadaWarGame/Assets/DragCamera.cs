@@ -55,19 +55,19 @@ public class DragCamera : MonoBehaviour
 
     }
     [SerializeField]
-    float speedButtonMoveCam = 1;
-    float step = 1;//find a proper value for this
-    public void MoveCameraUP()
-    {
-       //this.transform.Translate(0, 0, step);
-        Camera.main.transform.position -= new Vector3(0, 0, step);
-    }
+    //float speedButtonMoveCam = 1;
+    //public void MoveCameraUP()
+    //{
+    //   //this.transform.Translate(0, 0, step);
+    //    Camera.main.transform.position -= new Vector3(0, 0, step);
+    //}
 
     private bool upIsPressed;
     private bool downIsPressed;
     private bool leftIsPressed;
     private bool rightIsPressed;
 
+    float step = 2;//find a proper value for this
 
     public void UpPressed()
     {
