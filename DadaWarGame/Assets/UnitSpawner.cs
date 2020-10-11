@@ -45,17 +45,29 @@ public class UnitSpawner : MonoBehaviour
 
     private void SpawnUnits()
     {
-        SpawnFormation(numSpearmen, spearmanPrefab);
-        SpawnFormation(numCavalry, cavalryPrefab);
+        SpawnFormation(numSpearmen, spearmanPrefab, false, false);
+        SpawnFormation(numCavalry, cavalryPrefab, false, true);
 
-        SpawnFormation(numArchers, archerPrefab);
+        SpawnFormation(numArchers, archerPrefab, true, false);
 
     }
 
     
 
-    private void SpawnFormation(int numFormationsThisUnitType, GameObject prefab)
+    private void SpawnFormation(int numFormationsThisUnitType, GameObject prefab, bool isArcher, bool isCav)
     {
+        int formationXOffsetIncreaser = 13;
+        if (isArcher)
+        {
+            numCols = 2;
+            numRows = 8;
+            formationXOffsetIncreaser = 20;
+        }
+        else
+        {
+            numCols = 4;
+            numRows = 4;
+        }
         //Color color = Color.red;
         for (int x = 0; x < numFormationsThisUnitType; x++)
         {
@@ -82,14 +94,17 @@ public class UnitSpawner : MonoBehaviour
                 for (int j = 0; j < numRows; j++)
                 //for (int j = numColumns; j > 0; j--)
                 {
-                    GameObject thisUnit = Instantiate(prefab, new Vector3(-20, 0.3f, -100) + new Vector3(j * 2 + formationXOffset, 0, i * 2 - formationZOffset), Quaternion.identity) as GameObject;
-                    if (thisUnit.GetComponent<AIControl>())
-                    {
-                        AIControl control = thisUnit.GetComponent<AIControl>();
-                        //thisUnit.GetComponent<MeshRenderer>().material.color = color;
-                        control.selectedUnitNum = totalNumFormationsSpawned + 1;
-                    }
-                    //thisUnit.SetActive(false);
+                    //if(!isCav ||   (   !((i == 0) && (j == 0)) && !((i == 0) && (j == 3)) && !((i == 3) && (j == 0)) && !((i == 3) && (j == 3)))   )
+                    //{
+                        GameObject thisUnit = Instantiate(prefab, new Vector3(-20, 0.3f, -100) + new Vector3(j * 2 + formationXOffset, 0, i * 2 - formationZOffset), Quaternion.identity) as GameObject;
+                        if (thisUnit.GetComponent<AIControl>())
+                        {
+                            AIControl control = thisUnit.GetComponent<AIControl>();
+                            //thisUnit.GetComponent<MeshRenderer>().material.color = color;
+                            control.selectedUnitNum = totalNumFormationsSpawned + 1;
+                        }
+                        //thisUnit.SetActive(false);
+                    //}
                 }
 
                 
@@ -98,11 +113,11 @@ public class UnitSpawner : MonoBehaviour
 
 
             totalNumFormationsSpawned++;
-            formationXOffset += 13;
+            formationXOffset += formationXOffsetIncreaser;// 13;
             if ((totalNumFormationsSpawned) > 5 && !hasStartedSecondRow)
             {
                 formationZOffset = 15;
-                formationXOffset = 0;
+                formationXOffset = -22;// 0;
                 hasStartedSecondRow = true;
             }
         }

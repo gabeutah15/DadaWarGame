@@ -20479,11 +20479,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CatapultPhysics
       objectReference: {fileID: 0}
-    - target: {fileID: 3671079949183236887, guid: 5a4c92abfec15374582f05550a1d28ba,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3671079949183236891, guid: 5a4c92abfec15374582f05550a1d28ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22931,7 +22926,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -162, y: 196}
+  m_AnchoredPosition: {x: -145, y: 196}
   m_SizeDelta: {x: 190, y: 200}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1920448976

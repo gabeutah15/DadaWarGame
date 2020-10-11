@@ -70,9 +70,10 @@ public class AgentManager : MonoBehaviour
                 {
 
                     bool hasSentACourier = false;
+                    bool isArcherFormation = false;
                     for (int i = 0; i < agents.Length; i++)
                     {
-
+                        
 
                         if (agents[i].activeSelf)//calling deactivate on units once killed, not destroy
                         {
@@ -102,6 +103,19 @@ public class AgentManager : MonoBehaviour
                                     //should be made smarter to account for different unit sizes including changes to size based on loss of units
                                     //this for loop would need to only loop thourhg active units?
                                     //this movement code does not account for narrow tops of walls very well, some units will got behind it if you select to attack on top
+
+                                    if (unitNum == 0)
+                                    {
+                                        if (agents[i].GetComponent<Archer>())
+                                        {
+                                            isArcherFormation = true;
+                                        }
+                                        else
+                                        {
+                                            isArcherFormation = false;
+                                        }
+                                    }
+
                                     unitNum++;
                                     //tried adding some randomization to they don't all cluster on exact destination but doesn't really work
                                     int xPos = unitNum;//Random.Range(-5, 5);
@@ -112,35 +126,80 @@ public class AgentManager : MonoBehaviour
                                         xPos = 1;
                                         currentNumFormationsIn++;
                                         hasSentACourier = false;
+                                        if (agents[i].GetComponent<Archer>())
+                                        {
+                                            isArcherFormation = true;
+                                        }
+                                        else
+                                        {
+                                            isArcherFormation = false;
+                                        }
                                     }
                                     currentFormationSelectedUnitNum = aiControl.selectedUnitNum;
 
                                     //they are having their destination set further and further to the right each time
 
-                                    xPos += currentNumFormationsIn * 5;
+                                    if (isArcherFormation)
+                                    {
+                                        xPos += currentNumFormationsIn * 10;
+                                    }
+                                    else
+                                    {
+                                        xPos += currentNumFormationsIn * 5;
+                                    }
 
                                     int zPos = 0;// i;//Random.Range(-5, 5);
 
-                                    int shiftValue = 4;
 
-                                    if (unitNum > 4)
-                                    {
-                                        zPos++;//do another row
-                                        xPos -= shiftValue;
-                                    }
+                                    //being spacing section
 
-                                    if (unitNum > 8)
+                                    if (!isArcherFormation)
                                     {
-                                        zPos++;//do another row
-                                        xPos -= shiftValue;
-                                    }
+                                        int shiftValue = 4;
 
-                                    if (unitNum > 12)
-                                    {
-                                        zPos++;//do another row
-                                        xPos -= shiftValue;
+                                        if (unitNum > 4)
+                                        {
+                                            zPos++;//do another row
+                                            xPos -= shiftValue;
+                                        }
+
+                                        if (unitNum > 8)
+                                        {
+                                            zPos++;//do another row
+                                            xPos -= shiftValue;
+                                        }
+
+                                        if (unitNum > 12)
+                                        {
+                                            zPos++;//do another row
+                                            xPos -= shiftValue;
+                                        }
+                                        xPos -= shiftValue;//center rows of 4
+
                                     }
-                                    xPos -= shiftValue;//center rows of 4
+                                    else
+                                    {
+                                        int shiftValue = 8;
+
+                                        if (unitNum > 8)
+                                        {
+                                            zPos++;//do another row
+                                            xPos -= shiftValue;
+                                        }
+
+                                        //if (unitNum > 8)
+                                        //{
+                                        //    zPos++;//do another row
+                                        //    xPos -= shiftValue;
+                                        //}
+
+                                        //if (unitNum > 12)
+                                        //{
+                                        //    zPos++;//do another row
+                                        //    xPos -= shiftValue;
+                                        //}
+                                        xPos -= shiftValue;//center rows
+                                    }
 
                                     //end spacing section
                                     xPos *= 2;

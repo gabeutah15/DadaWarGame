@@ -605,6 +605,9 @@ MonoBehaviour:
   isAwaitingOrders: 0
   futureDestination: {x: 0, y: 0, z: 0}
   independentPursueDistance: 30
+  lineOfSight: 50
+  IsScout: 0
+  bloodParticle: {fileID: 0}
 --- !u!195 &579020878
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -646,6 +649,10 @@ MonoBehaviour:
   isAwaitingOrders: 0
   futureDestination: {x: 0, y: 0, z: 0}
   independentPursueDistance: 30
+  lineOfSight: 50
+  IsScout: 0
+  bloodParticle: {fileID: 3258049893282364285, guid: 427d772535b6ce1468280476e8f4f3e2,
+    type: 3}
 --- !u!114 &579020880
 MonoBehaviour:
   m_ObjectHideFlags: 0
