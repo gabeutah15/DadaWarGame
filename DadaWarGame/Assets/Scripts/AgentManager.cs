@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class AgentManager : MonoBehaviour
 {
@@ -18,9 +19,12 @@ public class AgentManager : MonoBehaviour
     GeneralOrders general;
     int currentFormationSelectedUnitNum = 0;
     int currentNumFormationsIn = 0;
+    public Text numCiviliansSavedText;
+    public static int numCiviliansSaved = 0;
     // Start is called before the first frame update
     void Start()
     {
+
         agents = GameObject.FindGameObjectsWithTag("AI");
         //layerMask = 1 << 9;//9 is the ground layer mask
         for (int x = 0; x < agents.Length; x++)
@@ -54,6 +58,8 @@ public class AgentManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        numCiviliansSavedText.text = "Civilians Saved: " + numCiviliansSaved.ToString();
+
         // if (Input.GetMouseButtonDown(1))
         if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(-1) && !IsPointerOverUIObject())
         {
