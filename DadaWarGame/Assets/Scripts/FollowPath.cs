@@ -23,6 +23,7 @@ public class FollowPath : MonoBehaviour
     private int backwardAnimHash;
     private int isMovingHash;
     private int isDeadHash;
+    private bool hasCollidedWithPlayer = false;
 
     // Start is called before the first frame update
     void Start()
@@ -78,11 +79,16 @@ public class FollowPath : MonoBehaviour
         var parent = collision.gameObject.GetComponentInParent<AIControl>();
         if (parent)
         {
-            AgentManager.numCiviliansSaved++;
-            Instantiate(disappearParticle, transform.position + new Vector3(0, 0, 0), Quaternion.identity);
-            isRescued = true;
-            agent.speed = 0;
-            agent.velocity = new Vector3(0,0,0);
+            if (!hasCollidedWithPlayer)
+            {
+                hasCollidedWithPlayer = true;
+                AgentManager.numCiviliansSaved++;
+                Instantiate(disappearParticle, transform.position + new Vector3(0, 0, 0), Quaternion.identity);
+                isRescued = true;
+                agent.velocity = new Vector3(0, 0, 0);
+                agent.speed = 0;
+                animator.SetBool(isMovingHash, false);
+            }
 
         }
     }
