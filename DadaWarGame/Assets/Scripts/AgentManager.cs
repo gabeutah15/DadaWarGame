@@ -58,7 +58,9 @@ public class AgentManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        numCiviliansSavedText.text = "Civilians Saved: " + numCiviliansSaved.ToString();
+        float moralePercent = MoraleManager.GetMoraleMod() + 1;
+        moralePercent *= 100;
+        numCiviliansSavedText.text = "Civilians Saved: " + numCiviliansSaved.ToString() + " Army Morale: " + moralePercent.ToString("F1") + "%";
 
         // if (Input.GetMouseButtonDown(1))
         if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(-1) && !IsPointerOverUIObject())

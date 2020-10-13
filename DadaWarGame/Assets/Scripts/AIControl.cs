@@ -122,14 +122,14 @@ public class AIControl : MonoBehaviour
                 if (projectileParent.isDeadly)
                 {
                     Instantiate(bloodParticle, transform.position + new Vector3(0, 0, -0.5f), Quaternion.identity);
-                    health--;
+                    health -= 1 - (MoraleManager.GetMoraleMod())/2;
                 }
             }
         }
         if (collision.gameObject.CompareTag("EnemySword"))
         {
             Instantiate(bloodParticle, transform.position + new Vector3(0, 0, -0.5f), Quaternion.identity);
-            health--;
+            health -= 1 - (MoraleManager.GetMoraleMod())/2;
         }
         //if(this.name == "Catapult (1)")
         //UnityEngine.Debug.Log("health .." + health+ "health == 0: " + (health == 0)+ " dieSound.enabled: "+ dieSound.enabled);
@@ -143,6 +143,7 @@ public class AIControl : MonoBehaviour
             isDead = true;
             animator.SetBool(isDeadHash, true);
             agent.speed = 0;
+            MoraleManager.numDeaths++;
             highlight.SetActive(false);//this is not working
                                        //also the deathanimation time elapsed below is not always working, sometimes takes way more or less time
 
