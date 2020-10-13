@@ -256,6 +256,7 @@ public class AIControl : MonoBehaviour
                 {
                     HasGottenNumEnemies = true;
                     DeathCounterAndRandomNames.totalEnemies = enemyAgents.Length;
+                    RedTintManager.totalEnemies = enemyAgents.Length;
                 }
                 //if (UnitSelectionManager.selectedUnits)//dunno if this is the nullcheck here?
                 //{
