@@ -40327,7 +40327,7 @@ PrefabInstance:
     - target: {fileID: 5991561691189726095, guid: 7e2a53c142d58114c9f4d681dbeafb68,
         type: 3}
       propertyPath: xMinBound
-      value: 200
+      value: -205
       objectReference: {fileID: 0}
     - target: {fileID: 6675893542444818862, guid: 7e2a53c142d58114c9f4d681dbeafb68,
         type: 3}
