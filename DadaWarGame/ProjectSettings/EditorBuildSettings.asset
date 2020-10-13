@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/BattleScene.unity
     guid: 73d47dd18b6f86c4d94216c5ebe53681
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BattleSceneWithTestMap.unity
     guid: 94744e5d9b836f9408a6603e075390a4
+  - enabled: 1
+    path: Assets/Scenes/BattleSceneWithFinalMap.unity
+    guid: 8769e4f51fc24ad42ad4ec3ffbc98dc9
   m_configObjects: {}
