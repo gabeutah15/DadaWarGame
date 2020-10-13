@@ -42,9 +42,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.18396229, b: 0.18396229, a: 1}
-  m_Intensity: 3
-  m_Range: 10
+  m_Color: {r: 0.990566, g: 0.93309516, b: 0.6681648, a: 1}
+  m_Intensity: 2
+  m_Range: 5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -14540,7 +14540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 954767894306875957}
   m_Layer: 0
-  m_Name: CandelTree2Pre (6)
+  m_Name: CandelTree2PreWithLights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19420,9 +19420,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.18396229, b: 0.18396229, a: 1}
-  m_Intensity: 3
-  m_Range: 10
+  m_Color: {r: 0.99215686, g: 0.93333334, b: 0.6666667, a: 1}
+  m_Intensity: 2
+  m_Range: 5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -19512,9 +19512,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.18396229, b: 0.18396229, a: 1}
-  m_Intensity: 3
-  m_Range: 10
+  m_Color: {r: 0.99215686, g: 0.93333334, b: 0.6666667, a: 1}
+  m_Intensity: 2
+  m_Range: 5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
